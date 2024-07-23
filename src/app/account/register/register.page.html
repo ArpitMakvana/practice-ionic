@@ -19,7 +19,12 @@
           <app-state-city *ngIf="steps==7" (submitData)="nameDobForm($event)"></app-state-city>
           <app-qualifications *ngIf="steps==8" (submitData)="nameDobForm($event)"></app-qualifications>
           <app-income *ngIf="steps==9" (submitData)="nameDobForm($event)"></app-income>
-          <app-about-yourself *ngIf="steps==10" (submitData)="nameDobForm($event)"></app-about-yourself>
+          <app-add-picture *ngIf="steps==10" (submitData)="nameDobForm($event)"></app-add-picture>
+          <app-hobbies *ngIf="steps==11" (submitData)="nameDobForm($event)"></app-hobbies>
+          <app-family-member *ngIf="steps==12" (submitData)="nameDobForm($event)"></app-family-member>
+          <app-family-status *ngIf="steps==13" (submitData)="nameDobForm($event)"></app-family-status>
+          <app-verify-profile *ngIf="steps==14" (submitData)="nameDobForm($event)"></app-verify-profile>
+          <app-register-sucess *ngIf="steps==15" (submitData)="nameDobForm($event)"></app-register-sucess>
           <!-- <app-profile-picture *ngIf="steps==11" (submitData)="nameDobForm($event)"></app-profile-picture> -->
         </div> 
     </div>

@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'landing',
-    loadChildren: () => import('./account/landing/landing.module').then( m => m.LandingPageModule)
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
   {
     path: 'login',
@@ -21,7 +21,7 @@ const routes: Routes = [
   },  
   {
     path: 'home',
-    loadChildren: () => import('./account/home-page/home-page.module').then( m => m.HomePagePageModule)
+    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule)
   },
 
 ];
