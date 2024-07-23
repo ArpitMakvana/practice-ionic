@@ -6,12 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-
-  steps: number = 0;
+  emailPhoneFormData:any;
+  nameDobFormData:any;
+  steps: number = 5;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   goBack() {
@@ -24,7 +26,7 @@ export class RegisterPage implements OnInit {
     }
   }
   enterdEmailPhone(event: any) {
-    console.log(event);
+    this.emailPhoneFormData = event;
     this.steps++;
   }
 
@@ -37,6 +39,7 @@ export class RegisterPage implements OnInit {
   }
   nameDobForm(event:any){
     console.log(event);
+    this.nameDobFormData = event;
     this.steps++;
   }
 

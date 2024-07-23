@@ -3002,6 +3002,9 @@ ion-range::part(bar-active) {
 // ----------------- sh_userchatlist_info  --------------------
 // ----------------- sh_userchatlist_info  --------------------
 
+.invalid-input{
+  --border-color : red !important;
+}
 
 
 

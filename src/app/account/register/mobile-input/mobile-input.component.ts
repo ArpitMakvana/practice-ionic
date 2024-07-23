@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
- 
+
 
 // import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 // import { Swiper, SwiperSlide } from 'swiper/angular';
@@ -12,7 +12,7 @@ export class MobileInputComponent implements OnInit {
   slideOpts = {
     initialSlide: 0,
     speed: 400
-  }; 
+  };
 
   countries = [
     { name: 'United States', dialCode: '+1' },
@@ -25,15 +25,26 @@ export class MobileInputComponent implements OnInit {
   phoneNumber!: string;
   @Output() formValue = new EventEmitter<any>();
   email: string = '';
+  isValidMobile: boolean = true;
+  isValidEmail:boolean = true;
+  canSubmit:Boolean = false;
   constructor() { }
 
   ngOnInit() { }
-  getFullPhoneNumber(): string {
-    return `${this.selectedCountryCode} ${this.phoneNumber}`;
-  }
+
   submitForm() {
-    this.formValue.emit({ phone: this.phoneNumber, email: this.email })
+    this.formValue.emit({ phone: this.phoneNumber, email: this.email, countrycode: this.selectedCountryCode })
   }
 
+  checkValid(){ 
+    if(this.email){
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      this.isValidEmail = emailPattern.test(this.email);
+    }
+    if(this.phoneNumber){
+      this.isValidMobile = this.phoneNumber.length === 10;
+    }
+    this.canSubmit = this.isValidMobile && this.isValidEmail;
+  }
 
 }

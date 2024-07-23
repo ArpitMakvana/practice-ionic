@@ -28,7 +28,7 @@
         <div class="ds_formitems">
           <div class="form-group">
             <label class="lable_text">Email ID</label>
-            <ion-input mode="md" [(ngModel)]="email" type="email" fill="outline" placeholder="Enter email"
+            <ion-input mode="md" [ngClass]="isValidEmail? '':'invalid-input'" (ionInput)="checkValid()" [(ngModel)]="email" type="email" fill="outline" placeholder="Enter email"
               class="form-control"></ion-input>
           </div>
     
@@ -46,14 +46,14 @@
                   </ion-select>
                 </ion-col>
                 <ion-col size="8" class="pr-0">
-                  <ion-input mode="md" max="10" maxlength="10" type="tel" [(ngModel)]="phoneNumber" fill="outline"
+                  <ion-input (ionInput)="checkValid()" [ngClass]="isValidMobile? '':'invalid-input'" mode="md" max="10" maxlength="10" type="tel" [(ngModel)]="phoneNumber" fill="outline"
                     placeholder="Enter mobile number" class="form-control"></ion-input>
                 </ion-col>
               </ion-row>
             </ion-grid>
           </div>
           <div class="form-group mt-2">
-            <ion-button color="light"  expand="block" (click)="submitForm()" class="sh_submitRHBtn">
+            <ion-button color="light" [disabled]="!canSubmit"  expand="block" (click)="submitForm()" class="sh_submitRHBtn">
               Continue
             </ion-button> 
           </div>
