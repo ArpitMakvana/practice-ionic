@@ -10,7 +10,7 @@ export class OtpInputComponent implements OnInit {
 
   @ViewChildren(IonInput) otpInputs!: QueryList<IonInput>;
   @Output() submitOTP = new EventEmitter<string>();
-
+  email:string='';
   constructor() { }
 
   ngOnInit() { }
@@ -39,7 +39,7 @@ export class OtpInputComponent implements OnInit {
     }
   }
 
-  submitOtp() {
+  submitForm() {
     const otp = this.otpArray.join('');
     console.log('Submitted OTP:', otp);
     this.submitOTP.emit(otp);

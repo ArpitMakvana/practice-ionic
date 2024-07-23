@@ -84,36 +84,36 @@
 
         <div class="sh_logintitle_block">
           <h2>
-            Login
+            {{'form.Login'|translate}}
           </h2>
         </div>
 
         <div class="ds_formitems">
           <div class="form-group">
-            <label class="lable_text">Email ID</label>
-            <ion-input mode="md" type="email" fill="outline" placeholder="Enter email" class="form-control"></ion-input>
+            <label class="lable_text">{{'form.email_lable'|translate}}</label>
+            <ion-input mode="md" type="email" fill="outline" [placeholder]="'form.email_placeholder'|translate" class="form-control"></ion-input>
           </div>
 
           <div class="form-group">
-            <label class="lable_text">Password</label>
-            <ion-input mode="md" type="text" fill="outline" placeholder="Enter password"
+            <label class="lable_text">{{'form.password_lable'|translate}}</label>
+            <ion-input mode="md" type="text" fill="outline" [placeholder]="'form.password_placeholder'|translate"
               class="form-control"></ion-input>
           </div>
           <div class="form-group">
             <label class="forget_passowrd">
-              <a href="#" class="sh_links">Forgot Password?</a>
+              <a href="#" class="sh_links">{{'form.forgot_password'|translate}}</a>
             </label>
           </div>
 
           <div class="form-group mt-2">
             <ion-button color="light"  expand="block" routerLink="/register" class="sh_submitRHBtn">
-              Sign in
+              {{'form.sign_in'|translate}}
             </ion-button> 
           </div>
 
 
           <div class="form-group mt-2">
-           <label class="sh_other_login"> Or use your social media</label>
+           <label class="sh_other_login"> {{'form.or_use_social'|translate}}</label>
             <ul class="sh_sociallinks">
               <li class="nav-item">
                 <a href="#" class="socialBtn">
@@ -136,7 +136,7 @@
           </div>
 
           <div class="form-group mt-2">
-            <label class="sh_other_login"> New user ? <span class="sh_links" (click)="selectOption('mobile')">Register</span> </label> 
+            <label class="sh_other_login"> {{'form.new_user'|translate}} <span class="sh_links" (click)="selectOption('mobile')">{{'form.register'|translate}}</span> </label> 
           </div>
         </div>
       </div>

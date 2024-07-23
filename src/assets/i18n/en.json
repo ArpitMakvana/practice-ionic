@@ -1,9 +1,22 @@
 {
-    "HOME": "Hogar",
-    "CONTENT": "Contenido",
-    "ABOUT": "Sobre",
-    "HELLO": "Hola",
-    "WELCOME": "Bienvenido a la aplicación multilenguaje de Ionic",
-    "SIMPLE_APP": "Esta es solo una aplicación simple.",
-    "MY_NAME": "Mi nombre es bill almizcle"
+  "landing": {
+    "welcome_back": "Welcome Back...!",
+    "for_suggesting_life_partner": "For Suggesting life Partner match anytime, anywhere",
+    "sign_in": "Sign in",
+    "dont_have_account": "Don't have an account?",
+    "register": "register"
+  },
+  "form": {
+    "Login":"Login",
+    "email_lable":"Email ID",
+    "email_placeholder":"Enter email",
+    "password_lable":"Password",
+    "password_placeholder":"Enter password",
+    "forgot_password":"Forgot Password?",
+    "sign_in": "Sign in",
+    "or_use_social":"Or use your social media",
+    "new_user":"New user ?",
+    "register": "register"
+
   }
+}

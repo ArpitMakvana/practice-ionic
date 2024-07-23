@@ -19,7 +19,12 @@ import { IncomeComponent } from './income/income.component';
 import { AboutYourselfComponent } from './about-yourself/about-yourself.component';
 import { TranslateModule } from '@ngx-translate/core'; 
 import { register } from 'swiper/element/bundle';
- 
+import { AddPictureComponent } from './add-picture/add-picture.component';
+import { VerifyProfileComponent } from './verify-profile/verify-profile.component';
+import { HobbiesComponent } from './hobbies/hobbies.component';
+import { FamilyMemberComponent } from './family-member/family-member.component';
+import { FamilyStatusComponent } from './family-status/family-status.component';
+import { RegisterSucessComponent } from './register-sucess/register-sucess.component';
 
 register();
 @NgModule({
@@ -43,6 +48,12 @@ register();
     QualificationsComponent,
     IncomeComponent,
     AboutYourselfComponent,
+    AddPictureComponent,
+    VerifyProfileComponent,
+    HobbiesComponent,
+    FamilyMemberComponent,
+    FamilyStatusComponent,
+    RegisterSucessComponent
   ],
   exports: [
     RegisterOptionComponent,
@@ -55,7 +66,13 @@ register();
     StateCityComponent,
     QualificationsComponent,
     IncomeComponent,
-    AboutYourselfComponent
+    AboutYourselfComponent,
+    AddPictureComponent,
+    VerifyProfileComponent,
+    HobbiesComponent,
+    FamilyMemberComponent,
+    FamilyStatusComponent,
+    RegisterSucessComponent
   ]
 })
 export class RegisterPageModule { }
