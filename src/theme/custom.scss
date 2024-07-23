@@ -1,0 +1,23 @@
+.outer-wrapper-wizard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .wizard-user {
+        width: 100%;
+        align-self: end;
+        justify-content: center;
+        display: flex;
+
+        .content {
+            color: #fff;
+            width: 100%;
+            margin: 5%;
+            text-align: center;
+
+            .register {
+                margin: 20px 0px;
+            }
+        }
+    }
+}

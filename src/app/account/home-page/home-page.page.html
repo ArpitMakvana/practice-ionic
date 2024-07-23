@@ -1,0 +1,157 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>homePage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">homePage</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content> -->
+
+
+<ion-menu contentId="main-content" class="sh_sidemenu_block">
+  <ion-content class="sh_sidemenu_Main">
+    <div class="sh_sidemenu_header">
+      <div class="sh_sidemenu_header_inner">
+        <div class="sh_imgbox">
+          <img src="../../../assets/profilimg_1.jpg" class="img-fluid" />
+        </div>
+        <div class="sh_contant">
+          <h1> Monika Singh</h1>
+          <p>
+            Examplegmail.com
+          </p>
+          <ion-button color="dark" disabled="false" expand="block" class="sh_submitWHBtn">
+            Edit Profile
+          </ion-button>
+        </div>
+      </div>
+      <a href="#" class="sh_closemenu" (click)="closeMenu()">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+    <div class="sh_menulist_info">
+      <ul class="menu_list">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-home"></i>
+            </span>
+            <span class="text">
+              Home
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-money-check-alt"></i>
+            </span>
+            <span class="text">
+              Subscription
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-user-alt"></i>
+            </span>
+            <span class="text">
+              My Profile
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="text">
+              messages
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-bell"></i>
+            </span>
+            <span class="text">
+              Notification
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-cog"></i>
+            </span>
+            <span class="text">
+              Setting
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="iconbox">
+              <i class="fas fa-sign-out-alt"></i>
+            </span>
+            <span class="text">
+              Logout
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-menu>
+
+
+
+<div class="ion-page sh_homepagebody_block" id="main-content">
+  
+  <ion-header class="sh_pageheader_block">
+    <div class="sh_sidemenuCall_item">
+      <!-- <ion-buttons slot="start" class="sh_menuCall"> -->
+        <ion-buttons (click)="openMenu()" class="sh_menuCall">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <div class="sh_logobox">
+        <img src="../.../../../../assets/logo2.png" class="img-flui">
+      </div>
+    </div>
+    <ul class="sh_pagesearchnoti_block">
+      <!-- <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fas fa-search"></i>
+        </a>
+      </li> -->
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="far fa-bell"></i>
+          <span class="sh_counter">
+            10
+          </span>
+        </a>
+      </li>
+    </ul>
+  </ion-header>  
+  <ion-content class="ion-padding sh_pagebody_block">
+   
+    <!-- <app-subscription/> -->
+    <!-- <app-profile-information/>  -->
+    <!-- <app-profile-list/> -->
+    <app-userchat-list />
+
+
+  </ion-content>
+</div>

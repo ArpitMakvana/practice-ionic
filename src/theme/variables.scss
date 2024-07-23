@@ -1,0 +1,47 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+// _variables.scss
+:root {
+--ion-font-family: 'Roboto', sans-serif;
+--ion-color-light: #fff;
+}
+.ios {
+    --ion-font-family: 'Roboto', sans-serif;
+}
+// _variables.scss
+
+// Breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Font sizes
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+
+// Mixin for responsive font sizes
+@mixin responsive-font-size {
+  font-size: $font-size-md;
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: $font-size-xs;
+  }
+  @media (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
+    font-size: $font-size-sm;
+  }
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    font-size: $font-size-md;
+  }
+  @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    font-size: $font-size-lg;
+  }
+  @media (min-width: $breakpoint-lg) {
+    font-size: $font-size-xl;
+  }
+}

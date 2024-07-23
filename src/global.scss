@@ -1,0 +1,3007 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+@import "./theme/variables.scss";
+@import "./theme/custom.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+/* styles.css */
+@import 'swiper/swiper-bundle.css';
+// @import 'swiper/swiper-bundle.min.css';
+
+
+
+:root {
+  --ion-default-mode: ios;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  /* Adjust the path as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  /* Adjust the path as needed */
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
+
+.josefin-sans {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  @include responsive-font-size;
+  font-family: 'Roboto', sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+.bg-1 {
+  background-image: url("./assets/bg/redbg.jpg");
+}
+
+a {
+  text-decoration: none !important;
+}
+
+
+// ---------------- Common css page design ----------------------------------------------- 
+// ---------------- Common css page design ----------------------------------------------- 
+
+body {
+  background: #F1F1F1;
+}
+
+
+.wedd_Bg {
+  background-image: url("./assets/bg/weddignBG.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+
+  &:before {
+    content: "";
+    // background: rgb(128 0 152 / 20%);
+    // background: rgb(255 47 146 / 20%);
+    // background: rgb(255 47 146 / 12%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.ds_container {
+  position: relative;
+  z-index: 99;
+  padding: 12px 12px;
+  width: 100%;
+}
+
+.ds_containerfluid {
+  position: relative;
+  z-index: 99;
+  // padding: 12px 12px;
+  width: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.pr-0 {
+  padding-right: 0 !important;
+}
+
+.pl-0 {
+  padding-left: 0 !important;
+}
+
+.ds_submitBtn {
+  --background: #2FC2D4 !important;
+  --border: 1px solid #2FC2D4 !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-base: #2FC2D4 !important;
+  --ion-color-contrast: #fff !important;
+  --ion-color-shade: unset !important;
+  --border-radius: 100px !important;
+  --margin: 0 !important;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  --border-width: 2px;
+  line-height: 24px;
+  --background-activated: #2FC2D4 !important;
+  --background-focused: #2FC2D4 !important;
+  --background-hover: #2FC2D4 !important;
+  width: 100%;
+  margin: 0;
+  min-height: 45px;
+}
+
+.ds_submitBtn1 {
+  --ion-color-base: transparent !important;
+  --border: 1px solid #2FC2D4 !important;
+  --background: transparent !important;
+  --ion-color-base-rgb: #2FC2D4 !important;
+  --ion-color-base: transparent !important;
+  --ion-color-tint: #2FC2D4 !important;
+  --ion-color-shade: #2FC2D4 !important;
+  --ion-color-contrast: #2FC2D4 !important;
+  --ion-color-contrast-rgb: #2FC2D4 !important;
+  --background-activated: #2FC2D4 !important;
+  --background-focused: transparent !important;
+  --background-hover: #2FC2D4 !important;
+  --color: #2FC2D4 !important;
+  border: 2px solid #2FC2D4 !important;
+  padding: 0 6px;
+  --padding-top: 6px;
+  --padding-bottom: 8px;
+  --padding-start: -3em;
+  --padding-end: 1em;
+  font-size: 14px;
+  --border-width: 1.6px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --inner-padding-top: 0px;
+  --inner-padding-bottom: 0px;
+  --inner-padding-start: 10px;
+  --inner-padding-end: 0px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  font-family: "Poppins", sans-serif;
+  min-height: 45px;
+  margin: 0;
+  border-radius: 100px;
+  --background-activated-opacity: 0 !important;
+  --background-focused-opacity: 0 !important;
+  --background-hover-opacity: 0 !important;
+}
+
+
+.ds_clearBtn {
+  --background: #E29F71 !important;
+  --border: 1px solid #E29F71;
+  font-family: "Poppins", sans-serif;
+  --ion-color-base: #E29F71 !important;
+  --ion-color-contrast: #fff !important;
+  --ion-color-shade: unset !important;
+  --border-radius: 4px !important;
+  --margin: 0 !important;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  --border-width: 2px;
+  line-height: 24px;
+  --background-activated: #E29F71 !important;
+  --background-focused: #E29F71 !important;
+  --background-hover: #E29F71 !important;
+  width: 100%;
+  min-height: 45px;
+}
+
+
+.ds_submitBtn2 {
+  --background: none !important;
+  --border-color: #2FC2D4 !important;
+  --inner-padding-end: 0;
+  --inner-border-width: 0;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  --padding-start: 12px;
+  --padding-end: 4px;
+  line-height: 20px;
+  --border-width: 1.6px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --inner-padding-top: 0px;
+  --inner-padding-bottom: 0px;
+  --inner-padding-start: 14px;
+  --inner-padding-end: 0px;
+  min-height: 45px;
+}
+
+
+.ds_submitBtn2 ion-icon {
+  font-size: 1.125rem !important;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0;
+  margin-inline-end: -6px;
+}
+
+.ds_submitBtn2 ion-label {
+  font-family: "Poppins", sans-serif !important;
+  margin-inline-end: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+
+.sh_checkbox_item {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.sh_checkbox_item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.sh_checkbox_item .checkmark {
+  position: relative;
+  background-color: #D9EBED;
+  border: 0;
+  border-radius: 100px;
+  padding: 8px 10px;
+  line-height: normal;
+  display: block;
+}
+
+.sh_checkbox_item:hover input~.checkmark {
+  background-color: #F23585;
+  color: #fff;
+}
+
+.ds_radio input:checked~.checkmark {
+  border-color: #2FC2D4;
+}
+
+.sh_checkbox_item .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.sh_checkbox_item .checkmark:after {
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  background: #2FC2D4;
+  border-radius: 100%;
+}
+
+.ds_formitems {
+  position: relative;
+}
+
+.ds_formitems .form-group {
+  margin: 0 0 10px;
+}
+
+.ds_formitems .form-group .lable_text {
+  display: block;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-control {
+  --border-color: #9E9E9E !important;
+  --border-radius: 4px !important;
+  --padding-start: 8px !important;
+  --padding-end: 4px !important;
+  min-height: 42px !important;
+  --highlight-height: 2px !important;
+  --highlight-color: #9E9E9E !important;
+  color: #000 !important;
+  --border-width: 2px !important;
+  font-family: 'Poppins' !important;
+  left: 0;
+}
+
+.form-control1 {
+  border: 2px solid #9E9E9E !important;
+  min-height: 120px !important;
+  border-radius: 4px;
+}
+
+ion-select.form-control {
+  border: 2px solid #9E9E9E !important;
+  border-radius: 4px !important;
+  height: 42px !important;
+}
+
+.ds_formitems .form-group ion-grid {
+  padding: 0;
+}
+
+.mt-4 {
+  margin-top: 2.4rem !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+.text-right {
+  text-align: right;
+}
+
+.text-successotp {
+  color: #2FC2D4;
+  font-weight: 600;
+}
+
+
+
+
+
+.page_title {
+  position: relative;
+  margin: 0 0 20px;
+}
+
+.page_title h1 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin: 0 0 7px;
+  line-height: 26px;
+  margin: 0 0 5px;
+  line-height: 22px;
+}
+
+.page_title h2 {
+  color: gray;
+  text-align: center;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 2px 0 0;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+.page_title h3 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 5px;
+  line-height: 22px;
+  margin: 0 0 5px;
+  line-height: 22px;
+}
+
+.page_title .iconbox {
+  background: rgb(47 194 212 / 40%);
+  background: rgb(158 158 158 / 20%);
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.page_title .iconbox ion-icon {
+  font-size: 30px;
+  color: rgb(0 0 0 / 56%) !important;
+  --ion-color-base: rgb(0 0 0 / 56%) !important;
+  --ion-color-base-rgb: rgb(0 0 0 / 56%) !important;
+  --ion-color-contrast: rgb(0 0 0 / 56%) !important;
+  --ion-color-contrast-rgb: rgb(0 0 0 / 56%) !important;
+  --ion-color-shade: rgb(0 0 0 / 56%) !important;
+  --ion-color-tint: rgb(0 0 0 / 56%) !important;
+}
+
+
+
+
+.page_title h6 {
+  color: gray;
+  text-align: center;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 2px 0 0;
+  line-height: 24px;
+}
+
+.page_title h6 span {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 5px;
+}
+
+.page_title h6 a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2FC2D4 !important;
+}
+
+
+
+
+
+
+
+
+
+.custome_card {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  --padding: 0;
+  margin: 0 0 16px;
+  box-shadow: 2px 1px 8px 1px rgb(0 0 0 / 10%);
+  border: 1px solid #D9EBED;
+}
+
+.custome_card ion-card-header {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  padding-inline-start: 10px;
+  -webkit-padding-end: 10px;
+  padding-inline-end: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.custome_card ion-card-header ion-card-subtitle {
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 2px solid #D9EBED;
+  line-height: 26px;
+}
+
+.custome_card ion-card-content {
+  font-family: "Poppins", sans-serif;
+  -webkit-padding-start: 8px;
+  padding-inline-start: 6px;
+  -webkit-padding-end: 6px;
+  padding-inline-end: 6px;
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
+.custome_checkbox {
+  position: relative;
+}
+
+.custome_checkbox ion-chip {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding-inline-end: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 0px 0px 6px 8px;
+}
+
+.custome_checkbox ion-chip i {
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.custome_checkbox ion-chip ion-icon {
+  font-size: 13px;
+}
+
+.custome_card ion-card-content .read_more {
+  text-align: center;
+  margin: 20px 0 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+
+
+
+
+
+.ds_radio {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.ds_radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.ds_radio .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 2px solid rgb(19 19 18 / 50%);
+  border-radius: 100%;
+}
+
+.ds_radio:hover input~.checkmark {
+  background-color: transparent;
+}
+
+.ds_radio input:checked~.checkmark {
+  border-color: #2FC2D4;
+}
+
+.ds_radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.ds_radio input:checked~.checkmark:after {
+  display: block;
+}
+
+.ds_radio .checkmark:after {
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  background: #2FC2D4;
+  border-radius: 100%;
+}
+
+
+
+.text-left {
+  text-align: left !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------------- Common css page design ----------------------------------------------- 
+// ---------------- Common css page design ----------------------------------------------- 
+
+
+
+
+
+// Landing page design -----------------------------------------------
+// Landing page design -----------------------------------------------
+
+
+
+
+.ds_landing_contant {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+
+  h1 {
+    font-size: 2rem;
+    color: #2FC2D4;
+    color: #fff;
+    //text-shadow: 0px 2px 0px black;
+    font-family: "Josefin Sans", sans-serif;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  p {
+    line-height: 20px;
+    text-align: center;
+    color: #5c5a5a;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+}
+
+.ds_landing_wizard .ds_landing_contantinfo .ds-newuser p {
+  color: #5c5a5a;
+}
+
+
+
+
+
+
+// Landing page design -----------------------------------------------
+// Landing page design -----------------------------------------------
+
+
+
+
+//  ---------------------  Register options     -------------------------------
+//  ---------------------  Register options     ------------------------------- 
+
+.ds_homeitem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #EDF8F8;
+  background: #FFF;
+}
+
+
+
+
+.ds_landing_wizard {
+  padding: 0;
+}
+
+.ds_landing_wizard .ds_landing_contantinfo {
+  background: #fff;
+  padding: 14px 10px 10px;
+  border-radius: 20px 20px 0px 0px;
+  z-index: 99;
+  position: relative;
+  box-shadow: 0px -4px 10px 0px rgb(0 0 0 / 30%);
+  width: 100%;
+}
+
+.ds_landing_wizard .ds_landing_contantinfo ion-item {
+  margin: 0 0 6px;
+  color: #2FC2D4 !important;
+}
+
+
+
+
+//  ---------------------  Register options     ------------------------------- 
+//  ---------------------  Register options     ------------------------------- 
+
+
+
+
+
+
+
+.ds_registeritem_block {
+  position: relative;
+}
+
+.ds_registeritem_block .ds_backMenu {
+  height: 45px;
+  border-bottom: 1px solid rgb(158 168 168 / 70%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px 10px;
+}
+
+.ds_registeritem_block .ds_backMenu ion-icon {
+  font-size: 1.10rem;
+}
+
+.ds_registeritem_block .ds_registerMobile_block {
+  padding: 10px 0px;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds-Mheader {
+  margin: 0 0 1rem;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds-Mheader ion-icon {
+  background: #D9EBED;
+  border-radius: 100%;
+  margin: 0 auto;
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 1rem;
+  --ion-color-base: red;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds-Mheader h1 {
+  line-height: 21px;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .termd_info {
+  margin: 10px 0 0;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .termd_info p {
+  text-align: center;
+  font-weight: 400;
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .termd_info p a {
+  color: #2FC2D4 !important;
+}
+
+.ds_formitems .form-group .ds_otpgroups {
+  display: flex;
+  gap: 20px;
+}
+
+
+
+.dsprofileietms_block {
+  position: relative;
+}
+
+.dsprofileietms_block ion-chip {
+  --background: transparent !important;
+  border: 1px solid rgba(158, 168, 168, 0.7);
+  font-family: "Poppins", sans-serif !important;
+  -webkit-margin-start: 4px;
+  margin-inline-start: 3px;
+  -webkit-margin-end: 4px;
+  margin-inline-end: 6px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+
+
+//  ---------------------  Register options     ------------------------------- 
+//  ---------------------  Register options     ------------------------------- 
+
+
+
+//  ---------------------  ds_profilepictue options     ------------------------------- 
+
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue {
+  position: relative;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .dsprofile_user {
+  border: 2px dashed #D9EBED;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #D9EBED;
+  position: relative;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .dsprofile_user ion-icon {
+  width: 90%;
+  height: 90%;
+  margin: 0;
+  border-radius: 0;
+  padding: unset;
+  background: transparent;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .dsprofile_user:before {
+  content: "";
+  border: 2px dashed #D9EBED;
+  width: 110%;
+  height: 110%;
+  border-radius: 100%;
+  position: absolute;
+  left: -6%;
+  top: -6%;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue h1 {
+  font-size: 22px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue h6 {
+  color: gray;
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  margin: 2px 0 0;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .ds-Mheader {
+  margin: 0 0 30px;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .gallery_select {
+  position: relative;
+  width: 100%;
+  background: #25C0D4;
+  padding: 10px 10px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 8px 0px rgb(37 192 212 / 50%);
+  margin: 0 0 20px;
+  overflow: hidden;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .gallery_select .gallery_file {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: red;
+  opacity: 0;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .gallery_select label {
+  text-align: center;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .gallery_select label ion-icon {
+  margin-right: 10px;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .ds_submitBtn {
+  --background: transparent !important;
+  background: transparent !important;
+  --ion-color-base: transparent !important;
+  border: 2px solid #2FC2D4 !important;
+  border-radius: 4px;
+  --color: #2FC2D4 !important;
+  --ion-color-contrast: #2FC2D4 !important;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .ds_submitBtn ion-icon {
+  margin-right: 10px;
+}
+
+.ds_registeritem_block .ds_registerMobile_block .ds_profilepictue .doit-later {
+  text-align: center;
+  display: block;
+  color: gray;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  opacity: 0.8;
+}
+
+
+//  ---------------------  ds_profilepictue options     ------------------------------- 
+
+//  ---------------------  ds_registerverfication_block options     ------------------------------- 
+
+.ds_registerverfication_block .ds-Mheader h1 {
+  font-size: 20px;
+}
+
+.ds_registerverfication_block .ds-Mheader h6 {
+  color: gray;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 2px 0 0;
+  line-height: 24px;
+}
+
+.ds_registerverfication_block .ds-Mheader h6 span {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 5px;
+}
+
+.ds_registerverfication_block .ds-Mheader h6 a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2FC2D4 !important;
+}
+
+//  ---------------------  ds_registerverfication_block options     ------------------------------- 
+
+
+
+
+
+//  ---------------------  ds_profileverify_block     ------------------------------- 
+//  ---------------------  ds_profileverify_block     ------------------------------- 
+
+
+
+.ds_profileverify_block {
+  position: relative;
+}
+
+.ds_profileverify_block .card {
+  border: 2px solid #D9EBED;
+  /* border: 2px solid #ccc; */
+  border-radius: 12px;
+  padding: 0;
+}
+
+.ds_profileverify_block .card ul {
+  list-style: square;
+  text-align: left;
+  font-size: 16px;
+  padding-left: 0;
+  margin: 0;
+  padding: 10px;
+  padding-left: 30px;
+}
+
+.ds_profileverify_block .card ul li {
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+.ds_profileverify_block .card .card-footer {
+  background: #D9EBED;
+  padding: 10px 20px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+
+.ds_profileverify_block .sub_amount {
+  text-align: center;
+}
+
+.ds_profileverify_block .sub_amount span {
+  font-size: 18px;
+  color: gray;
+  font-weight: 600;
+}
+
+.ds_profileverify_block .sub_amount span u {
+  text-decoration: line-through;
+}
+
+.ds_profileverify_block .sub_amount .amount_discounts {
+  padding-left: 10px;
+  color: #4CAF50;
+  text-transform: uppercase;
+}
+
+//  ---------------------  ds_profileverify_block     ------------------------------- 
+//  ---------------------  ds_profileverify_block     ------------------------------- 
+
+
+
+
+
+
+.educationinfo_block {
+  position: relative;
+}
+
+.educationinfo_block .education_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 6px;
+  border-bottom: 1px solid #D9EBED;
+}
+
+.educationinfo_block .education_item .iconbox {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #F23585;
+  background: #F23585;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.educationinfo_block .education_item .iconbox i {
+  font-size: 12px;
+  color: #fff;
+}
+
+.educationinfo_block .education_item .info_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.educationinfo_block .education_item .info_items label {
+  font-size: 11px;
+  text-transform: capitalize;
+  color: gray;
+  line-height: 18px;
+}
+
+.educationinfo_block .education_item .info_items h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+
+.educationinfo_block .education_item .info_items .ed-links i {
+  color: gray;
+  font-size: 10px;
+}
+
+.educationinfo_block .education_item .info_items .lable_items {
+  padding-right: 10px;
+}
+
+
+// .inner-outlets-components {
+//   .header {
+//     margin: 30px;
+//     text-align: center;
+
+//     ion-icon {
+//       font-size: 70px;
+//       background: #cdcd0b2b;
+//       padding: 20px;
+//       border-radius: 100px;
+//     }
+
+//     h1 {
+//       font-size: 16px;
+//       color: #737373;
+//     }
+//   }
+
+//   .input-box {
+//     padding: 5px 10px;
+
+//     h1 {
+//       font-size: 18px;
+//       color: #737373;
+//     }
+
+//     ion-input {
+//       --border-radius: 10px;
+//     }
+
+//     ion-select {
+//       border: 1px solid #737373b9;
+//       border-radius: 10px;
+//       padding: 5px;
+//     }
+
+//     ion-grid {
+//       margin: 0px;
+//       padding: 0px;
+//     }
+
+//     ion-col {
+//       margin: 0px;
+//       padding: 0px;
+//     }
+
+//     ion-textarea {
+//       border: 1px solid #a6a6a6;
+//       border-radius: 10px;
+//       padding: 10px;
+//       font-size: 18px;
+//     }
+//   }
+
+//   .button-box {
+//     padding: 10px 30px;
+//     position: fixed;
+//     bottom: 0%;
+//     width: 100%;
+//   }
+
+//   .tandc {
+//     text-align: center;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Membership page design ----------------------------------------
+// Membership page design ----------------------------------------
+
+.ds_subscriioninfo_block {
+  position: relative;
+}
+
+.ds_subscriioninfo_block .moneyback_img {
+  margin: 0 0 20px;
+}
+
+.ds_subscriioninfo_block .moneyback_img img {
+  max-width: 80px;
+  margin: 0 auto;
+  display: block;
+}
+
+.ds_subscriioninfo_block .page_title {
+  margin: 0 0 10px;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item {
+  background: rgb(217 235 237 / 10%) !important;
+  background: #2FC2D4 !important;
+  box-shadow: none;
+  position: relative;
+  --overflow: unset;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item ion-card-header {
+  --overflow: unset;
+  color: #fff;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item ion-card-header .iconbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  /* width: 80px; */
+  /* height: 80px; */
+  border-radius: 100%;
+  /* border: 3px solid #fff; */
+  margin: 0 auto;
+  /* margin-top: -40px; */
+  background: #2FC2D4;
+  z-index: 99;
+  position: relative;
+  margin-bottom: 0px;
+}
+
+ion-card-subtitle.ion-inherit-color.ios.hydrated {
+  border: 0;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item ion-card-header .textinfo {
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  line-height: 30px;
+  color: #fff;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item .money_info {
+  text-align: center;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item .money_info span {
+  padding: 0 9px;
+  font-size: 12px;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item .ds_planinfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item ion-card-content {
+  padding: 20px;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item .ds_planinfo li {
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin: 0 0 8px;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item .ds_planinfo li i {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.ds_subscriioninfo_block .ds_subscriioninfo_item ion-button.ds_submitBtn {
+  --background: #fff !important;
+  --border-color: #fff !important;
+  --background: #fff !important;
+  --border: 1px solid #fff !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-base: #fff !important;
+  --ion-color-contrast: #fff !important;
+  --background-activated: #fff !important;
+  --background-focused: #fff !important;
+  --background-hover: #fff !important;
+  --ion-color-base-rgb: #fff !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-contrast: #2FC2D4 !important;
+}
+
+
+
+
+
+
+// Membership page design ----------------------------------------
+// Membership page design ----------------------------------------
+
+
+
+
+
+
+// ------------------------  ds_marrigeprofile_listinfo
+// ------------------------  ds_marrigeprofile_listinfo
+.ds_marrigeprofile_listinfo {
+  position: relative;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item {
+  border-radius: 0px;
+  font-family: "Poppins", sans-serif;
+  padding: 6px 0 0;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_imgbox {}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_imgbox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 1px 4px 15px 1px rgb(0 0 0 / 20%);
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_prconant {
+  position: relative;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_prconant h2 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_prconant p,
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_prconant span {
+  font-size: 12px;
+  color: #9E9E9E;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .ds_prconant h6 {
+  font-size: 12px;
+  color: #000;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .listitem {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .listitem .links {
+  border: 1px solid #2FC2D4;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  padding: 12px;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .listitem .links i {
+  font-size: 12px;
+  color: #2FC2D4;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .form-group {
+  border-top: 1px solid #D9EBED;
+  padding: 4px 0 0;
+  margin: 8px 0 0;
+}
+
+.ds_marrigeprofile_listinfo .ds_profiles_item .form-group .ds_submitBtn {
+  font-size: 13px;
+  text-transform: capitalize;
+  line-height: 24px;
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+  --padding-start: 3px;
+  --padding-end: 3px;
+  min-height: 38px;
+  font-weight: 500;
+}
+
+// ------------------------  ds_marrigeprofile_listinfo
+// ------------------------  ds_marrigeprofile_listinfo
+
+
+
+
+
+// New desing-----------------------------------------
+// New desing-----------------------------------------
+// New desing-----------------------------------------
+// New desing-----------------------------------------
+
+
+// ----------------------  header side menu design 
+// ----------------------  header side menu design 
+
+
+
+
+
+
+
+.sh_submitRHBtn {
+  --background: #F23585 !important;
+  --border: 1px solid #F23585 !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-base: #F23585 !important;
+  --ion-color-contrast: #fff !important;
+  --ion-color-shade: unset !important;
+  --border-radius: 100px !important;
+  --margin: 0 !important;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  --border-width: 2px;
+  line-height: 24px;
+  --background-activated: #F23585 !important;
+  --background-focused: #F23585 !important;
+  --background-hover: #F23585 !important;
+  width: 100%;
+  margin: 0;
+  min-height: 45px;
+}
+
+.sh_submitRHBtn1 {
+  --ion-color-base: transparent !important;
+  --border: 1px solid #F23585 !important;
+  --background: transparent !important;
+  --ion-color-base-rgb: #F23585 !important;
+  --ion-color-base: transparent !important;
+  --ion-color-tint: #F23585 !important;
+  --ion-color-shade: #F23585 !important;
+  --ion-color-contrast: #F23585 !important;
+  --ion-color-contrast-rgb: #F23585 !important;
+  --background-activated: #F23585 !important;
+  --background-focused: transparent !important;
+  --background-hover: #F23585 !important;
+  --color: #F23585 !important;
+  border: 2px solid #F23585 !important;
+  padding: 0 6px;
+  --padding-top: 6px;
+  --padding-bottom: 8px;
+  --padding-start: -3em;
+  --padding-end: 1em;
+  font-size: 14px;
+  --border-width: 1.6px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --inner-padding-top: 0px;
+  --inner-padding-bottom: 0px;
+  --inner-padding-start: 10px;
+  --inner-padding-end: 0px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  font-family: "Poppins", sans-serif;
+  min-height: 45px;
+  margin: 0;
+  border-radius: 100px;
+  --background-activated-opacity: 0 !important;
+  --background-focused-opacity: 0 !important;
+  --background-hover-opacity: 0 !important;
+}
+
+
+.ds_clearBtn {
+  --background: #E29F71 !important;
+  --border: 1px solid #E29F71;
+  font-family: "Poppins", sans-serif;
+  --ion-color-base: #E29F71 !important;
+  --ion-color-contrast: #fff !important;
+  --ion-color-shade: unset !important;
+  --border-radius: 4px !important;
+  --margin: 0 !important;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 4px;
+  --padding-end: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  --border-width: 2px;
+  line-height: 24px;
+  --background-activated: #E29F71 !important;
+  --background-focused: #E29F71 !important;
+  --background-hover: #E29F71 !important;
+  width: 100%;
+  min-height: 45px;
+}
+
+
+.ds_submitBtn2 {
+  --background: none !important;
+  --border-color: #2FC2D4 !important;
+  --inner-padding-end: 0;
+  --inner-border-width: 0;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  --padding-start: 12px;
+  --padding-end: 4px;
+  line-height: 20px;
+  --border-width: 1.6px;
+  --padding-left: 0px;
+  --padding-right: 0px;
+  --inner-padding-top: 0px;
+  --inner-padding-bottom: 0px;
+  --inner-padding-start: 14px;
+  --inner-padding-end: 0px;
+  min-height: 45px;
+}
+
+
+.ds_submitBtn2 ion-icon {
+  font-size: 1.125rem !important;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0;
+  margin-inline-end: -6px;
+}
+
+.ds_submitBtn2 ion-label {
+  font-family: "Poppins", sans-serif !important;
+  margin-inline-end: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+body {
+  background: #F9FAFC;
+}
+
+ion-content {
+  background: #F9FAFC;
+  --background: #F9FAFC;
+}
+
+.sh_pageheader_block {
+  background: #fff;
+  box-shadow: 0px 1px 17px 0px rgb(0 0 0 / 21%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 14px 14px;
+  margin-bottom: 0px;
+  padding-left: 8px;
+}
+
+.sh_pageheader_block .sh_sidemenuCall_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.sh_pageheader_block .sh_sidemenuCall_item ion-buttons {
+  --color: #1F1F1F;
+  color: #1F1F1F;
+  border: 0 !important;
+  --side-min-width: 0;
+  --side-max-width: 0%;
+  width: 28px;
+  height: 16px;
+  overflow: hidden;
+  margin-right: 6px;
+}
+
+.sh_pageheader_block .sh_sidemenuCall_item ion-buttons ion-menu-button {
+  --color: #1F1F1F;
+  --border-radius: 2px;
+  --padding-start: 5px;
+  --padding-end: 2px;
+  min-height: 28px;
+}
+
+.sh_pageheader_block .sh_sidemenuCall_item .sh_logobox {
+  margin-left: 4px;
+}
+
+.sh_pageheader_block .sh_sidemenuCall_item .sh_logobox img {
+  width: 60px;
+}
+
+.sh_pageheader_block .sh_pagesearchnoti_block {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 9px;
+}
+
+.sh_pageheader_block .sh_pagesearchnoti_block .nav-link {
+  color: #1F1F1F;
+  font-size: 17px;
+  position: relative;
+}
+
+.sh_pageheader_block .sh_pagesearchnoti_block .nav-link .sh_counter {
+  background: #F23585;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  font-size: 9px;
+  font-weight: 700;
+  position: absolute;
+  top: -11px;
+  right: -16px;
+}
+
+.sh_pageheader_block .sh_pagesearchnoti_block .nav-item {
+  margin-right: 10px;
+}
+
+.sh_pageheader_block .sh_pagesearchnoti_block .nav-item:last-child {
+  margin: 0;
+}
+
+.sh_sidemenu_block {
+  /* background: linear-gradient(to bottom, #f70a5f 28%, #ff6198 100%); */
+  --width: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, #f70a5f 28%, #ff6198 100%);
+  --width: 100%;
+  width: 100%;
+  --width: 100%;
+  --min-width: 100%;
+  --max-width: 100%;
+  --height: 100%;
+  --min-height: 100%;
+  --max-height: 100%;
+  --background: transparent;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // display: block;
+  position: absolute;
+  contain: strict;
+}
+
+
+
+
+.sh_sidemenu_block .sh_sidemenu_Main {
+  --width: 100% !important;
+  width: 100%;
+  background: linear-gradient(to bottom, #f70a5f 28%, #ff6198 100%);
+  padding: 0;
+  --background: linear-gradient(to bottom, #f70a5f 28%, #ff6198 100%);
+  border: 1px solid #fff;
+  --border: 1px solid #fff;
+  --padding: 10px !important;
+  padding: 10px !important;
+}
+
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header {
+  padding: 10px;
+  position: relative;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_sidemenu_header_inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px 8px 12px;
+  border-bottom: 1px solid rgb(255 255 255 / 70%);
+  gap: 10px;
+  margin: 0 0 10px;
+  position: relative;
+  border-bottom: 1px solid rgb(255 255 255 / 40%);
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_sidemenu_header_inner .sh_imgbox {
+  width: 90px;
+  height: 90px;
+  min-width: 70px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  background: #fff;
+  box-shadow: 6px 1px 10px 1px rgb(255 255 255 / 40%);
+  margin-right: 8px;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_sidemenu_header_inner .sh_imgbox img {
+  width: 100%;
+  height: 100%;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_sidemenu_header_inner h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0 0 4px;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_sidemenu_header_inner p {
+  opacity: 0.8;
+  margin: 2px 0 4px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.sh_submitWHBtn {
+  --ion-color-base: #fff !important;
+  --ion-color-base-rgb: #fff !important;
+  --ion-color-contrast: #fff !important;
+  --ion-color-contrast-rgb: #fff !important;
+  --ion-color-shade: #fff !important;
+  --ion-color-tint: #fff !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-contrast: #000 !important;
+  --ion-color-contrast: #F70E61 !important;
+  --border-radius: 100px;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 600;
+  padding: 0;
+  min-height: 34px;
+  --border-radius: 200px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  width: 100%;
+  display: block;
+  margin: 0;
+
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_sidemenu_header_inner .sh_submitWHBtn {
+  font-size: 13px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  width: auto;
+  display: inline-block;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_sidemenu_header .sh_closemenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 100px;
+  background: #fff;
+  color: #000;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_menulist_info {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_menulist_info .menu_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_menulist_info .menu_list .nav-item {
+  position: relative;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_menulist_info .menu_list .nav-item .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 12px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  border-bottom: 0px solid rgb(255 255 255 / 40%);
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_menulist_info .menu_list .nav-item .nav-link .iconbox {
+  margin-right: 10px;
+}
+
+.sh_sidemenu_block .sh_sidemenu_Main .sh_menulist_info .menu_list .nav-item .nav-link span {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+// ----------------------  header side menu design 
+// ----------------------  header side menu design 
+
+
+
+
+
+// Membership page design ----------------------------------------
+// Membership page design ----------------------------------------
+
+.sh_subscriioninfo_block {
+  position: relative;
+}
+
+.sh_subscriioninfo_block .moneyback_img {
+  margin: 0 0 20px;
+  display: none;
+}
+
+.sh_subscriioninfo_block .moneyback_img img {
+  max-width: 80px;
+  margin: 0 auto;
+  display: block;
+}
+
+.sh_subscriioninfo_block .page_title {
+  margin: 0 0 10px;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item {
+  background: rgb(217 235 237 / 10%) !important;
+  background: #2FC2D4 !important;
+  background: #F23585 !important;
+  box-shadow: none;
+  position: relative;
+  --overflow: unset;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item ion-card-header {
+  --overflow: unset;
+  color: #fff;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item ion-card-header .iconbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  /* width: 80px; */
+  /* height: 80px; */
+  border-radius: 100%;
+  /* border: 3px solid #fff; */
+  margin: 0 auto;
+  /* margin-top: -40px; */
+  background: #2FC2D4;
+  background: #F23585 !important;
+  z-index: 99;
+  position: relative;
+  margin-bottom: 0px;
+}
+
+ion-card-subtitle.ion-inherit-color.ios.hydrated {
+  border: 0;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item ion-card-header .textinfo {
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  line-height: 30px;
+  color: #fff;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item .money_info {
+  text-align: center;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item .money_info span {
+  padding: 0 9px;
+  font-size: 12px;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item .ds_planinfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item ion-card-content {
+  padding: 20px 12px;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item .ds_planinfo li {
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item .ds_planinfo li i {
+  font-size: 12px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.sh_subscriioninfo_block .sh_subscriioninfo_item ion-button.ds_submitBtn {
+  --background: #fff !important;
+  --border-color: #fff !important;
+  --background: #fff !important;
+  --border: 1px solid #fff !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-base: #fff !important;
+  --ion-color-contrast: #fff !important;
+  --background-activated: #fff !important;
+  --background-focused: #fff !important;
+  --background-hover: #fff !important;
+  --ion-color-base-rgb: #fff !important;
+  font-family: "Poppins", sans-serif;
+  --ion-color-contrast: #2FC2D4 !important;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: var(--swiper-pagination-bottom, 15px);
+}
+
+
+
+
+
+
+
+
+
+
+// ------------------------  sh_marrigeprofile_listinfo
+// ------------------------  sh_marrigeprofile_listinfo
+.sh_marrigeprofile_listinfo {
+  position: relative;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item {
+  border-radius: 0px;
+  font-family: "Poppins", sans-serif;
+  padding: 6px 0 0;
+  /* background: #fff; */
+  margin: 0 0 11px;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_imgbox {}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_imgbox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 1px 4px 15px 1px rgb(0 0 0 / 20%);
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_prconant {
+  position: relative;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_prconant h2 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_prconant p,
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_prconant span {
+  font-size: 13px;
+  color: #9E9E9E;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .ds_prconant h6 {
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .listitem {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .listitem .links {
+  border: 1px solid #F23585;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  padding: 12px;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .listitem .links i {
+  font-size: 12px;
+  color: #F23585;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .form-group {
+  border-top: 1px solid #D9EBED;
+  padding: 4px 0 0;
+  margin: 8px 0 0;
+}
+
+.sh_marrigeprofile_listinfo .sh_profiles_item .form-group .sh_submitRHBtn {
+  font-size: 13px;
+  text-transform: capitalize;
+  line-height: 23px;
+  --padding-top: 3px;
+  --padding-bottom: 3px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  min-height: 35px;
+  font-weight: 500;
+  display: inline-block;
+  width: auto;
+  float: right;
+}
+
+
+
+
+
+.sh_searchbox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #9E9E9E !important;
+  border-radius: 4px;
+  background: rgba(242, 53, 133, 0.09);
+  background: transparent;
+  margin: 0 0 20px;
+}
+
+.sh_searchbox .form-control {
+  --border-color: none;
+  border: 0;
+  --border: 0;
+  background: transparent;
+  padding: 0px 4px;
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  outline: none !important;
+  box-shadow: none !important;
+  padding-right: 0;
+  height: 100%;
+  --background: transparent;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px;
+  min-height: auto !important;
+}
+
+.sh_searchbox .input-group-addon {
+  min-width: 30px;
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+}
+
+
+
+.filter_sort_menus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  list-style: none;
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+
+.filter_sort_menus .nav-item .nav-link {
+  padding: 12px 12px;
+  font-weight: 600;
+  font-family: "Josefin Sans", sans-serif;
+  color: #000;
+  background: #fff;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.filter_sort_menus .nav-item:first-child .nav-link {
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 20%);
+  border-radius: 20px 0px 0px 20px;
+}
+
+.filter_sort_menus .nav-item:last-child .nav-link {
+  border-radius: 0px 20px 20px 1px;
+  box-shadow: 5px 2px 10px 1px rgb(0 0 0 / 20%);
+  border-left: 1px solid rgb(0 0 0 / 20%);
+}
+
+
+
+
+
+
+
+
+
+// Filter box design
+
+.sh_filtermenu_box {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  --padding-top: 25px;
+  --padding-bottom: 15px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+}
+
+.sh_filtermenu_box .page_title {
+  border-bottom: 1px solid rgb(0 0 0 / 20%);
+}
+
+
+// Filter box design
+
+
+
+
+.sh_filtermenu_box .sh_checkbox_inner {
+  display: inline;
+  overflow: auto;
+  padding-bottom: 10px;
+}
+
+.sh_filtermenu_box .sh_checkbox_inner .sh_checkbox_item {
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+
+.sh_filtermenu_box ion-range {
+  margin: 0;
+  --margin: 0;
+  --knob-border-radius: 50%;
+  --knob-background: #F23585;
+  --knob-box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.12), 0px 6px 13px rgba(0, 0, 0, 0.12);
+  --knob-size: 22px;
+  --bar-height: 3px;
+  --bar-background: var(--ion-color-step-900, var(--ion-background-color-step-900, #e6e6e6));
+  --bar-background-active: #F23585;
+  --bar-border-radius: 2px;
+  --height: 42px;
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+}
+
+
+ion-range::part(pin) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F23585;
+  color: #fff;
+  border-radius: 50%;
+  transform: scale(1.01);
+
+  top: -20px;
+
+  min-width: 28px;
+  height: 28px;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+/* ion-range::part(tick) {
+  background: #F23585;
+}
+
+ion-range::part(tick-active) {
+  background: #F23585;
+}
+
+
+ion-range::part(pin)::before {
+  content: none;
+}
+
+ion-range::part(knob) {
+  background: #ffc8dd;
+}
+
+ion-range::part(bar) {
+  background: #a2d2ff;
+}
+
+ion-range::part(bar-active) {
+  background: #bde0fe;
+} */
+.sh_filtermenu_box .ds_formitems {
+  padding: 0 0 160px;
+}
+
+
+
+
+// ------------------------  sh_marrigeprofile_listinfo
+// ------------------------  sh_marrigeprofile_listinfo
+
+
+
+
+
+
+
+
+
+
+
+// New desing-----------------------------------------
+// New desing-----------------------------------------
+// New desing-----------------------------------------
+
+
+
+
+
+// ------------------------- Login desing -------------------------------------------
+// ------------------------- Login desing -------------------------------------------
+// ------------------------- Login desing -------------------------------------------
+
+.sh_splashhoem_block {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sh_splashhoem_block .sh_logoitem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 50px;
+}
+
+.sh_splashhoem_block .sh_logoitem img {
+  max-width: 110px;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo {
+  position: relative;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo .sh_logoitem1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 60px;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo .sh_logoitem1 img {
+  max-width: 140px;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo h1 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0 0 0px;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo p {
+  text-align: center;
+  line-height: 26px;
+  text-transform: capitalize;
+  font-weight: 400;
+  margin: 6px 0 20px;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo .form-group {
+  margin: 0 0 20px;
+  font-size: 14px;
+  text-align: center;
+  color: gray;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.sh_splashhoem_block .sh_landing_contantinfo .form-group .sh_links {
+  color: #F23585;
+}
+
+
+
+
+.sh_createAccount_login {
+  position: relative;
+  padding: 10px 10px;
+}
+
+.sh_createAccount_login .sh_logoitem1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 35px;
+}
+
+.sh_createAccount_login .sh_logoitem1 img {
+  max-width: 130px;
+}
+
+.sh_createAccount_login .sh_logintitle_block {
+  margin: 10px 0 10px;
+}
+
+.sh_createAccount_login .sh_logintitle_block h2 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 0 0px;
+}
+
+.sh_createAccount_login .forget_passowrd {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.sh_createAccount_login .forget_passowrd .sh_links {
+  color: #F23585;
+}
+
+.mt-2 {
+  margin-top: 14px !important;
+}
+
+.sh_createAccount_login .sh_other_login {
+  font-size: 14px;
+  text-align: center;
+  color: gray;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+
+.sh_createAccount_login .sh_sociallinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 10px;
+}
+
+.sh_createAccount_login .sh_sociallinks .nav-item {
+  margin: 0;
+}
+
+.socialBtn {
+  background: #F23585;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  font-size: 14px;
+  box-shadow: 2px 2px 10px 2px rgb(0 0 0 / 20%);
+}
+
+.sh_createAccount_login .sh_other_login .sh_links {
+  color: #F23585;
+}
+
+.sh_createAccount_login .sh_logoitem {
+  margin: 0 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.sh_createAccount_login .sh_logoitem img {
+  max-width: 60px;
+}
+
+
+
+
+
+.sh_createAccount_register {
+  position: relative;
+}
+
+.sh_landing_contantinfo {}
+
+.sh_createAccount_register .sh_register_block {
+  margin: 0 0 20px;
+}
+
+.sh_createAccount_register .sh_register_block h6 {
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+  margin: 0 0 20px;
+}
+
+.sh_createAccount_register .sh_register_block h6 span {
+  display: block;
+  font-size: 70%;
+}
+
+.sh_createAccount_register .sh_register_block .sh_logoitem1 {}
+
+.sh_createAccount_register .sh_register_block .sh_logoitem1 img {
+  max-width: 100px;
+}
+
+.sh_createAccount_register .sh_register_block h4 {
+  text-align: center;
+  font-size: 12px;
+  text-align: center;
+  line-height: 22px;
+  margin: 0;
+}
+
+.sh_createAccount_register .sh_register_block h5 {
+  text-align: center;
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+  margin: 0 0 20px;
+}
+
+.sh_createAccount_register .sh_terminfo {
+  margin: 10px 0 0;
+}
+
+.sh_createAccount_register .sh_terminfo p {
+  margin: 0;
+  text-align: center;
+  color: gray;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.sh_createAccount_register .sh_terminfo p a {
+  color: #F23585;
+}
+
+
+
+.sh_profileietms_block ion-chip {
+  --background: transparent !important;
+  border: 1px solid rgba(158, 168, 168, 0.7);
+  font-family: "Poppins", sans-serif !important;
+  -webkit-margin-start: 4px;
+  margin-inline-start: 3px;
+  -webkit-margin-end: 4px;
+  margin-inline-end: 6px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sh_profileietms_block ion-chip ion-icon {
+  color: #EF4076;
+}
+
+.sh_profileietms_block ion-chip ion-label {
+  color: #EF4076;
+}
+
+
+
+
+
+
+.sh_gallery_select {
+  position: relative;
+  width: 100%;
+  background: #F23585;
+  padding: 12px 10px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 8px 1px rgb(242 53 133 / 60%);
+  margin: 0 0 20px;
+  overflow: hidden;
+  min-height: 44px;
+  border-radius: 100px;
+}
+
+.sh_gallery_select .gallery_file {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: red;
+  opacity: 0;
+}
+
+.sh_gallery_select label {
+  text-align: center;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.sh_gallery_select label ion-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.sh_submitRHBtn1 ion-icon {
+  margin-right: 8px;
+}
+
+
+.sh_createAccount_login .sh_logintitle_block h6 {
+  color: gray;
+  text-align: left;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 2px 0 0;
+  line-height: 24px;
+}
+
+.sh_createAccount_login .sh_logintitle_block h6 span,
+.sh_createAccount_login .sh_logintitle_block h6 a {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0 5px;
+}
+
+.sh_createAccount_login .sh_logintitle_block h6 span,
+.sh_createAccount_login .sh_logintitle_block h6 a {
+  color: #EF4076;
+  --color: #EF4076;
+}
+
+
+
+
+
+
+
+
+
+
+.sh_custome_checkbox {
+  position: relative;
+}
+
+.sh_custome_checkbox ion-chip {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  padding-inline-end: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 0px 0px 6px 8px;
+}
+
+.sh_custome_checkbox ion-chip i {
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.sh_custome_checkbox ion-chip ion-icon {
+  font-size: 13px;
+}
+
+
+
+.sh_radio {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.sh_radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.sh_radio .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 2px solid rgb(19 19 18 / 50%);
+  border-radius: 100%;
+}
+
+.sh_radio:hover input~.checkmark {
+  background-color: transparent;
+}
+
+.sh_radio input:checked~.checkmark {
+  border-color: #EF4076;
+}
+
+.sh_radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.sh_radio input:checked~.checkmark:after {
+  display: block;
+}
+
+.sh_radio .checkmark:after {
+  left: 15%;
+  top: 14%;
+  width: 74%;
+  height: 74%;
+  background: #EF4076;
+  border-radius: 100%;
+}
+
+
+
+.sh_createAccount_congratulation {
+  position: relative;
+}
+
+
+.sh_createAccount_congratulation .sh_logintitle_block h2 {
+  color: #F23585;
+}
+
+
+.sh_createAccount_congratulation .sh_register_block h6 {
+  display: none;
+}
+
+.sh_createAccount_congratulation .sh_register_block .sh_logoitem1 img {
+  max-width: 100%;
+}
+
+// ------------------------- Login desing -------------------------------------------
+// ------------------------- Login desing -------------------------------------------
+
+
+// ----------------- sh_userchatlist_info  --------------------
+// ----------------- sh_userchatlist_info  --------------------
+
+
+
+.sh_userchatlist_info {
+  position: relative;
+}
+
+.sh_userchatlist_info .sh_userchat_item {
+  position: relative;
+  background: #fff;
+  padding: 10px;
+  border-bottom: 2px solid#D9EBED;
+  position: relative;
+  padding-left: 60px;
+}
+
+.sh_userchatlist_info .sh_userchat_item .imgbox {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  background: #D9EBED;
+  padding: 2px;
+}
+
+.sh_userchatlist_info .sh_userchat_item .imgbox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info .left_item {
+  width: 70%;
+}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info .left_item h2 {
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 0  0 3px;
+  font-weight: 600;
+}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info .left_item p {
+  color: gray;
+  font-size: 13px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info .right_item {}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info .right_item h6 {
+  font-size: 11px;
+  margin: 0;
+  color: gray;
+  opacity: 80.5;
+}
+
+.sh_userchatlist_info .sh_userchat_item .contant_info .counter {
+  width: 24px;
+  height: 24px;
+  background: #F23585;
+  color: #fff;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  margin: 2px auto;
+  font-weight: 500;
+}
+
+
+
+
+// ----------------- sh_userchatlist_info  --------------------
+// ----------------- sh_userchatlist_info  --------------------
+
+
+
+
