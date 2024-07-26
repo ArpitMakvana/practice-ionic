@@ -435,7 +435,7 @@ body {
 }
 
 .sh_checkbox_item:hover input~.checkmark {
-  background-color: #F23585;
+  background-color: rgb(255 0 0 / 98%);
   color: #fff;
 }
 
@@ -1208,8 +1208,8 @@ ion-select.form-control {
 .educationinfo_block .education_item .iconbox {
   width: 28px;
   height: 28px;
-  border: 1px solid #F23585;
-  background: #F23585;
+  border: 1px solid rgb(255 0 0 / 98%);
+  background: rgb(255 0 0 / 98%);
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -1590,10 +1590,10 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 
 
 .sh_submitRHBtn {
-  --background: #F23585 !important;
-  --border: 1px solid #F23585 !important;
+  --background: rgb(255 0 0 / 98%) !important;
+  --border: 1px solid rgb(255 0 0 / 98%) !important;
   font-family: "Poppins", sans-serif;
-  --ion-color-base: #F23585 !important;
+  --ion-color-base: rgb(255 0 0 / 98%) !important;
   --ion-color-contrast: #fff !important;
   --ion-color-shade: unset !important;
   --border-radius: 100px !important;
@@ -1607,9 +1607,9 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
   font-size: 14px;
   --border-width: 2px;
   line-height: 24px;
-  --background-activated: #F23585 !important;
-  --background-focused: #F23585 !important;
-  --background-hover: #F23585 !important;
+  --background-activated: rgb(255 0 0 / 98%) !important;
+  --background-focused: rgb(255 0 0 / 98%) !important;
+  --background-hover: rgb(255 0 0 / 98%) !important;
   width: 100%;
   margin: 0;
   min-height: 45px;
@@ -1617,19 +1617,19 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 
 .sh_submitRHBtn1 {
   --ion-color-base: transparent !important;
-  --border: 1px solid #F23585 !important;
+  --border: 1px solid rgb(255 0 0 / 98%) !important;
   --background: transparent !important;
-  --ion-color-base-rgb: #F23585 !important;
+  --ion-color-base-rgb: rgb(255 0 0 / 98%) !important;
   --ion-color-base: transparent !important;
-  --ion-color-tint: #F23585 !important;
-  --ion-color-shade: #F23585 !important;
-  --ion-color-contrast: #F23585 !important;
-  --ion-color-contrast-rgb: #F23585 !important;
-  --background-activated: #F23585 !important;
+  --ion-color-tint: rgb(255 0 0 / 98%) !important;
+  --ion-color-shade: rgb(255 0 0 / 98%) !important;
+  --ion-color-contrast: rgb(255 0 0 / 98%) !important;
+  --ion-color-contrast-rgb: rgb(255 0 0 / 98%) !important;
+  --background-activated: rgb(255 0 0 / 98%) !important;
   --background-focused: transparent !important;
-  --background-hover: #F23585 !important;
-  --color: #F23585 !important;
-  border: 2px solid #F23585 !important;
+  --background-hover: rgb(255 0 0 / 98%) !important;
+  --color: rgb(255 0 0 / 98%) !important;
+  border: 2px solid rgb(255 0 0 / 98%) !important;
   padding: 0 6px;
   --padding-top: 6px;
   --padding-bottom: 8px;
@@ -1804,7 +1804,7 @@ ion-content {
 }
 
 .sh_pageheader_block .sh_pagesearchnoti_block .nav-link .sh_counter {
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2039,7 +2039,7 @@ ion-content {
 .sh_subscriioninfo_block .sh_subscriioninfo_item {
   background: rgb(217 235 237 / 10%) !important;
   background: #2FC2D4 !important;
-  background: #F23585 !important;
+  background: rgb(255 0 0 / 98%) !important;
   box-shadow: none;
   position: relative;
   --overflow: unset;
@@ -2075,7 +2075,7 @@ ion-content {
   margin: 0 auto;
   /* margin-top: -40px; */
   background: #2FC2D4;
-  background: #F23585 !important;
+  background: rgb(255 0 0 / 98%) !important;
   z-index: 99;
   position: relative;
   margin-bottom: 0px;
@@ -2225,7 +2225,7 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 }
 
 .sh_marrigeprofile_listinfo .sh_profiles_item .listitem .links {
-  border: 1px solid #F23585;
+  border: 1px solid rgb(255 0 0 / 98%);
   width: 24px;
   height: 24px;
   display: flex;
@@ -2237,7 +2237,7 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 
 .sh_marrigeprofile_listinfo .sh_profiles_item .listitem .links i {
   font-size: 12px;
-  color: #F23585;
+  color: rgb(255 0 0 / 98%);
 }
 
 .sh_marrigeprofile_listinfo .sh_profiles_item .form-group {
@@ -2386,12 +2386,12 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
   margin: 0;
   --margin: 0;
   --knob-border-radius: 50%;
-  --knob-background: #F23585;
+  --knob-background: rgb(255 0 0 / 98%);
   --knob-box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.12), 0px 6px 13px rgba(0, 0, 0, 0.12);
   --knob-size: 22px;
   --bar-height: 3px;
   --bar-background: var(--ion-color-step-900, var(--ion-background-color-step-900, #e6e6e6));
-  --bar-background-active: #F23585;
+  --bar-background-active: rgb(255 0 0 / 98%);
   --bar-border-radius: 2px;
   --height: 42px;
   font-family: "Poppins", sans-serif;
@@ -2403,7 +2403,7 @@ ion-range::part(pin) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
   color: #fff;
   border-radius: 50%;
   transform: scale(1.01);
@@ -2416,11 +2416,11 @@ ion-range::part(pin) {
 }
 
 /* ion-range::part(tick) {
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
 }
 
 ion-range::part(tick-active) {
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
 }
 
 
@@ -2531,7 +2531,7 @@ ion-range::part(bar-active) {
 }
 
 .sh_splashhoem_block .sh_landing_contantinfo .form-group .sh_links {
-  color: #F23585;
+  color: rgb(255 0 0 / 98%);
 }
 
 
@@ -2574,7 +2574,7 @@ ion-range::part(bar-active) {
 }
 
 .sh_createAccount_login .forget_passowrd .sh_links {
-  color: #F23585;
+  color: rgb(255 0 0 / 98%);
 }
 
 .mt-2 {
@@ -2606,7 +2606,7 @@ ion-range::part(bar-active) {
 }
 
 .socialBtn {
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2619,7 +2619,7 @@ ion-range::part(bar-active) {
 }
 
 .sh_createAccount_login .sh_other_login .sh_links {
-  color: #F23585;
+  color: rgb(255 0 0 / 98%);
 }
 
 .sh_createAccount_login .sh_logoitem {
@@ -2695,7 +2695,7 @@ ion-range::part(bar-active) {
 }
 
 .sh_createAccount_register .sh_terminfo p a {
-  color: #F23585;
+  color: rgb(255 0 0 / 98%);
 }
 
 
@@ -2719,11 +2719,11 @@ ion-range::part(bar-active) {
 }
 
 .sh_profileietms_block ion-chip ion-icon {
-  color: #EF4076;
+  color: rgb(255 0 0 / 98%);
 }
 
 .sh_profileietms_block ion-chip ion-label {
-  color: #EF4076;
+  color: rgb(255 0 0 / 98%);
 }
 
 
@@ -2734,7 +2734,7 @@ ion-range::part(bar-active) {
 .sh_gallery_select {
   position: relative;
   width: 100%;
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
   padding: 12px 10px;
   border-radius: 4px;
   box-shadow: 0px 5px 8px 1px rgb(242 53 133 / 60%);
@@ -2794,8 +2794,8 @@ ion-range::part(bar-active) {
 
 .sh_createAccount_login .sh_logintitle_block h6 span,
 .sh_createAccount_login .sh_logintitle_block h6 a {
-  color: #EF4076;
-  --color: #EF4076;
+  color: rgb(255 0 0 / 98%);
+  --color: rgb(255 0 0 / 98%);
 }
 
 
@@ -2866,7 +2866,7 @@ ion-range::part(bar-active) {
 }
 
 .sh_radio input:checked~.checkmark {
-  border-color: #EF4076;
+  border-color: rgb(255 0 0 / 98%);
 }
 
 .sh_radio .checkmark:after {
@@ -2884,7 +2884,7 @@ ion-range::part(bar-active) {
   top: 14%;
   width: 74%;
   height: 74%;
-  background: #EF4076;
+  background: rgb(255 0 0 / 98%);
   border-radius: 100%;
 }
 
@@ -2896,7 +2896,7 @@ ion-range::part(bar-active) {
 
 
 .sh_createAccount_congratulation .sh_logintitle_block h2 {
-  color: #F23585;
+  color: rgb(255 0 0 / 98%);
 }
 
 
@@ -2985,7 +2985,7 @@ ion-range::part(bar-active) {
 .sh_userchatlist_info .sh_userchat_item .contant_info .counter {
   width: 24px;
   height: 24px;
-  background: #F23585;
+  background: rgb(255 0 0 / 98%);
   color: #fff;
   border-radius: 100%;
   display: flex;
@@ -3005,6 +3005,254 @@ ion-range::part(bar-active) {
 .invalid-input{
   --border-color : red !important;
 }
+
+// ----------------- sh_chatinfo  --------------------
+// ----------------- sh_chatinfo  -------------------- 
+
+
+
+.meesageinfo_box .meesageinfo_box_item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.meesageinfo_box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.meesageinfo_box .chat_message_box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.meesageinfo_box .chat_message_box .chatinfo_top {
+  position: relative;
+  padding-left: 45px;
+  background: rgb(242 53 133 / 100%);
+  padding: 10px 10px;
+  padding-left: 45px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999999999;
+  height: 62px;
+}
+
+.meesageinfo_box .chat_message_box .chatinfo_top .iconbox {
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  background: #000;
+  overflow: hidden;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  border: 2.5px solid #fff;
+  box-shadow: 0px 0px 10px -1px rgb(0 0 0 / 20%);
+  padding: 1px;
+}
+
+.meesageinfo_box .chat_message_box .chatinfo_top .iconbox img {
+  width: 100%;
+}
+
+.meesageinfo_box .chat_message_box .contant_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.meesageinfo_box .chat_message_box .contant_info .left_item {
+  position: relative;
+}
+
+.meesageinfo_box .chat_message_box .contant_info .left_item h4 {
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin: 0; 
+  line-height: 24px;
+  color: #fff;
+}
+
+.meesageinfo_box .chat_message_box .contant_info .left_item p {
+  margin: 0;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.meesageinfo_box .chat_message_box .contant_info .right_item {
+  position: relative;
+}
+
+.meesageinfo_box .chat_message_box .contant_info .right_item .sh_callss {
+  font-size: 20px;
+  color: #fff;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  overflow: auto;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item {
+  position: relative;
+  padding-left: 12px;
+  max-width: 200px;
+  margin: 0 0 6px;
+  display: inline-block;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item .sh_message {
+  background: #FFF0F6;
+  padding: 10px 10px;
+  background: #F23585;
+  max-width: 180px;
+  line-height: 22px;
+  display: block;
+  border-radius: 6px;
+  position: relative;
+  color: #fff;
+  display: inline-block;
+  z-index: 999;
+}
+
+.meesageinfo_box .chat_message_box .message_typingbox {
+  background: #fff;
+  width: 100%;
+  height: 62px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 999999;
+  padding: 6px 6px;
+}
+
+.meesageinfo_box .chat_message_box .message_typingbox .sh_filelinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F23585;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 16px;
+}
+
+.meesageinfo_box .chat_message_box .message_typingbox .input-group {
+  width: 100%;
+  margin-left: 0;
+  border: 1px solid #9E9E9E !important;
+  border-radius: 100px;
+  overflow: hidden;
+  height: 46px;
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meesageinfo_box .chat_message_box .message_typingbox .input-group .form-control {
+  width: 90%;
+  height: 100%;
+  background: transparent;
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 10px 10px;
+  color: #9E9E9E !important;
+  font-weight: 500;
+}
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item .sh_message:before {
+  content: "";
+  border-top: 12px solid #F23585;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #F23585;
+  border-right: 12px solid transparent;
+  position: absolute;
+  top: 0;
+  left: -12px;
+  border-radius: 4px;
+  transition: .5s;
+  transform: rotate(90deg);
+  z-index: -1;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item .shs_time {
+  font-size: 12px;
+  color: gray;
+  margin: 2px 0 0;
+  text-align: right;
+  display: block;
+  line-height: 20px;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item .shs_time span {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item.messag_sender {
+  position: relative;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item.messag_sender .sh_message {
+  background: #E480A5;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item.messag_sender .sh_message:before {
+  border-top-color: #E480A5;
+  border-left-color: #E480A5;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item.messag_receiver {
+  max-width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-left: 0;
+  padding-right: 12px;
+}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item.messag_receiver .sh_message {}
+
+.meesageinfo_box .chat_message_box .chat_message_lists .messag_item.messag_receiver .sh_message:before {
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid #F23585;
+  border-left: 12px solid transparent;
+  border-right: 12px solid #F23585;
+  left: unset;
+  right: -12px;
+  top: unset;
+  bottom: 0;
+}
+
+.meesageinfo_box .chat_message_box .message_typingbox .input-group .input-group-addon {
+  min-width: 18px;
+  opacity: 0.5;
+}
+
+
+
+// ----------------- sh_chatinfo  --------------------
+// ----------------- sh_chatinfo  -------------------- 
 
 
 

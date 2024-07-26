@@ -1,15 +1,15 @@
 {
   "landing": {
-    "welcome_back": "Welcome Back...!",
+    "welcome_back": "Welcome to Bilhalal...!",
     "for_suggesting_life_partner": "For Suggesting life Partner match anytime, anywhere",
-    "sign_in": "Sign in",
+    "sign_in": "Let's Begain",
     "dont_have_account": "Don't have an account?",
     "register": "register"
   },
   "form": {
     "Login":"Login",
     "email_lable":"Email ID",
-    "email_placeholder":"Enter email",
+    "email_placeholder":"Enter email",                   
     "password_lable":"Password",
     "password_placeholder":"Enter password",
     "forgot_password":"Forgot Password?",
