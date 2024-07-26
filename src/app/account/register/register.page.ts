@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterPage implements OnInit {
   emailPhoneFormData:any;
   nameDobFormData:any;
-  steps: number = 5;
+  steps: number = 0;
 
   constructor() { }
 
