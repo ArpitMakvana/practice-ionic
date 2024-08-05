@@ -1,73 +1,87 @@
 <!-- Mobile input desin---------------------------- -->
 
 
-  <div class="ds_container">
-    <div class="sh_createAccount_login sh_createAccount_register ">
-      <div class="sh_logoitem">
-        <img src="../../../assets/logo2.png" class="img-fluid" />
-      </div>
-
-      <div class="sh_landing_contantinfo">
-        <div class="sh_register_block">
-          <h6>
-            <span>Find exactly the</span>
-            Right Partner for you!
-          </h6>
-          <div class="sh_logoitem1">
-            <img src="../../../assets/groomImg.png" class="img-fluid" />
-          </div> 
-        </div>
-
-        <div class="sh_logintitle_block">
-          <h2>
-            Register
-          </h2> 
-        </div>
-
-
-        <div class="ds_formitems">
-          <div class="form-group">
-            <label class="lable_text">Email ID</label>
-            <ion-input mode="md" [ngClass]="isValidEmail? '':'invalid-input'" (ionInput)="checkValid()" [(ngModel)]="email" type="email" fill="outline" placeholder="Enter email"
-              class="form-control"></ion-input>
-          </div>
-    
-          <div class="form-group">
-            <label class="lable_text">
-              Mobile No.
-            </label>
-            <ion-grid class="form-controlgroup">
-              <ion-row>
-                <ion-col size="4" class="pl-0">
-                  <ion-select [(ngModel)]="selectedCountryCode" interface="popover" fill="outline" class="form-control">
-                    <ion-select-option *ngFor="let country of countries" [value]="country.dialCode">
-                      {{ country.name }} ({{ country.dialCode }})
-                    </ion-select-option>
-                  </ion-select>
-                </ion-col>
-                <ion-col size="8" class="pr-0">
-                  <ion-input (ionInput)="checkValid()" [ngClass]="isValidMobile? '':'invalid-input'" mode="md" max="10" maxlength="10" type="tel" [(ngModel)]="phoneNumber" fill="outline"
-                    placeholder="Enter mobile number" class="form-control"></ion-input>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </div>
-          <div class="form-group mt-2">
-            <ion-button color="light" [disabled]="!canSubmit"  expand="block" (click)="submitForm()" class="sh_submitRHBtn">
-              Continue
-            </ion-button> 
-          </div>
-
-        </div>
-        
-
-        <div class="sh_terminfo">
-          <p>By creating account, you agree to our <br /> <a class="sh_links">Privacy Policy</a> and <a class="sh_links">T&C</a></p>
-        </div>     
-
-      </div>
+<div class="ds_container">
+  <div class="sh_createAccount_login sh_createAccount_register ">
+    <div class="sh_logoitem">
+      <img src="../../../assets/logo2.png" class="img-fluid" />
     </div>
-  </div>  
+
+    <div class="sh_landing_contantinfo">
+      <div class="sh_register_block">
+        <h6>
+          <span>{{'register_titles.Find_exactly_the'| translate}}</span>
+          {{'register_titles.Right_Partner_for_you'| translate}}
+        </h6>
+        <div class="sh_logoitem1">
+          <img src="../../../assets/groomImg.png" class="img-fluid" />
+        </div>
+      </div>
+
+      <div class="sh_logintitle_block">
+        <h2>
+          {{'form.register_caps'|translate}}
+        </h2>
+      </div>
+
+
+      <div class="ds_formitems">
+        <div class="form-group">
+          <label class="lable_text">{{'form.email_lable'|translate}}</label>
+          <ion-input mode="md" [ngClass]="isValidEmail? '':'invalid-input'" (ionInput)="checkValid()"
+            [(ngModel)]="email" type="email" fill="outline" [placeholder]="'form.email_placeholder'|translate"
+            class="form-control"></ion-input>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.mobile_no'|translate}}
+          </label>
+          <ion-grid class="form-controlgroup">
+            <ion-row>
+              <ion-col size="4" class="pl-0">
+                <ion-select [(ngModel)]="selectedCountryCode" interface="popover" fill="outline" class="form-control">
+                  <ion-select-option *ngFor="let country of countries" [value]="country.dialCode">
+                    {{ country.name }} ({{ country.dialCode }})
+                  </ion-select-option>
+                </ion-select>
+              </ion-col>
+              <ion-col size="8" class="pr-0">
+                <ion-input (ionInput)="checkValid()" [ngClass]="isValidMobile? '':'invalid-input'" mode="md" max="10"
+                  maxlength="10" type="tel" [(ngModel)]="phoneNumber" fill="outline"
+                  [placeholder]="'form.mobile_no_placeholder'|translate" class="form-control"></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{'form.Password'|translate}}</label>
+          <ion-input mode="md" [ngClass]="isValidPass? '':'invalid-input'" (ionInput)="checkValid()"
+            [(ngModel)]="password" type="password" fill="outline" [placeholder]="'form.password_placeholder'|translate"
+            class="form-control">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </div>
+        <div class="form-group mt-2">
+          <ion-button color="light" [disabled]="!canSubmit" expand="block" (click)="submitForm()"
+            class="sh_submitRHBtn">
+            {{'form.Continue'|translate}}
+          </ion-button>
+        </div>
+
+      </div>
+
+
+      <div class="sh_terminfo">
+        <p>{{'register_titles.By creating account, you agree to our'|translate}} <br /> <a
+            class="sh_links">{{'register_titles.Privacy Policy'|translate}}</a> {{'register_titles.and'|translate}} <a
+            class="sh_links">{{'register_titles.T&C'|translate}}</a></p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 <!-- Mobile input desin---------------------------- -->

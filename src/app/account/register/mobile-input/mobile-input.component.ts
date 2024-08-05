@@ -25,26 +25,31 @@ export class MobileInputComponent implements OnInit {
   phoneNumber!: string;
   @Output() formValue = new EventEmitter<any>();
   email: string = '';
+  password: string = '';
   isValidMobile: boolean = true;
-  isValidEmail:boolean = true;
-  canSubmit:Boolean = false;
+  isValidPass: boolean = true;
+  isValidEmail: boolean = true;
+  canSubmit: Boolean = false;
   constructor() { }
 
   ngOnInit() { }
 
   submitForm() {
-    this.formValue.emit({ phone: this.phoneNumber, email: this.email, countrycode: this.selectedCountryCode })
+    this.formValue.emit({ phone: this.phoneNumber, email: this.email, countrycode: this.selectedCountryCode, password: this.password })
   }
 
-  checkValid(){ 
-    if(this.email){
+  checkValid() {
+    if (this.email) {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       this.isValidEmail = emailPattern.test(this.email);
     }
-    if(this.phoneNumber){
+    if (this.phoneNumber) {
       this.isValidMobile = this.phoneNumber.length === 10;
     }
-    this.canSubmit = this.isValidMobile && this.isValidEmail;
+    if (this.password) {
+      this.isValidPass = this.password.length > 5;
+    }
+    this.canSubmit = this.isValidMobile && this.isValidEmail && this.isValidPass;
   }
 
 }

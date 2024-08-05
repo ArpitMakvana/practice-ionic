@@ -1,32 +1,37 @@
 <ion-content [fullscreen]="true">
   <div class="ds_homeitem">
-    <div class="ds_containerfluid">  
+    <div class="ds_containerfluid">
 
-        <div class="w-100 h-100" *ngIf="steps==0">
-          <app-register-option (selectedOption)="optionSelected($event)"></app-register-option>
+      <div class="w-100 h-100" *ngIf="steps==0">
+        <app-register-option (selectedOption)="optionSelected($event)"></app-register-option>
+      </div>
+
+      <div class="ds_registeritem_block" *ngIf="steps>0">
+        <div class="ds_backMenu">
+          <ion-icon name="chevron-back" (click)="goBack()"></ion-icon>
         </div>
 
-        <div class="ds_registeritem_block" *ngIf="steps>0">
-          <div class="ds_backMenu">
-            <ion-icon name="chevron-back" (click)="goBack()"></ion-icon>
-          </div>
-          <app-mobile-input *ngIf="steps==1" (formValue)="enterdEmailPhone($event)"></app-mobile-input>
-          <app-otp-input *ngIf="steps==2" (submitOTP)="submitOtp()"></app-otp-input>
-          <app-profile-for *ngIf="steps==3" (profileFor)="profileFor($event)"></app-profile-for>
-          <app-name-dob *ngIf="steps==4" (submitData)="nameDobForm($event)"></app-name-dob>
-          <app-religion-community *ngIf="steps==5" (submitData)="nameDobForm($event)"></app-religion-community>
-          <app-marrital-status *ngIf="steps==6" (submitData)="nameDobForm($event)"></app-marrital-status>
-          <app-state-city *ngIf="steps==7" (submitData)="nameDobForm($event)"></app-state-city>
-          <app-qualifications *ngIf="steps==8" (submitData)="nameDobForm($event)"></app-qualifications>
-          <app-income *ngIf="steps==9" (submitData)="nameDobForm($event)"></app-income>
-          <app-add-picture *ngIf="steps==10" (submitData)="nameDobForm($event)"></app-add-picture>
-          <app-hobbies *ngIf="steps==11" (submitData)="nameDobForm($event)"></app-hobbies>
-          <app-family-member *ngIf="steps==12" (submitData)="nameDobForm($event)"></app-family-member>
-          <app-family-status *ngIf="steps==13" (submitData)="nameDobForm($event)"></app-family-status>
-          <app-verify-profile *ngIf="steps==14" (submitData)="nameDobForm($event)"></app-verify-profile>
-          <app-register-sucess *ngIf="steps==15" (submitData)="nameDobForm($event)"></app-register-sucess>
-          <!-- <app-profile-picture *ngIf="steps==11" (submitData)="nameDobForm($event)"></app-profile-picture> -->
-        </div> 
+        <app-profile-for *ngIf="steps==1" [options]="config?.user_relation"
+          (profileFor)="profileFor($event)"></app-profile-for>
+
+        <app-name-dob *ngIf="steps==2" (submitData)="nameDobForm($event)"></app-name-dob>
+
+        <app-mobile-input *ngIf="steps==3" (formValue)="enterdEmailPhone($event)"></app-mobile-input>
+        <app-otp-input *ngIf="steps==4" (submitOTP)="submitOtp($event)" (resetEmail)="goBack()"
+          (resendOTP)="resendOTP()" [data]="emailPhoneFormData"></app-otp-input>
+        <app-religion-community *ngIf="steps==5" (submitData)="nameDobForm($event)"></app-religion-community>
+        <app-marrital-status *ngIf="steps==6" (submitData)="nameDobForm($event)"></app-marrital-status>
+        <app-state-city *ngIf="steps==7" (submitData)="nameDobForm($event)"></app-state-city>
+        <app-qualifications *ngIf="steps==8" (submitData)="nameDobForm($event)"></app-qualifications>
+        <app-income *ngIf="steps==9" (submitData)="nameDobForm($event)"></app-income>
+        <app-add-picture *ngIf="steps==10" (submitData)="nameDobForm($event)"></app-add-picture>
+        <app-hobbies *ngIf="steps==11" (submitData)="nameDobForm($event)"></app-hobbies>
+        <app-family-member *ngIf="steps==12" (submitData)="nameDobForm($event)"></app-family-member>
+        <app-family-status *ngIf="steps==13" (submitData)="nameDobForm($event)"></app-family-status>
+        <app-verify-profile *ngIf="steps==14" (submitData)="nameDobForm($event)"></app-verify-profile>
+        <app-register-sucess *ngIf="steps==15" (submitData)="nameDobForm($event)"></app-register-sucess>
+        <!-- <app-profile-picture *ngIf="steps==11" (submitData)="nameDobForm($event)"></app-profile-picture> -->
+      </div>
     </div>
   </div>
 </ion-content>

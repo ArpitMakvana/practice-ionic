@@ -10,13 +10,15 @@ export class NameDobComponent implements OnInit {
   @Output() submitData = new EventEmitter();
   nameDobForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.nameDobForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
-      dob: ['', Validators.required],
+      userName: ['', [Validators.required, Validators.minLength(2)]],
+      dateOfBirth: ['', Validators.required],
+      gender: ['', Validators.required],
     });
   }
 
@@ -26,8 +28,14 @@ export class NameDobComponent implements OnInit {
   get lastName() {
     return this.nameDobForm.get('lastName');
   }
-  get dob() {
-    return this.nameDobForm.get('dob');
+  get userName() {
+    return this.nameDobForm.get('userName');
+  }
+  get dateOfBirth() {
+    return this.nameDobForm.get('dateOfBirth');
+  }
+  get gender() {
+    return this.nameDobForm.get('gender');
   }
 
   submitForm() {
