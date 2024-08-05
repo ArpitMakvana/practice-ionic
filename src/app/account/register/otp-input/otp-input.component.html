@@ -128,8 +128,8 @@
     <div class="sh_landing_contantinfo">
       <div class="sh_register_block">
         <h6>
-          <span>Find exactly the</span>
-          Right Partner for you!
+          <span>{{'register_titles.Find_exactly_the'| translate}}</span>
+          {{'register_titles.Right_Partner_for_you'| translate}}
         </h6>
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
@@ -138,37 +138,37 @@
 
       <div class="sh_logintitle_block">
         <h2>
-          Please enter verification PIN
+          {{'register_titles.Please_enter_verification_PIN'|translate}}
         </h2> 
         <h6>
-          you will received a SMS with verification PIN to
+          {{'register_titles.you_will_received_a_SMS_with_verification_PIN_to'|translate}}
           <span class="mobilenumber">
-            +1245789
+            {{data.email}}
           </span>
           <span>|</span>
-          <a href="#" class="Edit">Edit</a>
+          <a (click)="reEnterEmail()" class="Edit">Edit</a>
         </h6>
       </div>  
 
       <div class="ds_formitems">
         <div class="form-group">
-          <label class="lable_text">PIN Number</label>
-          <ion-input mode="md" [(ngModel)]="email" type="email" fill="outline" placeholder="Enter email"
+          <label class="lable_text">{{'form.PIN_Number'|translate}}</label>
+          <ion-input (ionInput)="checkValid()" mode="md" [(ngModel)]="OTP" maxlength="6" type="tel" fill="outline" [placeholder]="'form.pin_placeholder'|translate"
             class="form-control"></ion-input>
         </div>
   
         <div class="form-group mt-4">
           <ion-row>
             <ion-col size="6" class="pr-0"> 
-              <ion-button color="secondary" disabled="false" expand="block" (click)="submitForm()"
+              <ion-button color="secondary" [disabled]="disableResend" expand="block" (click)="resendOTPEmit()"
                 class="sh_submitRHBtn1">
-                Resend PIN
+                {{'form.Resend_PIN'|translate}}
               </ion-button>
             </ion-col>
             <ion-col size="6" class="pr-0"> 
-              <ion-button color="secondary" disabled="false" expand="block" (click)="submitForm()"
+              <ion-button color="secondary" [disabled]="disableSubmit" expand="block" (click)="submitForm()"
                 class="sh_submitRHBtn">
-                Verify
+                {{'form.Verify'|translate}}
               </ion-button>
             </ion-col>
           </ion-row>
@@ -177,11 +177,11 @@
         <div class="sh_terminfo">
           <p class="text-left">
             <b>
-              Note:
+              {{'register_titles.note'|translate}}:
             </b>
-            You can use privacy options to hide your nnumber
+            {{'register_titles.You_can_use_privacy_options_to_hide_your_number'|translate}}
             <a href="#">
-              l'll do this later
+              {{'register_titles.I_ll_do_this_later'|translate}}
             </a>
           </p>
         </div>   

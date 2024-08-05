@@ -1,19 +1,23 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-profile-for',
   templateUrl: './profile-for.component.html',
   styleUrls: ['./profile-for.component.scss'],
 })
-export class ProfileForComponent  implements OnInit {
+export class ProfileForComponent implements OnInit {
   @Output() profileFor = new EventEmitter();
-  selected:string='';
+  @Input() options: any;
+  selected: string = '';
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.options = this.options.split(',');
+    console.log(this.options);
+  }
 
-  selectedOption(option:string){
-    this.selected=option;
+  selectedOption(option: string) {
+    this.selected = option;
     this.profileFor.emit(this.selected);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, Output, EventEmitter, Input } from '@angular/core';
 import { IonInput } from '@ionic/angular';
 @Component({
   selector: 'app-otp-input',
@@ -9,11 +9,36 @@ export class OtpInputComponent implements OnInit {
   otpArray: string[] = ['', '', '', '', '', ''];
 
   @ViewChildren(IonInput) otpInputs!: QueryList<IonInput>;
-  @Output() submitOTP = new EventEmitter<string>();
-  email:string='';
+  @Output() submitOTP = new EventEmitter<any>();
+  @Output() resetEmail = new EventEmitter<boolean>();
+  @Output() resendOTP = new EventEmitter<boolean>();
+  @Input() data:any;
+  OTP:any='';
+  disableSubmit:boolean=true;
+  disableResend:boolean=true;
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.counter();
+  }
+
+  counter(){
+    setTimeout(()=>{
+      this.disableResend=false;
+    },6000)
+  }
+
+  reEnterEmail(){
+    this.resetEmail.emit(true);
+  }
+  resendOTPEmit(){
+    this.disableResend=true;
+    this.counter();
+    this.resendOTP.emit(true);
+  }
+  checkValid(){
+    if(this.OTP.length==6) this.disableSubmit=false;
+  }
 
   onInput(event: any, index: number) {
     console.log(index);
@@ -40,9 +65,9 @@ export class OtpInputComponent implements OnInit {
   }
 
   submitForm() {
-    const otp = this.otpArray.join('');
-    console.log('Submitted OTP:', otp);
-    this.submitOTP.emit(otp);
+    // const otp = this.otpArray.join('');
+    // console.log('Submitted OTP:', this.OTP);
+    this.submitOTP.emit({otp:this.OTP,email:this.data.email});
   }
 
   clearOtp() {
