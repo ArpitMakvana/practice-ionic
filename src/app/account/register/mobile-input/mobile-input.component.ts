@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 // import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
@@ -21,9 +21,10 @@ export class MobileInputComponent implements OnInit {
     { name: 'Australia', dialCode: '+61' },
     { name: 'India', dialCode: '+91' },
   ];
-  selectedCountryCode = '+91';
+  selectedCountryCode:string = '+91';
   phoneNumber!: string;
   @Output() formValue = new EventEmitter<any>();
+  @Input() presentFormData: any = {};
   email: string = '';
   password: string = '';
   isValidMobile: boolean = true;
@@ -32,7 +33,15 @@ export class MobileInputComponent implements OnInit {
   canSubmit: Boolean = false;
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.presentFormData) {
+      this.email=this.presentFormData.email;
+      this.password = this.presentFormData.password;
+      this.phoneNumber = this.presentFormData.phoneNumber;
+      this.selectedCountryCode = this.presentFormData.selectedCountryCode;
+      this.canSubmit=true;
+    }
+   }
 
   submitForm() {
     this.formValue.emit({ phone: this.phoneNumber, email: this.email, countrycode: this.selectedCountryCode, password: this.password })

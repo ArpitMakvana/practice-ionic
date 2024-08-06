@@ -1,0 +1,77 @@
+<div class="ds_container">
+  <div class="sh_createAccount_login sh_createAccount_register">
+    <div class="sh_logoitem">
+      <img src="../../../assets/logo2.png" class="img-fluid" />
+    </div>
+    <div class="sh_landing_contantinfo">
+      <div class="sh_register_block">
+        <h6>
+          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
+          {{ 'register_titles.Right_Partner_for_you' | translate }}
+        </h6>
+        <div class="sh_logoitem1">
+          <img src="../../../assets/groomImg.png" class="img-fluid" />
+        </div>
+      </div>
+
+      <div class="sh_logintitle_block">
+        <h2>
+          {{ 'register_titles.Personal_Details' | translate }}
+        </h2>
+      </div>
+      <div class="ds_formitems" [formGroup]="otherDetailsForm">
+        <div class="form-group">
+          <label class="lable_text">{{ 'form.skinColour' | translate }}</label>
+          <ion-select formControlName="skinColour" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+            <ion-select-option *ngFor="let option of skinColourOptions" [value]="option">{{ option }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{ 'form.bodyShape' | translate }}</label>
+          <ion-select formControlName="bodyShape" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+            <ion-select-option *ngFor="let option of bodyShapeOptions" [value]="option">{{ option }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{ 'form.prayer' | translate }}</label>
+          <ion-select formControlName="prayer" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+            <ion-select-option *ngFor="let option of prayerOptions" [value]="option">{{ option }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{ 'form.smoke' | translate }}</label>
+          <ion-select formControlName="smoke" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+            <ion-select-option *ngFor="let option of smokeOptions" [value]="option">{{ option }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{ 'form.beard' | translate }}</label>
+          <ion-select formControlName="beard" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+            <ion-select-option *ngFor="let option of beardOptions" [value]="option">{{ option }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="form-group" *ngIf="canDisplayMaritalStatus">
+          <label class="lable_text">{{ 'form.Marital_Status' | translate }}</label>
+          <ion-select formControlName="maritalStatus" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+            <ion-select-option *ngFor="let option of maritalStatusOptions" [value]="option">{{ option }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="form-group mt-4">
+          <ion-button color="secondary" [disabled]="otherDetailsForm.invalid" expand="block" (click)="submitForm()" class="sh_submitRHBtn">{{ 'form.Continue' | translate }}</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

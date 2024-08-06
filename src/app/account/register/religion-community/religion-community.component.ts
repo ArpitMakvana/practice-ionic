@@ -1,21 +1,36 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-religion-community',
   templateUrl: './religion-community.component.html',
   styleUrls: ['./religion-community.component.scss'],
 })
-export class ReligionCommunityComponent  implements OnInit {
-  @Output() submitData = new EventEmitter()
-  religion:string='';
-  community:string='';
-  livingIn:string='';
+export class ReligionCommunityComponent implements OnInit {
+  @Output() submitData = new EventEmitter();
+  @Input() userReligion: any;
+  @Input() presentFormData: any = {};
   
-  constructor() { }
+  religionCommunityForm!: FormGroup;
+  
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userReligion= this.userReligion.split(',');
+    this.religionCommunityForm = this.fb.group({
+      religion: ['', Validators.required],
+      community: ['', Validators.required],
+      subcommunity: ['', Validators.required]
+    });
+    if(this.presentFormData) this.religionCommunityForm.patchValue(this.presentFormData);
 
-  submitForm(){
-    this.submitData.emit({religion:this.religion,community:this.community,livingIn:this.livingIn})
+    console.log(this.userReligion);
+  }
+
+
+  submitForm() {
+    if (this.religionCommunityForm.valid) {
+      this.submitData.emit(this.religionCommunityForm.value);
+    }
   }
 }

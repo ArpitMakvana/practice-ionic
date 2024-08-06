@@ -16,6 +16,13 @@ export class RegisterPage implements OnInit {
   steps: number = 0;
   config: any = {};
   userRelation: string = '';
+  religionCommunityFromData: any;
+  maritalStatusFormData: any;
+  stateCItyFormData: any;
+  qualificationsFormData: any;
+  incomeDetailsFormData: any;
+  aboutYourself: any;
+  userPrefenceData: any;
   constructor(
     private registerService: RegisterService,
     private storage: Storage,
@@ -37,13 +44,21 @@ export class RegisterPage implements OnInit {
     }).catch(err => console.error(err));
 
     this.storage.get(this.registerService.storageKeys.regDataOnOTPSubmit).then((data) => {
-      this.regData = JSON.parse(data);
+      this.regData = JSON.parse(data) ||{};
       console.log(data);
     })
   }
 
   goBack() {
     this.steps--;
+  }
+  skip(event:any){
+    if(event == 'photo' || event == 'verify'){
+      this.steps++;
+    }
+  }
+  moveToHOme(){
+
   }
   optionSelected(event: string) {
     console.log(event);
@@ -84,7 +99,7 @@ export class RegisterPage implements OnInit {
     };
     this.registerService.verifyOTP(this.OTPFormData).then(async (res) => {
       this.presentSuccessToast(res.message);
-      this.regData = { ...this.regData, steps: this.steps + 1 };
+      this.regData = { ...this.regData, steps: this.steps + 1, initialProfileStage:res.data };
       await this.storage.set(this.registerService.storageKeys.regDataOnOTPSubmit, JSON.stringify(this.regData))
       await this.storage.set(this.registerService.storageKeys.initialProfileData, JSON.stringify(res))
       this.steps++;
@@ -101,6 +116,60 @@ export class RegisterPage implements OnInit {
     this.nameDobFormData = event;
     this.regData = { ...this.regData, nameDobFormData: this.nameDobFormData };
     this.steps++;
+  }
+  submitReligionCommunity(evevnt:any){
+    this.religionCommunityFromData = evevnt;
+    this.regData = { ...this.regData, religionCommunityFromData: this.religionCommunityFromData };
+    console.log('this.religionCommunityFromData',this.religionCommunityFromData);
+    this.steps++;
+  }
+  submitMaritalStatus(event:any){
+    this.maritalStatusFormData = event;
+    this.regData = { ...this.regData, maritalStatusFormData: this.maritalStatusFormData };
+    console.log('this.maritalStatusFormData',this.maritalStatusFormData);
+    this.steps++;
+  }
+  submitSTateCity(event:any){
+    this.stateCItyFormData = event;
+    this.regData = { ...this.regData, stateCItyFormData: this.stateCItyFormData };
+    console.log('this.stateCItyFormData',this.stateCItyFormData);
+    this.steps++;
+  }
+  submitqualification(event:any){
+    this.qualificationsFormData = event;
+    this.regData = { ...this.regData, qualificationsFormData: this.qualificationsFormData };
+    console.log('this.qualificationsFormData',this.qualificationsFormData);
+    this.steps++;
+  }
+  submitIncome(event:any){
+    this.incomeDetailsFormData = event;
+    this.regData = { ...this.regData, incomeDetailsFormData: this.incomeDetailsFormData };
+    console.log('this.incomeDetailsFormData',this.incomeDetailsFormData);
+    this.steps++;
+  }
+  submitAbout(event:any){
+    this.aboutYourself = event;
+    this.regData = { ...this.regData, aboutYourself: this.aboutYourself };
+    console.log('this.aboutYourself',this.aboutYourself);
+    this.steps++;
+  }
+  submitUserPreference(event:any){
+    this.userPrefenceData = event;
+    this.regData = { ...this.regData, userPrefenceData: this.userPrefenceData };
+    console.log('this.userPrefenceData',this.userPrefenceData);
+    this.steps++;
+  }
+
+  submitProfilePicture(files: File[]) {
+    this.regData = { ...this.regData, files: files };
+    const formData = new FormData();
+    files.forEach(file => {
+      formData.append('file', file);
+    });
+    console.log(files);
+  }
+  verifyProfile(){
+
   }
 
   async presentSuccessToast(message: string) {

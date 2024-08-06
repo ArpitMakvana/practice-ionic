@@ -1,110 +1,57 @@
-<!-- <div class="ds_registerMobile_block">
-  <div class="ds_container"> 
-
-    
-    <div class="page_title">
-      <div class="iconbox">
-        <ion-icon color="warning" name="book-sharp"></ion-icon>
-      </div>
-      <h3>
-        Great! Few more details
-      </h3> 
-    </div>
-
-    <div class="ds_formitems">
-      <div class="form-group">
-        <label class="lable_text">
-          Highest Qualification
-        </label>
-        <ion-select [(ngModel)]="qualification" interface="popover" fill="outline" class="form-control">
-          <ion-select-option value="">Your highest qualification
-          </ion-select-option>
-        </ion-select>
-      </div>
-      <div class="form-group">
-        <label class="lable_text">
-          Collage
-        </label>
-        <ion-input mode="md" [(ngModel)]="college"  type="text"  fill="outline"
-          placeholder="Enter college" class="form-control"></ion-input>
-      </div>
-      <div class="form-group mt-4">
-        <ion-button color="secondary" disabled="false" expand="block" (click)="submitForm()"
-          class="sh_submitRHBtn">Continue</ion-button>
-      </div>
-    </div>
-  </div>
-</div>
- -->
-
-
-
-
-
-
-
-
-
 <div class="ds_container">
   <div class="sh_createAccount_login sh_createAccount_register ">
     <div class="sh_logoitem">
       <img src="../../../assets/logo2.png" class="img-fluid" />
-    </div> 
+    </div>
     <div class="sh_landing_contantinfo">
       <div class="sh_register_block">
         <h6>
-          <span>Find exactly the</span>
-          Right Partner for you!
+          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
+          {{ 'register_titles.Right_Partner_for_you' | translate }}
         </h6>
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div> 
+        </div>
       </div>
 
       <div class="sh_logintitle_block">
         <h2>
-          Now let's build your profile
-        </h2> 
+          {{ 'register_titles.Personal_Details' | translate }}
+        </h2>
       </div>
 
 
-      
-    <div class="ds_formitems">
-      <div class="form-group">
-        <label class="lable_text">
-          Highest Qualification
-        </label>
-        <ion-select [(ngModel)]="qualification" interface="popover" fill="outline" class="form-control">
-          <ion-select-option value="">Your highest qualification
-          </ion-select-option>
-        </ion-select>
+
+      <div class="ds_formitems" [formGroup]="qualificationForm">
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.Highest_Qualification'|translate}}
+          </label>
+          <ion-select formControlName="heightestQualification" interface="popover" fill="outline" class="form-control">
+            <ion-select-option value="">
+              {{ 'form.Select_option' | translate }}
+            </ion-select-option>
+            <ion-select-option *ngFor="let status of userHighestQualifications" [value]="status">
+              {{ status }}
+            </ion-select-option>
+          </ion-select>
+        </div>
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.Collage'|translate}}
+          </label>
+          <ion-input mode="md"
+            [class.invalid-input]="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
+            formControlName="college" type="text" fill="outline" class="form-control"></ion-input>
+        </div>
+        <div class="form-group mt-4">
+          <ion-button color="secondary" [disabled]="qualificationForm.invalid" expand="block" (click)="submitForm()"
+            class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+        </div>
       </div>
-      <div class="form-group">
-        <label class="lable_text">
-          Collage
-        </label>
-        <ion-input mode="md" [(ngModel)]="college"  type="text"  fill="outline"
-          placeholder="Enter college" class="form-control"></ion-input>
-      </div>
-      <div class="form-group mt-4">
-        <ion-button color="secondary" disabled="false" expand="block" (click)="submitForm()"
-          class="sh_submitRHBtn">Continue</ion-button>
-      </div>
-    </div>
-      
+
 
 
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-

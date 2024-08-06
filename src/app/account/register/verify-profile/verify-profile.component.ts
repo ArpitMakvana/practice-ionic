@@ -6,11 +6,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./verify-profile.component.scss'],
 })
 export class VerifyProfileComponent  implements OnInit {
-  @Output() submitData = new EventEmitter()
+  @Output() submitData = new EventEmitter();
+  @Output() skip = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {}
   submitForm(){
     this.submitData.emit({})
+  }
+  skipStep() {
+    this.skip.emit('verify');
   }
 }

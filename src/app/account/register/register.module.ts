@@ -26,6 +26,7 @@ import { HobbiesComponent } from './hobbies/hobbies.component';
 import { FamilyMemberComponent } from './family-member/family-member.component';
 import { FamilyStatusComponent } from './family-status/family-status.component';
 import { RegisterSucessComponent } from './register-sucess/register-sucess.component';
+import { UserPreferenceComponent } from './user-preference/user-preference.component';
 
 register();
 @NgModule({
@@ -55,7 +56,8 @@ register();
     HobbiesComponent,
     FamilyMemberComponent,
     FamilyStatusComponent,
-    RegisterSucessComponent
+    RegisterSucessComponent,
+    UserPreferenceComponent
   ],
   exports: [
     RegisterOptionComponent,
@@ -74,7 +76,8 @@ register();
     HobbiesComponent,
     FamilyMemberComponent,
     FamilyStatusComponent,
-    RegisterSucessComponent
+    RegisterSucessComponent,
+    UserPreferenceComponent
   ]
 })
 export class RegisterPageModule { }

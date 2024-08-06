@@ -1,118 +1,95 @@
-<!-- <div class="ds_registerMobile_block">
-  <div class="ds_container"> 
-    <div class="page_title">
-      <div class="iconbox">
-      <ion-icon color="warning" name="person-sharp"></ion-icon>
-      </div>
-      <h3>
-        Personnal information
-      </h3> 
-    </div>
-
-    <div class="ds_formitems">
-      <div class="form-group">
-        <label class="lable_text">
-          Marital Status
-        </label>
-        <ion-select [(ngModel)]="maritalStatus" interface="popover" fill="outline" class="form-control">
-          <ion-select-option value="">Select option
-          </ion-select-option>
-        </ion-select>
-      </div>
-      <div class="form-group">
-        <label class="lable_text">
-          Height
-        </label>
-        <ion-select [(ngModel)]="height" interface="popover" fill="outline" class="form-control">
-          <ion-select-option value="">Select option
-          </ion-select-option>
-        </ion-select>
-      </div>
-      <div class="form-group">
-        <label class="lable_text">
-          Diet
-        </label>
-        <ion-select [(ngModel)]="diet" interface="popover" fill="outline" class="form-control">
-          <ion-select-option value="">Select option
-          </ion-select-option>
-        </ion-select>
-      </div>
-      <div class="form-group mt-4">
-        <ion-button color="secondary" disabled="false" expand="block" (click)="submitForm()"
-          class="sh_submitRHBtn">Continue</ion-button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
-
 <div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register ">
+  <div class="sh_createAccount_login sh_createAccount_register">
     <div class="sh_logoitem">
       <img src="../../../assets/logo2.png" class="img-fluid" />
-    </div> 
+    </div>
     <div class="sh_landing_contantinfo">
       <div class="sh_register_block">
         <h6>
-          <span>Find exactly the</span>
-          Right Partner for you!
+          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
+          {{ 'register_titles.Right_Partner_for_you' | translate }}
         </h6>
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div> 
+        </div>
       </div>
 
       <div class="sh_logintitle_block">
         <h2>
-          Personal Details
-        </h2> 
+          {{ 'register_titles.Personal_Details' | translate }}
+        </h2>
       </div>
 
+      <div class="ds_formitems" [formGroup]="maritalStatusForm">
+        <div class="form-group">
+          <label class="lable_text">
+            {{ 'form.Marital_Status' | translate }}
+          </label>
+          <ion-select
+            interface="popover"
+            fill="outline"
+            class="form-control"
+            formControlName="maritalStatus"
+          >
+            <ion-select-option value="">
+              {{ 'form.Select_option' | translate }}
+            </ion-select-option>
+            <ion-select-option *ngFor="let status of userMaritalStatus" [value]="status">
+              {{ status }}
+            </ion-select-option>
+          </ion-select>
+        </div>
 
-      <div class="ds_formitems">
         <div class="form-group">
           <label class="lable_text">
-            Marital Status
+            {{ 'form.Height' | translate }}
           </label>
-          <ion-select [(ngModel)]="maritalStatus" interface="popover" fill="outline" class="form-control">
-            <ion-select-option value="">Select option
+          <ion-select
+            interface="popover"
+            fill="outline"
+            class="form-control"
+            formControlName="height"
+          >
+            <ion-select-option value="">
+              {{ 'form.Select_option' | translate }}
+            </ion-select-option>
+            <ion-select-option *ngFor="let height of heightOptions" [value]="height">
+              {{ height }}
             </ion-select-option>
           </ion-select>
         </div>
+
         <div class="form-group">
           <label class="lable_text">
-            Height
+            {{ 'form.Weight' | translate }}
           </label>
-          <ion-select [(ngModel)]="height" interface="popover" fill="outline" class="form-control">
-            <ion-select-option value="">Select option
+          <ion-select
+            interface="popover"
+            fill="outline"
+            class="form-control"
+            formControlName="weight"
+          >
+            <ion-select-option value="">
+              {{ 'form.Select_option' | translate }}
+            </ion-select-option>
+            <ion-select-option *ngFor="let weight of weightOptions" [value]="weight">
+              {{ weight }}
             </ion-select-option>
           </ion-select>
         </div>
-        <div class="form-group">
-          <label class="lable_text">
-            Diet
-          </label>
-          <ion-select [(ngModel)]="diet" interface="popover" fill="outline" class="form-control">
-            <ion-select-option value="">Select option
-            </ion-select-option>
-          </ion-select>
-        </div>
+
         <div class="form-group mt-4">
-          <ion-button color="secondary" disabled="false" expand="block" (click)="submitForm()"
-            class="sh_submitRHBtn">Continue</ion-button>
+          <ion-button
+            color="secondary"
+            [disabled]="maritalStatusForm.invalid"
+            expand="block"
+            (click)="submitForm()"
+            class="sh_submitRHBtn"
+          >
+            {{ 'form.Continue' | translate }}
+          </ion-button>
         </div>
-      </div> 
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-

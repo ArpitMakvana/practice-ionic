@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ProfileForComponent implements OnInit {
   @Output() profileFor = new EventEmitter();
   @Input() options: any;
+  @Input() presentFormData: any = {};
   selected: string = '';
   constructor() { }
 

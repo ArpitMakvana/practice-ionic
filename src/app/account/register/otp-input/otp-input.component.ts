@@ -7,7 +7,7 @@ import { IonInput } from '@ionic/angular';
 })
 export class OtpInputComponent implements OnInit {
   otpArray: string[] = ['', '', '', '', '', ''];
-
+  @Input() presentFormData: any = {};
   @ViewChildren(IonInput) otpInputs!: QueryList<IonInput>;
   @Output() submitOTP = new EventEmitter<any>();
   @Output() resetEmail = new EventEmitter<boolean>();

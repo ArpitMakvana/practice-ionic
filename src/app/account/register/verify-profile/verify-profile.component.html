@@ -5,10 +5,10 @@
         <ion-icon color="warning" name="ribbon-outline"></ion-icon>
       </div>
       <h1>
-        Verify Profile
+        {{'verify_profile.Verify_Profile'|translate}}
       </h1> 
       <h6>
-        Verified Profiles are trusted more
+        {{'verify_profile.Verified_Profiles_are_trusted_more'|translate}}
       </h6>
     </div>
 
@@ -16,22 +16,22 @@
       <div class="card">
         <ul class="itemslist">
           <li class="item">
-            Verified Profiles are shown higher in the listing
+            {{'verify_profile.Verified_Profiles_are_shown_higher_in_the_listing'|translate}}
           </li>
           <li class="item">
-            Standout with a Blue Tick on your Profile
+            {{'verify_profile.Standout_with_a_Blue_Tick_on_your_Profile'|translate}}
           </li>
 
           <li class="item">
-            Filter and find exclusive Verified Profiles for You
+            {{'verify_profile.Filter_and_find_exclusive_Verified_Profiles_for_You'|translate}}
           </li>
         </ul>
         <div class="card-footer">
-          Govt. ID required for verification
+          {{'verify_profile.Govt_ID_required_for_verification'|translate}}
         </div>
       </div>
       <h4>
-        Verify and get all benefits for a year
+        {{'verify_profile.Verify_and_get_all_benefits_for_a_year'|translate}}
       </h4>
       <h3 class="sub_amount">
         <span class="amount">
@@ -40,14 +40,19 @@
           </u>
         </span>
         <span class="amount_discounts">
-          Free
+          {{'verify_profile.Free'|translate}}
         </span>
       </h3>
 
 
       <div class="form-group mt-4">
         <ion-button color="dark" disabled="false" expand="block" (click)="submitForm()" class="sh_submitRHBtn">
-          Get Verified
+          {{'verify_profile.Get_Verified'|translate}}
+        </ion-button>
+      </div>
+      <div class="form-group mt-4">
+        <ion-button color="dark" fill="outline" disabled="false" expand="block" (click)="skipStep()" class="sh_submitRHBtn">
+          {{'verify_profile.verify_letter'|translate}}
         </ion-button>
       </div>
     </div>

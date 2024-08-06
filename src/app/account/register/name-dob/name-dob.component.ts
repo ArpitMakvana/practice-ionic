@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NameDobComponent implements OnInit {
   @Output() submitData = new EventEmitter();
+  @Input() presentFormData: any = {};
   nameDobForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -20,6 +21,7 @@ export class NameDobComponent implements OnInit {
       dateOfBirth: ['', Validators.required],
       gender: ['', Validators.required],
     });
+    if(this.presentFormData) this.nameDobForm.patchValue(this.presentFormData);
   }
 
   get firstName() {
