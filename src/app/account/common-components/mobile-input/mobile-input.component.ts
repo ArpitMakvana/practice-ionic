@@ -37,8 +37,8 @@ export class MobileInputComponent implements OnInit {
     if(this.presentFormData) {
       this.email=this.presentFormData.email;
       this.password = this.presentFormData.password;
-      this.phoneNumber = this.presentFormData.phoneNumber;
-      this.selectedCountryCode = this.presentFormData.selectedCountryCode;
+      this.phoneNumber = this.presentFormData.phone;
+      this.selectedCountryCode = this.presentFormData.countrycode;
       this.canSubmit=true;
     }
    }

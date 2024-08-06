@@ -45,6 +45,7 @@ export class RegisterPage implements OnInit {
 
     this.storage.get(this.registerService.storageKeys.regDataOnOTPSubmit).then((data) => {
       this.regData = JSON.parse(data) ||{};
+      if(this.regData.steps) this.steps = this.regData.steps;
       console.log(data);
     })
   }
@@ -167,6 +168,7 @@ export class RegisterPage implements OnInit {
       formData.append('file', file);
     });
     console.log(files);
+    this.steps++;
   }
   verifyProfile(){
 
