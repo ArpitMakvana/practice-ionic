@@ -1,23 +1,33 @@
-// interceptors/registration.interceptor.ts
-
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class RegistrationInterceptor implements HttpInterceptor {
+  constructor(private auth: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // if (req.url.includes('/register')) {
-    // Add headers to the request
-    const modifiedReq = req.clone({
-      headers: req.headers
-        // .set('Content-Type', 'application/json')
-        .set('lang', 'en')
-    });
+    return from(this.auth.getToken()).pipe(
+      switchMap(token => {
+        let modifiedReq = req;
 
-    return next.handle(modifiedReq);
-    // }
-    return next.handle(req);
+        if (req.url.includes('/upload')) {
+          modifiedReq = req.clone({
+            headers: req.headers
+              .set('token', token)
+          });
+        } else {
+          modifiedReq = req.clone({
+            headers: req.headers
+              .set('lang', 'en')
+              .set('token', token)
+          });
+        }
+
+        return next.handle(modifiedReq);
+      })
+    );
   }
 }

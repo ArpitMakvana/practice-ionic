@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-option',
@@ -7,9 +8,21 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class RegisterOptionComponent implements OnInit {
   @Output() selectedOption = new EventEmitter<string>();
-  constructor() { }
+  @Output() submit = new EventEmitter<string>();
+  @Input() disableButton: any = false;
+  loginForm!: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  submitForm() {
+    this.submit.emit(this.loginForm.value)
+  }
 
   selectOption(option: string) {
     this.selectedOption.emit(option);

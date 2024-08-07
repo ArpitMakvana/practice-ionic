@@ -1,13 +1,13 @@
 <div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register ">
+  <div class="sh_createAccount_login sh_createAccount_register">
     <div class="sh_logoitem">
       <img src="../../../assets/logo2.png" class="img-fluid" />
     </div>
     <div class="sh_landing_contantinfo">
       <div class="sh_register_block">
         <h6>
-          <span>Find exactly the</span>
-          Right Partner for you!
+          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
+          {{ 'register_titles.Right_Partner_for_you' | translate }}
         </h6>
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
@@ -15,48 +15,57 @@
       </div>
 
       <div class="sh_logintitle_block">
-        <h2>
-          Add family details
-        </h2>
-        <h6>
-          This really helps find common connections
-        </h6>
+        <h2>{{'register_titles.Add_family_details'|translate}}</h2>
+        <h6>{{'register_titles.This_really_helps_find_common_connections'|translate}}</h6>
       </div>
 
-      <div class="ds_familydetilse_block"> 
+      <div class="ds_familydetilse_block">
         <div class="ds_formitems">
-          <div class="form-group">
-            <label class="lable_text">
-              Your Family's Financial Status
-            </label>
-            <div class="status_groups">
-              <label class="sh_radio">Elite
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-              </label>
+          <form [formGroup]="familyStatusForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+              <label class="lable_text">{{'form.Your_Family_Financial_Status'|translate}}</label>
+              <div class="status_groups">
+                <label class="sh_radio">{{'form.Elite'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="Elite">
+                  <span class="checkmark"></span>
+                </label>
 
-              <label class="sh_radio">High
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
+                <label class="sh_radio">{{'form.High'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="High">
+                  <span class="checkmark"></span>
+                </label>
 
-              <label class="sh_radio">Middle
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
+                <label class="sh_radio">{{'form.Middle'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="Middle">
+                  <span class="checkmark"></span>
+                </label>
 
-              <label class="sh_radio">Aspiring
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-
+                <label class="sh_radio">{{'form.Aspiring'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="Aspiring">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
             </div>
-          </div> 
 
-          <div class="form-group mt-4">
-            <ion-button color="dark" disabled="false" expand="block" (click)="submitForm()"
-              class="sh_submitRHBtn">Continue</ion-button>
-          </div>
+            <div class="form-group mt-4">
+              <label class="lable_text">{{"form.Living_Arrangement"|translate}}</label>
+              <div class="status_groups">
+                <label class="sh_radio">{{'form.Living_with_family'|translate}}
+                  <input type="radio" formControlName="liveWithFamily" value="true">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="sh_radio">{{'form.Not_living_with_family'|translate}}
+                  <input type="radio" formControlName="liveWithFamily" value="false">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group mt-4">
+              <ion-button [disabled]="familyStatusForm.invalid" color="dark" expand="block" type="submit"
+                class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

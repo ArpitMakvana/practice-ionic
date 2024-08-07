@@ -7,43 +7,46 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./add-picture.component.scss'],
 })
 export class AddPictureComponent implements OnInit {
-  @Output() submitData = new EventEmitter<File[]>();
+  @Output() submitData = new EventEmitter<File>();
   @Output() skip = new EventEmitter<string>();
   @Input() presentFormData: any = {};
   photoForm!: FormGroup;
-  photos: string[] = [];
-  files: File[] = [];
+  photo: string | null = null;
+  file: File | null = null;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.photoForm = this.fb.group({
       galleryFile: ['']
     });
+
+    if (this.presentFormData?.photo) {
+      this.photo = this.presentFormData.photo;
+      this.file = this.presentFormData.file;
+    }
   }
 
   onFileChange(event: any) {
     if (event.target.files && event.target.files.length) {
-      const selectedFiles: File[] = Array.prototype.slice.call(event.target.files);
-      selectedFiles.forEach((file: File) => {
-        this.files.push(file);
-        const reader = new FileReader();
-        reader.onload = () => {
-          this.photos.push(reader.result as string);
-        };
-        reader.readAsDataURL(file);
-      });
+      const file: File = event.target.files[0];
+      this.file = file;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.photo = reader.result as string;
+      };
+      reader.readAsDataURL(file);
     }
   }
 
-  removePhoto(index: number) {
-    this.photos.splice(index, 1);
-    this.files.splice(index, 1);
+  removePhoto() {
+    this.photo = null;
+    this.file = null;
   }
 
   submitForm() {
-    if (this.files.length) {
-      this.submitData.emit(this.files);
+    if (this.file) {
+      this.submitData.emit(this.file);
     }
   }
 

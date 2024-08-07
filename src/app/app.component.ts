@@ -18,10 +18,10 @@ export class AppComponent {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(private translate: TranslateService, private storage: Storage) {
     this.translate.setDefaultLang('en');
+    this.storage.create();
   }
   async ngOnInit() {
     // If using a custom driver:
     // await this.storage.defineDriver(MyCustomDriver)
-    await this.storage.create();
   }
 }

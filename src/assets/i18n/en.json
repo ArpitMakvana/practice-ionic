@@ -56,7 +56,15 @@
     "bodyShape":"BodyShape",
     "prayer":"Prayer",
     "smoke":"Smoke",
-    "beard":"Beard"
+    "beard":"Beard",
+    "Your_Family_Financial_Status":"Your Family's Financial Status",
+    "Elite":"Elite",
+    "High":"High",
+    "Middle":"Middle",
+    "Aspiring":"Aspiring",
+    "Living_Arrangement":"Living Arrangement",
+    "Living_with_family":"Living with family",
+    "Not_living_with_family":"Not living with family"
   },
   "select_options": {
     "gender": {
@@ -83,7 +91,9 @@
     "build_your_profile":"Now let's build your profile",
     "add_about_you":"Add a short description about you",
     "Add_your_photos_to_complete_your_profile":"Add your photos to complete your profile",
-    "safe_photo_upload":"your photos are 100% safe and secure"
+    "safe_photo_upload":"your photos are 100% safe and secure",
+    "This_really_helps_find_common_connections":"This really helps find common connections",
+    "Add_family_details":"Add family details"
   },
   "error_message": {
     "First_name_minimum": "First name is required and should be at least 2 characters.",
