@@ -27,7 +27,8 @@
           <label class="lable_text">
             {{'form.Highest_Qualification'|translate}}
           </label>
-          <ion-select formControlName="heightestQualification" interface="popover" fill="outline" class="form-control">
+          <ion-select formControlName="heightestQualification" interface="popover" fill="outline" class="form-control"
+            [class.invalid-input]="qualificationForm.get('heightestQualification')?.invalid && qualificationForm.get('heightestQualification')?.touched">
             <ion-select-option value="">
               {{ 'form.Select_option' | translate }}
             </ion-select-option>
@@ -35,6 +36,11 @@
               {{ status }}
             </ion-select-option>
           </ion-select>
+          <div
+            *ngIf="qualificationForm.get('heightestQualification')?.invalid && qualificationForm.get('heightestQualification')?.touched"
+            class="invalid-feedback">
+            {{'error_message.highest_qualification_required'|translate}}
+          </div>
         </div>
         <div class="form-group">
           <label class="lable_text">
@@ -43,6 +49,10 @@
           <ion-input mode="md"
             [class.invalid-input]="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
             formControlName="college" type="text" fill="outline" class="form-control"></ion-input>
+          <div *ngIf="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
+            class="invalid-feedback">
+            {{'error_message.college_required'|translate}}
+          </div>
         </div>
         <div class="form-group mt-4">
           <ion-button color="secondary" [disabled]="qualificationForm.invalid" expand="block" (click)="submitForm()"

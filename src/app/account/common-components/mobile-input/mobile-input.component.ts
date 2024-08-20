@@ -1,19 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
-// import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-// import { Swiper, SwiperSlide } from 'swiper/angular';
 @Component({
   selector: 'app-mobile-input',
   templateUrl: './mobile-input.component.html',
   styleUrls: ['./mobile-input.component.scss'],
 })
 export class MobileInputComponent implements OnInit {
-  slideOpts = {
-    initialSlide: 0,
-    speed: 400
-  };
-
+  form!: FormGroup;
   countries = [
     { name: 'United States', dialCode: '+1' },
     { name: 'Canada', dialCode: '+1' },
@@ -21,44 +15,56 @@ export class MobileInputComponent implements OnInit {
     { name: 'Australia', dialCode: '+61' },
     { name: 'India', dialCode: '+91' },
   ];
-  selectedCountryCode:string = '+91';
-  phoneNumber!: string;
   @Output() formValue = new EventEmitter<any>();
   @Input() presentFormData: any = {};
-  email: string = '';
-  password: string = '';
-  isValidMobile: boolean = true;
-  isValidPass: boolean = true;
-  isValidEmail: boolean = true;
-  canSubmit: Boolean = false;
-  constructor() { }
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      selectedCountryCode: ['+91', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
 
   ngOnInit() {
-    if(this.presentFormData) {
-      this.email=this.presentFormData.email;
-      this.password = this.presentFormData.password;
-      this.phoneNumber = this.presentFormData.phone;
-      this.selectedCountryCode = this.presentFormData.countrycode;
-      this.canSubmit=true;
+    if (this.presentFormData) {
+      this.form.patchValue({
+        email: this.presentFormData.email,
+        phoneNumber: this.presentFormData.phone,
+        selectedCountryCode: this.presentFormData.countrycode,
+        password: this.presentFormData.password,
+      });
     }
-   }
+
+    this.form.statusChanges.subscribe(() => {
+      this.checkValid();
+    });
+  }
 
   submitForm() {
-    this.formValue.emit({ phone: this.phoneNumber, email: this.email, countrycode: this.selectedCountryCode, password: this.password })
+    if (this.form.valid) {
+      this.formValue.emit(this.form.value);
+    }
   }
 
   checkValid() {
-    if (this.email) {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      this.isValidEmail = emailPattern.test(this.email);
-    }
-    if (this.phoneNumber) {
-      this.isValidMobile = this.phoneNumber.length === 10;
-    }
-    if (this.password) {
-      this.isValidPass = this.password.length > 5;
-    }
-    this.canSubmit = this.isValidMobile && this.isValidEmail && this.isValidPass;
+    return this.form.valid;
   }
 
+  get email() {
+    return this.form.get('email');
+  }
+
+  get phoneNumber() {
+    return this.form.get('phoneNumber');
+  }
+
+  get selectedCountryCode() {
+    return this.form.get('selectedCountryCode');
+  }
+
+  get password() {
+    return this.form.get('password');
+  }
 }

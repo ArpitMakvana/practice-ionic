@@ -26,7 +26,7 @@ register();
 
   imports: [
     BrowserModule,
-    IonicModule.forRoot({ mode: 'ios' }),
+    IonicModule.forRoot(), //{ mode: 'ios' }
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,

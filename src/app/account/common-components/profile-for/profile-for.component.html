@@ -30,6 +30,30 @@
           </ion-chip>
         </ng-content>
       </div>
+
+      <div class="sh_logintitle_block">
+        <h2>
+          {{'form.gender_placeholder'|translate}}
+        </h2>
+      </div>
+
+
+      <div class="sh_profileietms_block">
+        <ng-content>
+          <ion-chip (click)="selectedGender('male')" class="chip" [ngClass]="gender=='male' ? 'active':''">
+            <ion-icon name="add-circle-sharp"></ion-icon>
+            <ion-label>{{'select_options.gender.male'|translate}}</ion-label>
+          </ion-chip>
+          <ion-chip (click)="selectedGender('female')" class="chip" [ngClass]="gender=='female' ? 'active':''">
+            <ion-icon name="add-circle-sharp"></ion-icon>
+            <ion-label>{{'select_options.gender.female'|translate}}</ion-label>
+          </ion-chip>
+        </ng-content>
+      </div>
+      <div class="form-group mt-4">
+        <ion-button [disabled]="!gender || !selected" color="dark" expand="block" type="submit" (click)="submit()"
+          class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+      </div>
     </div>
   </div>
 </div>

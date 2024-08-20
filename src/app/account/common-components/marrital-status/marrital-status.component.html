@@ -25,12 +25,8 @@
           <label class="lable_text">
             {{ 'form.Marital_Status' | translate }}
           </label>
-          <ion-select
-            interface="popover"
-            fill="outline"
-            class="form-control"
-            formControlName="maritalStatus"
-          >
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="maritalStatus"
+            [class.invalid-input]="maritalStatusForm.get('maritalStatus')?.invalid && maritalStatusForm.get('maritalStatus')?.touched">
             <ion-select-option value="">
               {{ 'form.Select_option' | translate }}
             </ion-select-option>
@@ -38,18 +34,19 @@
               {{ status }}
             </ion-select-option>
           </ion-select>
+          <div
+            *ngIf="maritalStatusForm.get('maritalStatus')?.invalid && maritalStatusForm.get('maritalStatus')?.touched"
+            class="invalid-feedback">
+            {{'error_message.marital_status_required'|translate}}
+          </div>
         </div>
 
         <div class="form-group">
           <label class="lable_text">
             {{ 'form.Height' | translate }}
           </label>
-          <ion-select
-            interface="popover"
-            fill="outline"
-            class="form-control"
-            formControlName="height"
-          >
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="height"
+            [class.invalid-input]="maritalStatusForm.get('height')?.invalid && maritalStatusForm.get('height')?.touched">
             <ion-select-option value="">
               {{ 'form.Select_option' | translate }}
             </ion-select-option>
@@ -57,18 +54,18 @@
               {{ height }}
             </ion-select-option>
           </ion-select>
+          <div *ngIf="maritalStatusForm.get('height')?.invalid && maritalStatusForm.get('height')?.touched"
+            class="invalid-feedback">
+            {{'error_message.height_required'|translate}}
+          </div>
         </div>
 
         <div class="form-group">
           <label class="lable_text">
             {{ 'form.Weight' | translate }}
           </label>
-          <ion-select
-            interface="popover"
-            fill="outline"
-            class="form-control"
-            formControlName="weight"
-          >
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="weight"
+            [class.invalid-input]="maritalStatusForm.get('weight')?.invalid && maritalStatusForm.get('weight')?.touched">
             <ion-select-option value="">
               {{ 'form.Select_option' | translate }}
             </ion-select-option>
@@ -76,16 +73,15 @@
               {{ weight }}
             </ion-select-option>
           </ion-select>
+          <div *ngIf="maritalStatusForm.get('weight')?.invalid && maritalStatusForm.get('weight')?.touched"
+            class="invalid-feedback">
+            {{'error_message.weight_required'|translate}}
+          </div>
         </div>
 
         <div class="form-group mt-4">
-          <ion-button
-            color="secondary"
-            [disabled]="maritalStatusForm.invalid"
-            expand="block"
-            (click)="submitForm()"
-            class="sh_submitRHBtn"
-          >
+          <ion-button color="secondary" [disabled]="maritalStatusForm.invalid" expand="block" (click)="submitForm()"
+            class="sh_submitRHBtn">
             {{ 'form.Continue' | translate }}
           </ion-button>
         </div>

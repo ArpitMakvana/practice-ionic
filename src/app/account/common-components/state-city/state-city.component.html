@@ -21,81 +21,77 @@
       </div>
 
       <div class="ds_formitems" [formGroup]="locationForm">
+        <!-- Country Field -->
         <div class="form-group">
           <label class="lable_text">{{ 'form.Country' | translate }}</label>
-          <ion-select
-            interface="popover"
-            fill="outline"
-            class="form-control"
-            formControlName="country"
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="country"
             (ionChange)="onCountryChange($event)"
-          >
+            [class.invalid-input]="locationForm.get('country')?.invalid && locationForm.get('country')?.touched">
             <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
             <ion-select-option *ngFor="let country of countries" [value]="country">{{ country }}</ion-select-option>
           </ion-select>
+          <div *ngIf="locationForm.get('country')?.invalid && locationForm.get('country')?.touched"
+            class="invalid-feedback">
+            {{ 'error_message.country_required' | translate }}
+          </div>
         </div>
 
+        <!-- State Field -->
         <div class="form-group">
           <label class="lable_text">{{ 'form.State' | translate }}</label>
-          <ion-select
-            interface="popover"
-            fill="outline"
-            class="form-control"
-            formControlName="state"
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="state"
             (ionChange)="onStateChange($event)"
-            [disabled]="!locationForm.get('country')?.value"
-          >
+            [class.invalid-input]="locationForm.get('state')?.invalid && locationForm.get('state')?.touched">
             <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
             <ion-select-option *ngFor="let state of states" [value]="state">{{ state }}</ion-select-option>
           </ion-select>
+          <div *ngIf="locationForm.get('state')?.invalid && locationForm.get('state')?.touched"
+            class="invalid-feedback">
+            {{ 'error_message.state_required' | translate }}
+          </div>
         </div>
 
+        <!-- City Field -->
         <div class="form-group">
           <label class="lable_text">{{ 'form.City' | translate }}</label>
-          <ion-select
-            interface="popover"
-            fill="outline"
-            class="form-control"
-            formControlName="city"
-            [disabled]="!locationForm.get('state')?.value"
-          >
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="city"
+            [class.invalid-input]="locationForm.get('city')?.invalid && locationForm.get('city')?.touched">
             <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
             <ion-select-option *ngFor="let city of cities" [value]="city">{{ city }}</ion-select-option>
           </ion-select>
+          <div *ngIf="locationForm.get('city')?.invalid && locationForm.get('city')?.touched" class="invalid-feedback">
+            {{ 'error_message.city_required' | translate }}
+          </div>
         </div>
 
+        <!-- Place of Origin Field -->
         <div class="form-group">
           <label class="lable_text">{{ 'form.Origin' | translate }}</label>
-          <ion-input
-            mode="md"
-            type="text"
-            fill="outline"
-            formControlName="placeOfOrigin"
+          <ion-input mode="md" type="text" fill="outline" formControlName="placeOfOrigin"
             [class.invalid-input]="locationForm.get('placeOfOrigin')?.invalid && locationForm.get('placeOfOrigin')?.touched"
-            class="form-control"
-          ></ion-input>
+            class="form-control"></ion-input>
+          <div *ngIf="locationForm.get('placeOfOrigin')?.invalid && locationForm.get('placeOfOrigin')?.touched"
+            class="invalid-feedback">
+            {{ 'error_message.place_of_origin_required' | translate }}
+          </div>
         </div>
 
+        <!-- Current Location Field -->
         <div class="form-group">
           <label class="lable_text">{{ 'form.Current_Location' | translate }}</label>
-          <ion-input
-            mode="md"
-            type="text"
-            fill="outline"
-            formControlName="currentLocation"
+          <ion-input mode="md" type="text" fill="outline" formControlName="currentLocation"
             [class.invalid-input]="locationForm.get('currentLocation')?.invalid && locationForm.get('currentLocation')?.touched"
-            class="form-control"
-          ></ion-input>
+            class="form-control"></ion-input>
+          <div *ngIf="locationForm.get('currentLocation')?.invalid && locationForm.get('currentLocation')?.touched"
+            class="invalid-feedback">
+            {{ 'error_message.current_location_required' | translate }}
+          </div>
         </div>
 
+        <!-- Submit Button -->
         <div class="form-group mt-4">
-          <ion-button
-            color="secondary"
-            [disabled]="locationForm.invalid"
-            expand="block"
-            (click)="submitForm()"
-            class="sh_submitRHBtn"
-          >
+          <ion-button color="secondary" [disabled]="locationForm.invalid" expand="block" (click)="submitForm()"
+            class="sh_submitRHBtn">
             {{ 'form.Continue' | translate }}
           </ion-button>
         </div>

@@ -16,7 +16,7 @@ export class RegisterPage implements OnInit {
   nameDobFormData: any;
   steps: number = 1;
   config: any = {};
-  userRelation: string = '';
+  userRelation: any;
   religionCommunityFromData: any;
   maritalStatusFormData: any;
   stateCItyFormData: any;
@@ -25,6 +25,7 @@ export class RegisterPage implements OnInit {
   aboutYourself: any;
   userPrefenceData: any;
   familyStatusFormData: any;
+  totalSteps: number = 15;
   constructor(
     private registerService: RegisterService,
     private storage: Storage,
@@ -88,11 +89,11 @@ export class RegisterPage implements OnInit {
       "lastName": this.nameDobFormData.lastName,
       "userName": this.nameDobFormData.userName,
       "email": event.email,
-      "phoneNumber": this.emailPhoneFormData.phone,
+      "phoneNumber": this.emailPhoneFormData.phoneNumber,
       "password": this.emailPhoneFormData.password,
-      "userRelation": this.userRelation,
+      "userRelation": this.userRelation.profileFor,
       "dateOfBirth": this.nameDobFormData.dateOfBirth.split('-').reverse().join('/'),
-      "gender": this.nameDobFormData.gender,
+      "gender": this.userRelation.gender,
       "otp": event.otp,
       // "language": "en",
     };
@@ -210,7 +211,9 @@ export class RegisterPage implements OnInit {
   }
 
   verifyProfile() {
-
+    this.registerService.getAllPackages().then((res)=>{
+      console.log(res);
+    })
   }
 
 

@@ -19,7 +19,7 @@ export class UserPreferenceComponent implements OnInit {
   beardOptions: string[] = [];
   maritalStatusOptions: string[] = [];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.otherDetailsForm = this.fb.group({
@@ -31,27 +31,18 @@ export class UserPreferenceComponent implements OnInit {
       maritalStatus: [''],
     });
 
-    this.skinColourOptions = this.createData(this.data.user_skin_colour);
-    this.bodyShapeOptions = this.createData(this.data.user_body_shape);
-    this.prayerOptions = this.createData(this.data.user_prayer);
-    this.smokeOptions = this.createData(this.data.user_smoke_habit);
-    this.beardOptions = this.createData(this.data.user_beard);
-    this.maritalStatusOptions = this.createData(this.data.user_marital_status);
-    if(this.presentFormData) this.otherDetailsForm.patchValue(this.presentFormData);
+    this.skinColourOptions = this.data.user_skin_colour;
+    this.bodyShapeOptions = this.data.user_body_shape;
+    this.prayerOptions = this.data.user_prayer;
+    this.smokeOptions = this.data.user_smoke_habit;
+    this.beardOptions = this.data.user_beard;
+    this.maritalStatusOptions = this.data.user_marital_status;
+    if (this.presentFormData) this.otherDetailsForm.patchValue(this.presentFormData);
   }
 
   submitForm() {
     if (this.otherDetailsForm.valid) {
       this.submitData.emit(this.otherDetailsForm.value);
-    }
-  }
-
-  createData(param: any): string[] {
-    try {
-      const validJsonString = param.replace(/'/g, '"');
-      return JSON.parse(validJsonString);
-    } catch (e) {
-      return param.split("'").filter((ele: any) => ele !== ',' && ele !== '[' && ele !== ', ' && ele !== ' ,' && ele !== ']');
     }
   }
 }

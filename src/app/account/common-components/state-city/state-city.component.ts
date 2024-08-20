@@ -14,7 +14,7 @@ export class StateCityComponent implements OnInit {
   states: string[] = [];
   cities: string[] = [];
 
-  stateCityMapping:any = {
+  stateCityMapping: any = {
     India: {
       'Andhra Pradesh': ['Visakhapatnam', 'Vijayawada', 'Guntur'],
       'Arunachal Pradesh': ['Itanagar', 'Tawang'],
@@ -56,30 +56,42 @@ export class StateCityComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.locationForm = this.fb.group({
       country: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
+      state: [{ value: '', disabled: true }, Validators.required],
+      city: [{ value: '', disabled: true }, Validators.required],
       placeOfOrigin: ['', Validators.required],
       currentLocation: ['', Validators.required],
     });
-    if(this.presentFormData) this.locationForm.patchValue(this.presentFormData);
+
+    if (this.presentFormData) {
+      this.locationForm.patchValue(this.presentFormData);
+      if (this.presentFormData.country) {
+        this.onCountryChange({ detail: { value: this.presentFormData.country } });
+      }
+      if (this.presentFormData.state) {
+        this.onStateChange({ detail: { value: this.presentFormData.state } });
+      }
+    }
   }
 
-  onCountryChange(event:any) {
+  onCountryChange(event: any) {
     const country = event.detail.value;
     this.states = Object.keys(this.stateCityMapping[country] || {});
+    this.locationForm.get('state')?.enable(); // Enable state field
+    this.locationForm.get('city')?.disable(); // Disable city field until state is selected
     this.locationForm.patchValue({ state: '', city: '' });
     this.cities = [];
   }
 
-  onStateChange(event:any) {
+  onStateChange(event: any) {
     const state = event.detail.value;
     const country = this.locationForm.get('country')?.value;
     this.cities = this.stateCityMapping[country][state] || [];
+    this.locationForm.get('city')?.enable(); // Enable city field when state is selected
     this.locationForm.patchValue({ city: '' });
   }
 

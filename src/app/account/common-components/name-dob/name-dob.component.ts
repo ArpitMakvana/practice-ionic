@@ -19,9 +19,8 @@ export class NameDobComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       userName: ['', [Validators.required, Validators.minLength(2)]],
       dateOfBirth: ['', Validators.required],
-      gender: ['', Validators.required],
     });
-    if(this.presentFormData) this.nameDobForm.patchValue(this.presentFormData);
+    if (this.presentFormData) this.nameDobForm.patchValue(this.presentFormData);
   }
 
   get firstName() {
@@ -36,9 +35,7 @@ export class NameDobComponent implements OnInit {
   get dateOfBirth() {
     return this.nameDobForm.get('dateOfBirth');
   }
-  get gender() {
-    return this.nameDobForm.get('gender');
-  }
+
 
   submitForm() {
     if (this.nameDobForm.valid) {

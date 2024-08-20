@@ -6,7 +6,7 @@
         <div class="ds_backMenu" *ngIf="steps!=5 && steps!=1 && steps!=14">
           <ion-icon name="chevron-back" (click)="goBack()"></ion-icon>
         </div>
-
+        <ion-progress-bar color="danger" [value]="steps / totalSteps"></ion-progress-bar>
         <app-profile-for [presentFormData]="regData.userRelation" *ngIf="steps==1" [options]="config?.user_relation"
           (profileFor)="profileFor($event)"></app-profile-for>
 

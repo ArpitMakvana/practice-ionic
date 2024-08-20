@@ -2,7 +2,7 @@
   <div class="sh_createAccount_login sh_createAccount_register">
     <div class="sh_logoitem">
       <img src="../../../assets/logo2.png" class="img-fluid" />
-    </div> 
+    </div>
     <div class="sh_landing_contantinfo">
       <div class="sh_register_block">
         <h6>
@@ -11,13 +11,13 @@
         </h6>
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div> 
+        </div>
       </div>
 
       <div class="sh_logintitle_block">
         <h2>
           {{ 'register_titles.Personal_Details' | translate }}
-        </h2> 
+        </h2>
       </div>
 
       <div class="ds_formitems" [formGroup]="religionCommunityForm">
@@ -25,57 +25,52 @@
           <label class="lable_text">
             {{ 'form.Your_Religion' | translate }}
           </label>
-          <ion-select 
-            interface="popover" 
-            fill="outline" 
-            class="form-control" 
-            formControlName="religion"
-          >
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="religion"
+            [class.invalid-input]="religionCommunityForm.get('religion')?.invalid && religionCommunityForm.get('religion')?.touched">
             <ion-select-option value="">{{'form.Select_option'|translate}}</ion-select-option>
-            <ion-select-option *ngFor="let religion of userReligion" [value]="religion">{{ religion }}</ion-select-option>
+            <ion-select-option *ngFor="let religion of userReligion" [value]="religion">{{ religion
+              }}</ion-select-option>
           </ion-select>
+          <div *ngIf="religionCommunityForm.get('religion')?.invalid && religionCommunityForm.get('religion')?.touched"
+            class="invalid-feedback">
+            {{'error_message.religion_required'|translate}}
+          </div>
         </div>
-  
+
         <div class="form-group">
           <label class="lable_text">
             {{ 'form.Community' | translate }}
           </label>
-          <ion-input 
-            mode="md"  
-            type="text" 
-            fill="outline" 
-            formControlName="community"
-            [class.invalid-input]="religionCommunityForm.get('community')?.invalid && religionCommunityForm.get('community')?.touched" 
-            class="form-control"
-          ></ion-input>
+          <ion-input mode="md" type="text" fill="outline" formControlName="community"
+            [class.invalid-input]="religionCommunityForm.get('community')?.invalid && religionCommunityForm.get('community')?.touched"
+            class="form-control"></ion-input>
+          <div
+            *ngIf="religionCommunityForm.get('community')?.invalid && religionCommunityForm.get('community')?.touched"
+            class="invalid-feedback">
+            {{'error_message.community_required'|translate}}
+          </div>
         </div>
-  
+
         <div class="form-group">
           <label class="lable_text">
             {{ 'form.sub_community' | translate }}
           </label>
-          <ion-input 
-            mode="md"  
-            type="text" 
-            fill="outline" 
-            formControlName="subcommunity"
-            [class.invalid-input]="religionCommunityForm.get('subcommunity')?.invalid && religionCommunityForm.get('subcommunity')?.touched" 
-            class="form-control"
-          ></ion-input>
+          <ion-input mode="md" type="text" fill="outline" formControlName="subcommunity"
+            [class.invalid-input]="religionCommunityForm.get('subcommunity')?.invalid && religionCommunityForm.get('subcommunity')?.touched"
+            class="form-control"></ion-input>
+          <div
+            *ngIf="religionCommunityForm.get('subcommunity')?.invalid && religionCommunityForm.get('subcommunity')?.touched"
+            class="invalid-feedback">
+            {{'error_message.sub_community_required'|translate}}
+          </div>
+
+          <div class="form-group mt-4">
+            <ion-button color="secondary" [disabled]="religionCommunityForm.invalid" expand="block"
+              (click)="submitForm()" class="sh_submitRHBtn">
+              {{ 'form.Continue' | translate }}
+            </ion-button>
+          </div>
         </div>
-  
-        <div class="form-group mt-4">
-          <ion-button 
-            color="secondary" 
-            [disabled]="religionCommunityForm.invalid" 
-            expand="block" 
-            (click)="submitForm()" 
-            class="sh_submitRHBtn"
-          >
-            {{ 'form.Continue' | translate }}
-          </ion-button>
-        </div>
-      </div>   
+      </div>
     </div>
   </div>
-</div>

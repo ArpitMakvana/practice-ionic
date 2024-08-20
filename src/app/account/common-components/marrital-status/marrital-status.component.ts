@@ -15,18 +15,16 @@ export class MarritalStatusComponent implements OnInit {
   heightOptions: string[] = this.generateHeightOptions();
   weightOptions: string[] = this.generateWeightOptions();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    const validJsonString = this.userMaritalStatus.replace(/'/g, '"');
-    this.userMaritalStatus = JSON.parse(validJsonString);
 
     this.maritalStatusForm = this.fb.group({
       maritalStatus: ['', Validators.required],
       height: ['', Validators.required],
       weight: ['', Validators.required],
     });
-    if(this.presentFormData) this.maritalStatusForm.patchValue(this.presentFormData);
+    if (this.presentFormData) this.maritalStatusForm.patchValue(this.presentFormData);
 
     console.log(this.userMaritalStatus);
   }

@@ -16,7 +16,6 @@ export class ReligionCommunityComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.userReligion = this.userReligion.split(',').map((str: any) => str.replace('"', ''));
     this.religionCommunityForm = this.fb.group({
       religion: ['', Validators.required],
       community: ['', Validators.required],

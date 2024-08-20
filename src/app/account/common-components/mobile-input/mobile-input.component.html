@@ -2,7 +2,7 @@
 
 
 <div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register ">
+  <div class="sh_createAccount_login sh_createAccount_register">
     <div class="sh_logoitem">
       <img src="../../../assets/logo2.png" class="img-fluid" />
     </div>
@@ -19,59 +19,79 @@
       </div>
 
       <div class="sh_logintitle_block">
-        <h2>
-          {{'form.register_caps'|translate}}
-        </h2>
+        <h2>{{'form.register_caps'|translate}}</h2>
       </div>
 
+      <form [formGroup]="form" (ngSubmit)="submitForm()" class="ds_formitems">
 
-      <div class="ds_formitems">
+        <!-- Email Field -->
         <div class="form-group">
           <label class="lable_text">{{'form.email_lable'|translate}}</label>
-          <ion-input mode="md" [ngClass]="isValidEmail? '':'invalid-input'" (ionInput)="checkValid()"
-            [(ngModel)]="email" type="email" fill="outline" [placeholder]="'form.email_placeholder'|translate"
+          <ion-input mode="md" [ngClass]="{'invalid-input': email?.invalid && (email?.dirty || email?.touched)}"
+            formControlName="email" type="email" fill="outline" [placeholder]="'form.email_placeholder'|translate"
             class="form-control"></ion-input>
+          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
+            <small class="invalid-feedback" *ngIf="email?.errors?.['required']">{{'error_message.email_required' |
+              translate}}</small>
+            <small class="invalid-feedback" *ngIf="email?.errors?.['email']">{{'error_message.email_invalid' |
+              translate}}</small>
+          </div>
         </div>
 
+        <!-- Phone Number Field -->
         <div class="form-group">
-          <label class="lable_text">
-            {{'form.mobile_no'|translate}}
-          </label>
+          <label class="lable_text">{{'form.mobile_no'|translate}}</label>
           <ion-grid class="form-controlgroup">
             <ion-row>
               <ion-col size="4" class="pl-0">
-                <ion-select [(ngModel)]="selectedCountryCode" interface="popover" fill="outline" class="form-control">
+                <ion-select formControlName="selectedCountryCode" interface="popover" fill="outline"
+                  class="form-control">
                   <ion-select-option *ngFor="let country of countries" [value]="country.dialCode">
                     {{ country.name }} ({{ country.dialCode }})
                   </ion-select-option>
                 </ion-select>
               </ion-col>
               <ion-col size="8" class="pr-0">
-                <ion-input (ionInput)="checkValid()" [ngClass]="isValidMobile? '':'invalid-input'" mode="md" max="10"
-                  maxlength="10" type="tel" [(ngModel)]="phoneNumber" fill="outline"
+                <ion-input (ionInput)="checkValid()"
+                  [ngClass]="{'invalid-input': phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)}"
+                  mode="md" maxlength="10" type="tel" formControlName="phoneNumber" fill="outline"
                   [placeholder]="'form.mobile_no_placeholder'|translate" class="form-control"></ion-input>
               </ion-col>
             </ion-row>
           </ion-grid>
+          <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="error-message">
+            <small class="invalid-feedback" *ngIf="phoneNumber?.errors?.['required']">{{'error_message.phone_required' |
+              translate}}</small>
+            <small class="invalid-feedback" *ngIf="phoneNumber?.errors?.['pattern']">{{'error_message.phone_invalid' |
+              translate}}</small>
+          </div>
         </div>
 
+        <!-- Password Field -->
         <div class="form-group">
           <label class="lable_text">{{'form.Password'|translate}}</label>
-          <ion-input mode="md" [ngClass]="isValidPass? '':'invalid-input'" (ionInput)="checkValid()"
-            [(ngModel)]="password" type="password" fill="outline" [placeholder]="'form.password_placeholder'|translate"
-            class="form-control">
+          <ion-input mode="md"
+            [ngClass]="{'invalid-input': password?.invalid && (password?.dirty || password?.touched)}"
+            formControlName="password" type="password" fill="outline"
+            [placeholder]="'form.password_placeholder'|translate" class="form-control">
             <ion-input-password-toggle slot="end"></ion-input-password-toggle>
           </ion-input>
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
+            <small class="invalid-feedback" *ngIf="password?.errors?.['required']">{{'error_message.password_required' |
+              translate}}</small>
+            <small class="invalid-feedback"
+              *ngIf="password?.errors?.['minlength']">{{'error_message.password_min_length' | translate}}</small>
+          </div>
         </div>
+
+        <!-- Submit Button -->
         <div class="form-group mt-2">
-          <ion-button color="light" [disabled]="!canSubmit" expand="block" (click)="submitForm()"
-            class="sh_submitRHBtn">
+          <ion-button color="light" [disabled]="!form.valid" expand="block" type="submit" class="sh_submitRHBtn">
             {{'form.Continue'|translate}}
           </ion-button>
         </div>
 
-      </div>
-
+      </form>
 
       <div class="sh_terminfo">
         <p>{{'register_titles.By creating account, you agree to our'|translate}} <br /> <a
@@ -82,6 +102,7 @@
     </div>
   </div>
 </div>
+
 
 
 <!-- Mobile input desin---------------------------- -->

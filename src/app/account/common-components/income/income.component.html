@@ -2,7 +2,7 @@
   <div class="sh_createAccount_login sh_createAccount_register ">
     <div class="sh_logoitem">
       <img src="../../../assets/logo2.png" class="img-fluid" />
-    </div> 
+    </div>
     <div class="sh_landing_contantinfo">
       <div class="sh_register_block">
         <h6>
@@ -11,55 +11,60 @@
         </h6>
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div> 
+        </div>
       </div>
 
       <div class="sh_logintitle_block">
         <h2>
           {{ 'register_titles.Personal_Details' | translate }}
         </h2>
-      </div>    
+      </div>
       <div class="ds_formitems" [formGroup]="incomeForm">
         <div class="form-group">
           <label class="lable_text">
             {{'form.Income'|translate}}
           </label>
-          <ion-select formControlName="income" interface="popover" fill="outline" class="form-control">
+          <ion-select formControlName="income" interface="popover" fill="outline" class="form-control"
+            [class.invalid-input]="incomeForm.get('income')?.invalid && incomeForm.get('income')?.touched">
             <ion-select-option value="">{{ 'form.Select_option' | translate }}
             </ion-select-option>
             <ion-select-option *ngFor="let religion of userIncome" [value]="religion">{{ religion }}</ion-select-option>
           </ion-select>
+          <div *ngIf="incomeForm.get('income')?.invalid && incomeForm.get('income')?.touched" class="invalid-feedback">
+            {{'error_message.income_required'|translate}}
+          </div>
         </div>
         <div class="form-group">
           <label class="lable_text">
             {{'form.Work_details'|translate}}
           </label>
-          <ion-select formControlName="workDetail" interface="popover" fill="outline" class="form-control">
+          <ion-select formControlName="workDetail" interface="popover" fill="outline" class="form-control"
+            [class.invalid-input]="incomeForm.get('workDetail')?.invalid && incomeForm.get('workDetail')?.touched">
             <ion-select-option value="">{{ 'form.Select_option' | translate }}
             </ion-select-option>
             <ion-select-option *ngFor="let religion of userWorkAs" [value]="religion">{{ religion }}</ion-select-option>
           </ion-select>
+          <div *ngIf="incomeForm.get('workDetail')?.invalid && incomeForm.get('workDetail')?.touched"
+            class="invalid-feedback">
+            {{'error_message.work_details_required'|translate}}
+          </div>
         </div>
         <div class="form-group">
           <label class="lable_text">
             {{'form.work_as'|translate}}
           </label>
           <ion-input mode="md"
-            [class.invalid-input]="incomeForm.get('workAs')?.invalid && incomeForm.get('college')?.touched"
+            [class.invalid-input]="incomeForm.get('workAs')?.invalid && incomeForm.get('workAs')?.touched"
             formControlName="workAs" type="text" fill="outline" class="form-control"></ion-input>
+          <div *ngIf="incomeForm.get('workAs')?.invalid && incomeForm.get('workAs')?.touched" class="invalid-feedback">
+            {{'error_message.workas_required'|translate}}
+          </div>
         </div>
         <div class="form-group mt-4">
           <ion-button color="secondary" [disabled]="incomeForm.invalid" expand="block" (click)="submitForm()"
             class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
         </div>
-      </div> 
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
