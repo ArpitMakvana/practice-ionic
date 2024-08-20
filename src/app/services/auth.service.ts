@@ -10,7 +10,9 @@ export class AuthService {
     storageKeys = {
         'regDataOnOTPSubmit': 'REGDATAONOTPSUBMIT',
         'initialProfileData': 'INITIALPROFILEDATA',
-        "token": "TOKEN"
+        "token": "TOKEN",
+        "planActivated":"PLANACTIVATED",
+        "currentPlan":"CURRENTPLAN"
     }
     authToken: string = '';
     constructor(private http: HttpCallsService, private storage: Storage) {

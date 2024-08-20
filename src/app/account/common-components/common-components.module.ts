@@ -22,6 +22,7 @@ import { FamilyMemberComponent } from './family-member/family-member.component';
 import { FamilyStatusComponent } from './family-status/family-status.component';
 import { RegisterSucessComponent } from './register-sucess/register-sucess.component';
 import { UserPreferenceComponent } from './user-preference/user-preference.component';
+import { PlansComponent } from './plans/plans.component';
 
 @NgModule({
   imports: [
@@ -49,7 +50,8 @@ import { UserPreferenceComponent } from './user-preference/user-preference.compo
     FamilyMemberComponent,
     FamilyStatusComponent,
     RegisterSucessComponent,
-    UserPreferenceComponent
+    UserPreferenceComponent,
+    PlansComponent
   ],
   exports: [
     RegisterOptionComponent,
@@ -69,7 +71,8 @@ import { UserPreferenceComponent } from './user-preference/user-preference.compo
     FamilyMemberComponent,
     FamilyStatusComponent,
     RegisterSucessComponent,
-    UserPreferenceComponent
+    UserPreferenceComponent,
+    PlansComponent
   ]
 })
 export class CommonComponentsModule { }

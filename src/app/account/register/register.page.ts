@@ -3,7 +3,8 @@ import { RegisterService } from 'src/app/services/register.service';
 import { Storage } from '@ionic/storage-angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { ModalController } from '@ionic/angular';
+import { PlansComponent } from '../common-components/plans/plans.component';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -30,7 +31,9 @@ export class RegisterPage implements OnInit {
     private registerService: RegisterService,
     private storage: Storage,
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private modalCtrl: ModalController
+    ) { }
 
   ngOnInit() {
     this.registerService.getAllConfig().then((res) => {
@@ -203,17 +206,38 @@ export class RegisterPage implements OnInit {
     }
     this.registerService.submitUserDetails(profileDta).then(async (res) => {
       this.registerService.presentSuccessToast(res.message);
-      this.steps++;
       this.regData = { ...this.regData, steps: this.steps + 1, profileResponse: res, regInitiated: false };
       await this.storage.set(this.registerService.storageKeys.initialProfileData, JSON.stringify(this.regData));
       await this.storage.set(this.registerService.storageKeys.token, res?.data?.token)
+      this.steps++;
     }).catch((er) => console.log(er));
   }
 
   verifyProfile() {
     this.registerService.getAllPackages().then((res)=>{
       console.log(res);
+      this.openPlans(res);
     })
+  }
+
+  async openPlans(plans:any) {
+    const modal = await this.modalCtrl.create({
+      component: PlansComponent,
+      componentProps:{'plans':plans}
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'purchased') {
+      let storeData = {
+        planActivated:true,
+        currentPlan:data
+      }
+      await this.storage.set(this.registerService.storageKeys.planActivated,true);
+      await this.storage.set(this.registerService.storageKeys.currentPlan,JSON.stringify(storeData));
+      this.steps++;
+    }
   }
 
 

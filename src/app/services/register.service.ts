@@ -10,7 +10,9 @@ export class RegisterService {
   storageKeys = {
     'regDataOnOTPSubmit': 'REGDATAONOTPSUBMIT',
     'initialProfileData': 'INITIALPROFILEDATA',
-    "token": "TOKEN"
+    "token": "TOKEN",
+    "planActivated":"PLANACTIVATED",
+    "currentPlan":"CURRENTPLAN"
   };
 
   constructor(
@@ -30,7 +32,6 @@ export class RegisterService {
   }
   getAllPackages(): Promise<any> {
     return new Promise((resolve, reject) => {
-      if (this.config) resolve(this.config);
       const url = 'package';
       this.http.get(url).subscribe((result: any) => {
         resolve(result.data);
