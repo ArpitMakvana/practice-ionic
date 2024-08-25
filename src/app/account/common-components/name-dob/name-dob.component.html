@@ -49,19 +49,7 @@
 
 
 
-
-
-
-
-
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
-    </div>
-
-    <div class="sh_landing_contantinfo">
-      <div class="sh_register_block">
+    <!-- <div class="sh_register_block">
         <h6>
           <span>{{'register_titles.Find_exactly_the'|translate}}</span>
           {{'register_titles.Right_Partner_for_you'|translate}}
@@ -69,18 +57,32 @@
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
         </div>
-      </div>
+      </div> -->
 
-      <div class="sh_logintitle_block">
-        <h2>{{'register_titles.Personal_information'|translate}}</h2>
-      </div>
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
 
-      <form [formGroup]="nameDobForm" (ngSubmit)="submitForm()" class="ds_formitems">
+
+    <div class="bl_login_title">
+      <h2>
+        {{'register_titles.Personal_information'|translate}}
+      </h2>
+    </div>
+
+
+    <form [formGroup]="nameDobForm" (ngSubmit)="submitForm()">
+
+      <div class="bl_formitems">
         <div class="form-group">
-          <label class="lable_text">{{'form.first_name'|translate}}</label>
+          <label class="lable_text">
+            {{'form.first_name'|translate}}
+          </label>
           <ion-input mode="md" formControlName="firstName" type="text" fill="outline"
             [class.invalid-input]="firstName?.invalid && firstName?.touched" class="form-control"></ion-input>
-          <div *ngIf="firstName?.invalid && firstName?.touched" class="invalid-feedback">
+          <div *ngIf="firstName?.invalid && firstName?.touched" class="invalid-feedback bl_error">
             {{'error_message.First_name_minimum'|translate}}
           </div>
         </div>
@@ -89,7 +91,7 @@
           <label class="lable_text">{{'form.last_name'|translate}}</label>
           <ion-input mode="md" formControlName="lastName" type="text" fill="outline"
             [class.invalid-input]="lastName?.invalid && lastName?.touched" class="form-control"></ion-input>
-          <div *ngIf="lastName?.invalid && lastName?.touched" class="invalid-feedback">
+          <div *ngIf="lastName?.invalid && lastName?.touched" class="invalid-feedback bl_error">
             {{'error_message.Last_name_minimum'|translate}}
           </div>
         </div>
@@ -98,7 +100,7 @@
           <label class="lable_text">{{'form.User_name'|translate}}</label>
           <ion-input mode="md" formControlName="userName" type="text" fill="outline"
             [class.invalid-input]="userName?.invalid && userName?.touched" class="form-control"></ion-input>
-          <div *ngIf="userName?.invalid && userName?.touched" class="invalid-feedback">
+          <div *ngIf="userName?.invalid && userName?.touched" class="invalid-feedback bl_error">
             {{'error_message.User_name_minimum'|translate}}
           </div>
         </div>
@@ -130,11 +132,11 @@
           </ion-select>
         </div> -->
 
-        <div class="form-group mt-4">
+        <div class="form-group mt-3 bl_fixed_btn">
           <ion-button color="dark" [disabled]="nameDobForm.invalid" expand="block" type="submit"
-            class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+            class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </div>

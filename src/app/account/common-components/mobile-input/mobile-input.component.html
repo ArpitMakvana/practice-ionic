@@ -1,39 +1,38 @@
 <!-- Mobile input desin---------------------------- -->
 
 
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+
+
+
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
 
-    <div class="sh_landing_contantinfo">
-      <div class="sh_register_block">
-        <h6>
-          <span>{{'register_titles.Find_exactly_the'| translate}}</span>
-          {{'register_titles.Right_Partner_for_you'| translate}}
-        </h6>
-        <div class="sh_logoitem1">
-          <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div>
-      </div>
 
-      <div class="sh_logintitle_block">
-        <h2>{{'form.register_caps'|translate}}</h2>
-      </div>
+    <div class="bl_login_title">
+      <h2>
+        {{'form.register_caps'|translate}}
+      </h2>
+    </div>
 
-      <form [formGroup]="form" (ngSubmit)="submitForm()" class="ds_formitems">
 
-        <!-- Email Field -->
+
+
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+
+      <div class="bl_formitems">
         <div class="form-group">
           <label class="lable_text">{{'form.email_lable'|translate}}</label>
           <ion-input mode="md" [ngClass]="{'invalid-input': email?.invalid && (email?.dirty || email?.touched)}"
             formControlName="email" type="email" fill="outline" [placeholder]="'form.email_placeholder'|translate"
             class="form-control"></ion-input>
-          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
-            <small class="invalid-feedback" *ngIf="email?.errors?.['required']">{{'error_message.email_required' |
+          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message bl_error">
+            <small class="invalid-feedback bl_error"
+              *ngIf="email?.errors?.['required']">{{'error_message.email_required' |
               translate}}</small>
-            <small class="invalid-feedback" *ngIf="email?.errors?.['email']">{{'error_message.email_invalid' |
+            <small class="invalid-feedback bl_error" *ngIf="email?.errors?.['email']">{{'error_message.email_invalid' |
               translate}}</small>
           </div>
         </div>
@@ -59,10 +58,12 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-          <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="error-message">
-            <small class="invalid-feedback" *ngIf="phoneNumber?.errors?.['required']">{{'error_message.phone_required' |
+          <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)" class="error-message bl_error">
+            <small class="invalid-feedback bl_error"
+              *ngIf="phoneNumber?.errors?.['required']">{{'error_message.phone_required' |
               translate}}</small>
-            <small class="invalid-feedback" *ngIf="phoneNumber?.errors?.['pattern']">{{'error_message.phone_invalid' |
+            <small class="invalid-feedback bl_error"
+              *ngIf="phoneNumber?.errors?.['pattern']">{{'error_message.phone_invalid' |
               translate}}</small>
           </div>
         </div>
@@ -74,32 +75,33 @@
             [ngClass]="{'invalid-input': password?.invalid && (password?.dirty || password?.touched)}"
             formControlName="password" type="password" fill="outline"
             [placeholder]="'form.password_placeholder'|translate" class="form-control">
-            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+            <ion-input-password-toggle slot="end" class="bl_password"></ion-input-password-toggle>
           </ion-input>
-          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
-            <small class="invalid-feedback" *ngIf="password?.errors?.['required']">{{'error_message.password_required' |
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message bl_error">
+            <small class="invalid-feedback bl_error"
+              *ngIf="password?.errors?.['required']">{{'error_message.password_required' |
               translate}}</small>
-            <small class="invalid-feedback"
+            <small class="invalid-feedback bl_error"
               *ngIf="password?.errors?.['minlength']">{{'error_message.password_min_length' | translate}}</small>
           </div>
         </div>
 
-        <!-- Submit Button -->
-        <div class="form-group mt-2">
-          <ion-button color="light" [disabled]="!form.valid" expand="block" type="submit" class="sh_submitRHBtn">
+
+        <div class="form-group bl_terminfo">
+          <p>
+            {{'register_titles.By creating account, you agree to our'|translate}} <br /> <a
+              class="sh_links">{{'register_titles.Privacy Policy'|translate}}</a> {{'register_titles.and'|translate}} <a
+              class="sh_links">{{'register_titles.T&C'|translate}}</a></p>
+        </div>
+
+        <div class="form-group mt-3 bl_fixed_btn">
+          <ion-button color="light" [disabled]="!form.valid" expand="block" type="submit" class="bl_submitRH">
             {{'form.Continue'|translate}}
           </ion-button>
         </div>
 
-      </form>
-
-      <div class="sh_terminfo">
-        <p>{{'register_titles.By creating account, you agree to our'|translate}} <br /> <a
-            class="sh_links">{{'register_titles.Privacy Policy'|translate}}</a> {{'register_titles.and'|translate}} <a
-            class="sh_links">{{'register_titles.T&C'|translate}}</a></p>
       </div>
-
-    </div>
+    </form>
   </div>
 </div>
 

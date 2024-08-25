@@ -1,26 +1,19 @@
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
-    <div class="sh_landing_contantinfo">
-      <div class="sh_register_block">
-        <h6>
-          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
-          {{ 'register_titles.Right_Partner_for_you' | translate }}
-        </h6>
-        <div class="sh_logoitem1">
-          <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div>
-      </div>
 
-      <div class="sh_logintitle_block">
-        <h2>
-          {{ 'register_titles.Personal_Details' | translate }}
-        </h2>
-      </div>
 
-      <div class="ds_formitems" [formGroup]="religionCommunityForm">
+    <div class="bl_login_title">
+      <h2>
+
+        {{ 'register_titles.Personal_Details' | translate }}
+      </h2>
+    </div>
+
+    <div class="" [formGroup]="religionCommunityForm">
+      <div class="bl_formitems">
         <div class="form-group">
           <label class="lable_text">
             {{ 'form.Your_Religion' | translate }}
@@ -32,7 +25,7 @@
               }}</ion-select-option>
           </ion-select>
           <div *ngIf="religionCommunityForm.get('religion')?.invalid && religionCommunityForm.get('religion')?.touched"
-            class="invalid-feedback">
+            class="invalid-feedback bl_error">
             {{'error_message.religion_required'|translate}}
           </div>
         </div>
@@ -46,7 +39,7 @@
             class="form-control"></ion-input>
           <div
             *ngIf="religionCommunityForm.get('community')?.invalid && religionCommunityForm.get('community')?.touched"
-            class="invalid-feedback">
+            class="invalid-feedback bl_error">
             {{'error_message.community_required'|translate}}
           </div>
         </div>
@@ -60,13 +53,13 @@
             class="form-control"></ion-input>
           <div
             *ngIf="religionCommunityForm.get('subcommunity')?.invalid && religionCommunityForm.get('subcommunity')?.touched"
-            class="invalid-feedback">
+            class="invalid-feedback bl_error">
             {{'error_message.sub_community_required'|translate}}
           </div>
 
-          <div class="form-group mt-4">
-            <ion-button color="secondary" [disabled]="religionCommunityForm.invalid" expand="block"
-              (click)="submitForm()" class="sh_submitRHBtn">
+          <div class="form-group mt-3 bl_fixed_btn">
+            <ion-button color="light" [disabled]="religionCommunityForm.invalid" expand="block" (click)="submitForm()"
+              class="bl_submitRH">
               {{ 'form.Continue' | translate }}
             </ion-button>
           </div>

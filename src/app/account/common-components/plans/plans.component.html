@@ -11,7 +11,7 @@
 <ion-content class="ion-padding">
   <div class="card-content">
     <ng-container *ngFor="let plan of plans">
-      <ion-card>
+      <ion-card class="custome_card bl_plansinfo ">
         <img alt="Silhouette of mountains" [src]="plan.packageImage" onerror="this.src='https://ionicframework.com/docs/img/demos/card-media.png';" />
         <ion-card-header>
           <ion-card-title>{{plan.packageName}}</ion-card-title>
@@ -24,8 +24,8 @@
           <p *ngIf="plan.profileBoosts">Profile Boost: {{plan.profileBoosts}}</p>
           <p *ngIf="plan.swipes">Profile Swipes: {{plan.swipes}}</p>
           <p >{{plan.packagePurchaseCount}} people purchased</p>
-        </ion-card-content>
-        <ion-button expand="block" (click)="activatePlan(plan)" color="danger">Activate</ion-button>
+        <ion-button expand="block" (click)="activatePlan(plan)" color="light" class="bl_submitRH">Activate</ion-button>
+      </ion-card-content>
       </ion-card>
     </ng-container>
   </div>

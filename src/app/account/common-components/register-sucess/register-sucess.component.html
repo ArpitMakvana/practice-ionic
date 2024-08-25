@@ -1,32 +1,36 @@
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register sh_createAccount_congratulation ">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+<div class="bl_login_block bl_register_block bl_register_fixed ds_profileverify_block ds_success_block">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
-    <div class="sh_landing_contantinfo">
 
-      <div class="sh_logintitle_block">
-        <h2>
-          {{'general.congratulation'|translate}}
-        </h2>
-        <h6>
-          {{'general.Now_Enjoy_your_life_with_your_Half_hearted'|translate}}
-        </h6>
-      </div>
-      <div class="sh_register_block">
-        <h6>
-          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
-          {{ 'register_titles.Right_Partner_for_you' | translate }}
-        </h6>
-        <div class="sh_logoitem1">
-          <img src="../../../assets/congratulationImg.png" class="img-fluid" />
-        </div>
-      </div>
 
-      <div class="form-group mt-4">
-        <ion-button color="dark" disabled="false" expand="block" (click)="submitForm()"
-          class="sh_submitRHBtn">{{'general.Proceed'|translate}}</ion-button>
+
+
+    <div class="sh_register_block">
+      <div class="sh_logoitem1">
+        <img src="../../../assets/landingimg.jpg" class="img-fluid" />
       </div>
+    </div>
+    
+    <div class="bl_login_title bl_login_title1">
+      <h2>
+        {{'general.congratulation'|translate}}
+      </h2>
+      <br>
+      <h6 class="text-center">
+        {{'general.Now_Enjoy_your_life_with_your_Half_hearted'|translate}}
+      </h6>
+    </div>
+
+    <div class="form-group mt-4">
+      <ion-button color="dark" disabled="false" expand="block" (click)="submitForm()"
+        class="bl_submitRH">{{'general.Proceed'|translate}}</ion-button>
+    </div>
+    
+     <div class="form-group mt-2">
+      <ion-button color="dark" disabled="false" expand="block" (click)="submitForm()"
+        class="sh_submitRHBtn1">{{'general.Skip'|translate}}</ion-button>
     </div>
   </div>
 </div>

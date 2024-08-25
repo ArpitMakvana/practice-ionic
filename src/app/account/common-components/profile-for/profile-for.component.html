@@ -1,11 +1,10 @@
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register ">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
 
-    <div class="sh_landing_contantinfo">
-      <div class="sh_register_block">
+    <!-- <div class="sh_register_block">
         <h6>
           <span>{{'register_titles.Find_exactly_the'|translate}}</span>
           {{'register_titles.Right_Partner_for_you'|translate}}
@@ -13,46 +12,53 @@
         <div class="sh_logoitem1">
           <img src="../../../assets/groomImg.png" class="img-fluid" />
         </div>
+      </div> -->
+
+    <div class="bl_login_title bl_login_title1">
+      <h2>
+        {{'register_titles.This_profile_is_for'|translate}}
+      </h2>
+    </div>
+
+    <div class="bl_formitems">
+      <div class="form-group">
+        <!-- <label class="lable_text">Select Profile</label> -->
+        <div class="sh_profileietms_block">
+          <ng-content *ngFor="let item of options">
+            <ion-chip (click)="selectedOption(item)" class="chip" [ngClass]="selected==item ? 'active':''">
+              <ion-icon name="add-circle-sharp"></ion-icon>
+              <ion-label>{{item}}</ion-label>
+            </ion-chip>
+          </ng-content>
+        </div>
       </div>
 
-      <div class="sh_logintitle_block">
-        <h2>
-          {{'register_titles.This_profile_is_for'|translate}}
-        </h2>
-      </div>
 
-
-      <div class="sh_profileietms_block">
-        <ng-content *ngFor="let item of options">
-          <ion-chip (click)="selectedOption(item)" class="chip" [ngClass]="selected==item ? 'active':''">
-            <ion-icon name="add-circle-sharp"></ion-icon>
-            <ion-label>{{item}}</ion-label>
-          </ion-chip>
-        </ng-content>
-      </div>
-
-      <div class="sh_logintitle_block">
-        <h2>
+      <div class="form-group">
+        <div class="bl_login_title bl_login_title1">
+          <h2>
+            {{'form.gender_placeholder'|translate}}
+          </h2>
+        </div>
+        <!-- <label class="lable_text">
           {{'form.gender_placeholder'|translate}}
-        </h2>
+        </label> -->
+        <div class="sh_profileietms_block">
+          <ng-content>
+            <ion-chip (click)="selectedGender('male')" class="chip" [ngClass]="gender=='male' ? 'active':''">
+              <ion-icon name="add-circle-sharp"></ion-icon>
+              <ion-label>{{'select_options.gender.male'|translate}}</ion-label>
+            </ion-chip>
+            <ion-chip (click)="selectedGender('female')" class="chip" [ngClass]="gender=='female' ? 'active':''">
+              <ion-icon name="add-circle-sharp"></ion-icon>
+              <ion-label>{{'select_options.gender.female'|translate}}</ion-label>
+            </ion-chip>
+          </ng-content>
+        </div>
       </div>
-
-
-      <div class="sh_profileietms_block">
-        <ng-content>
-          <ion-chip (click)="selectedGender('male')" class="chip" [ngClass]="gender=='male' ? 'active':''">
-            <ion-icon name="add-circle-sharp"></ion-icon>
-            <ion-label>{{'select_options.gender.male'|translate}}</ion-label>
-          </ion-chip>
-          <ion-chip (click)="selectedGender('female')" class="chip" [ngClass]="gender=='female' ? 'active':''">
-            <ion-icon name="add-circle-sharp"></ion-icon>
-            <ion-label>{{'select_options.gender.female'|translate}}</ion-label>
-          </ion-chip>
-        </ng-content>
-      </div>
-      <div class="form-group mt-4">
+      <div class="form-group mt-3 bl_fixed_btn">
         <ion-button [disabled]="!gender || !selected" color="dark" expand="block" type="submit" (click)="submit()"
-          class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+          class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
       </div>
     </div>
   </div>

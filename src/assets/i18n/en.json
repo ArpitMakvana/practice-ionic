@@ -1,7 +1,7 @@
 {
   "landing": {
     "welcome_back": "Welcome to Bilhalal...!",
-    "for_suggesting_life_partner": "For Suggesting life Partner match anytime, anywhere",
+    "for_suggesting_life_partner": "Finds you a better match..",
     "lets_begin": "Let's Begain",
     "dont_have_account": "Don't have an account?",
     "register": "register"
@@ -18,10 +18,10 @@
     "password_placeholder": "Enter password",
     "gender_placeholder": "Select gender",
     "forgot_password": "Forgot Password?",
-    "sign_in": "Sign in",
+    "sign_in": "Login",
     "or_use_social": "Or use your social media",
-    "new_user": "New user ?",
-    "register": "register",
+    "new_user": "New to Bilhalal ?",
+    "register": "Please Signup",
     "register_caps": "Register",
     "Continue": "Continue",
     "PIN_Number": "PIN Number",
@@ -89,7 +89,7 @@
     "Personal_information": "Personal information",
     "Personal_Details" : "Personal Details",
     "build_your_profile":"Now let's build your profile",
-    "add_about_you":"Add a short description about you",
+    "add_about_you":"Write few words about yourself",
     "Add_your_photos_to_complete_your_profile":"Add your photos to complete your profile",
     "safe_photo_upload":"your photos are 100% safe and secure",
     "This_really_helps_find_common_connections":"This really helps find common connections",
@@ -136,8 +136,9 @@
     "Get_Verified":"Get Verified "
   },
   "general":{
-    "congratulation":"Congratulation..!",
-    "Now_Enjoy_your_life_with_your_Half_hearted":"Now Enjoy your life with your Half-hearted",
-    "Proceed":"Proceed"
+    "congratulation":"Thank You, for register",
+    "Now_Enjoy_your_life_with_your_Half_hearted":"Please continue filling up your details",
+    "Proceed":"Continue updating profile",
+    "Skip":"Skip to Home Page"
   }
 }

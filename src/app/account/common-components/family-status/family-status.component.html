@@ -1,25 +1,19 @@
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
-    <div class="sh_landing_contantinfo">
-      <div class="sh_register_block">
-        <h6>
-          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
-          {{ 'register_titles.Right_Partner_for_you' | translate }}
-        </h6>
-        <div class="sh_logoitem1">
-          <img src="../../../assets/groomImg.png" class="img-fluid" />
-        </div>
-      </div>
 
-      <div class="sh_logintitle_block">
-        <h2>{{'register_titles.Add_family_details'|translate}}</h2>
-        <h6>{{'register_titles.This_really_helps_find_common_connections'|translate}}</h6>
-      </div>
 
-      <div class="ds_familydetilse_block">
+    <div class="bl_login_title">
+      <h2>
+        {{'register_titles.Personal_information'|translate}}
+      </h2>
+      <h6>{{'register_titles.This_really_helps_find_common_connections'|translate}}</h6>
+    </div>
+
+    <div class="ds_familydetilse_block">
+      <div class="bl_formitems">
         <div class="ds_formitems">
           <form [formGroup]="familyStatusForm" (ngSubmit)="submitForm()">
             <div class="form-group">
@@ -61,9 +55,9 @@
               </div>
             </div>
 
-            <div class="form-group mt-4">
+            <div class="form-group mt-3 bl_fixed_btn">
               <ion-button [disabled]="familyStatusForm.invalid" color="dark" expand="block" type="submit"
-                class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+                class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
             </div>
           </form>
         </div>
