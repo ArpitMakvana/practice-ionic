@@ -1,67 +1,52 @@
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register ">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
-    <div class="sh_landing_contantinfo">
-      <div class="sh_register_block">
-        <h6>
-          <span>{{ 'register_titles.Find_exactly_the' | translate }}</span>
-          {{ 'register_titles.Right_Partner_for_you' | translate }}
-        </h6>
-        <div class="sh_logoitem1">
-          <img src="../../../assets/groomImg.png" class="img-fluid" />
+    <div class="bl_login_title">
+      <h2>
+        {{ 'register_titles.Personal_Details' | translate }}
+      </h2>
+    </div>
+
+
+
+    <div class="bl_formitems" [formGroup]="qualificationForm">
+      <div class="form-group">
+        <label class="lable_text">
+          {{'form.Highest_Qualification'|translate}}
+        </label>
+        <ion-select formControlName="heightestQualification" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="qualificationForm.get('heightestQualification')?.invalid && qualificationForm.get('heightestQualification')?.touched">
+          <ion-select-option value="">
+            {{ 'form.Select_option' | translate }}
+          </ion-select-option>
+          <ion-select-option *ngFor="let status of userHighestQualifications" [value]="status">
+            {{ status }}
+          </ion-select-option>
+        </ion-select>
+        <div
+          *ngIf="qualificationForm.get('heightestQualification')?.invalid && qualificationForm.get('heightestQualification')?.touched"
+          class="invalid-feedback bl_error">
+          {{'error_message.highest_qualification_required'|translate}}
         </div>
       </div>
-
-      <div class="sh_logintitle_block">
-        <h2>
-          {{ 'register_titles.Personal_Details' | translate }}
-        </h2>
-      </div>
-
-
-
-      <div class="ds_formitems" [formGroup]="qualificationForm">
-        <div class="form-group">
-          <label class="lable_text">
-            {{'form.Highest_Qualification'|translate}}
-          </label>
-          <ion-select formControlName="heightestQualification" interface="popover" fill="outline" class="form-control"
-            [class.invalid-input]="qualificationForm.get('heightestQualification')?.invalid && qualificationForm.get('heightestQualification')?.touched">
-            <ion-select-option value="">
-              {{ 'form.Select_option' | translate }}
-            </ion-select-option>
-            <ion-select-option *ngFor="let status of userHighestQualifications" [value]="status">
-              {{ status }}
-            </ion-select-option>
-          </ion-select>
-          <div
-            *ngIf="qualificationForm.get('heightestQualification')?.invalid && qualificationForm.get('heightestQualification')?.touched"
-            class="invalid-feedback">
-            {{'error_message.highest_qualification_required'|translate}}
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="lable_text">
-            {{'form.Collage'|translate}}
-          </label>
-          <ion-input mode="md"
-            [class.invalid-input]="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
-            formControlName="college" type="text" fill="outline" class="form-control"></ion-input>
-          <div *ngIf="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
-            class="invalid-feedback">
-            {{'error_message.college_required'|translate}}
-          </div>
-        </div>
-        <div class="form-group mt-4">
-          <ion-button color="secondary" [disabled]="qualificationForm.invalid" expand="block" (click)="submitForm()"
-            class="sh_submitRHBtn">{{'form.Continue'|translate}}</ion-button>
+      <div class="form-group">
+        <label class="lable_text">
+          {{'form.Collage'|translate}}
+        </label>
+        <ion-input mode="md"
+          [class.invalid-input]="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
+          formControlName="college" type="text" fill="outline" class="form-control"></ion-input>
+        <div *ngIf="qualificationForm.get('college')?.invalid && qualificationForm.get('college')?.touched"
+          class="invalid-feedback bl_error">
+          {{'error_message.college_required'|translate}}
         </div>
       </div>
-
-
-
+      <div class="form-group mt-3 bl_fixed_btn">
+        <ion-button color="light" [disabled]="qualificationForm.invalid" expand="block" (click)="submitForm()"
+          class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
+      </div>
     </div>
   </div>
-</div>
+</div> 

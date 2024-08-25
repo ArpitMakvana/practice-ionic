@@ -1,47 +1,45 @@
-<div class="ds_container">
-  <div class="sh_createAccount_login sh_createAccount_register mt-4">
-    <div class="sh_logoitem">
-      <img src="../../../assets/logo2.png" class="img-fluid" />
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+    <div class="bl_login_title">
+      <h2>{{'register_titles.Add_your_photos_to_complete_your_profile' | translate}}</h2>
+      <h6>{{'register_titles.safe_photo_upload' | translate}}</h6>
     </div>
 
-    <div class="sh_landing_contantinfo">
-      <div class="sh_logintitle_block">
-        <h2>{{'register_titles.Add_your_photos_to_complete_your_profile' | translate}}</h2>
-        <h4>{{'register_titles.safe_photo_upload' | translate}}</h4>
+
+    <div class="bl_formitems">
+      <div class="form-group">
+        <div class="sh_gallery_select">
+          <input type="file" class="gallery_file" (change)="onFileChange($event)">
+          <label>
+            <ion-icon name="image-outline"></ion-icon>
+            {{'form.Add_from_Gallery' | translate}}
+          </label>
+        </div>
       </div>
 
-      <div class="ds_formitems">
-        <div class="form-group">
-          <div class="sh_gallery_select">
-            <input type="file" class="gallery_file" (change)="onFileChange($event)">
-            <label>
-              <ion-icon name="image-outline"></ion-icon>
-              {{'form.Add_from_Gallery' | translate}}
-            </label>
+      <div class="form-group mt-2">
+        <div class="selected-photos">
+          <div *ngIf="photo" class="photo-item">
+            <img [src]="photo" class="img-fluid" />
+            <ion-icon name="close-circle" (click)="removePhoto()"></ion-icon>
           </div>
         </div>
+      </div>
 
-        <div class="form-group mt-2">
-          <div class="selected-photos">
-            <div *ngIf="photo" class="photo-item">
-              <img [src]="photo" class="img-fluid" />
-              <ion-icon name="close-circle" (click)="removePhoto()"></ion-icon>
-            </div>
-          </div>
-        </div>
+      <div class="form-group mt-2">
+        <ion-button color="light" (click)="submitForm()" expand="block" class="sh_submitRHBtn1">
+          {{'form.Continue' | translate}}
+        </ion-button>
+      </div>
 
-        <div class="form-group mt-2">
-          <ion-button color="light" (click)="submitForm()" expand="block" class="sh_submitRHBtn1">
-            {{'form.Continue' | translate}}
-          </ion-button>
-        </div>
-
-        <div class="form-group mt-4">
-          <div class="sh_terminfo">
-            <p (click)="skipStep()">{{'form.Add_Photos_Later' | translate}}</p>
-          </div>
+      <div class="form-group mt-4">
+        <div class="sh_terminfo">
+          <p (click)="skipStep()">{{'form.Add_Photos_Later' | translate}}</p>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> 

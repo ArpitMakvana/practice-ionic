@@ -68,52 +68,57 @@
 
 
 
-<ion-content [fullscreen]="true">
-  <div class="ds_container" [formGroup]="loginForm">
-    <div class="sh_createAccount_login sh_createAccount_login">
-      <div class="sh_logoitem">
-        <img src="../../../assets/logo2.png" class="img-fluid" />
+<ion-content [fullscreen]="true" class="bl_login_block">
+  <div [formGroup]="loginForm">
+    <div class="bl_container">
+      <div class="bl_loginLogo">
+        <img src="../../../assets/white_logo.png" class="img-fluid" />
       </div>
 
-      <div class="sh_landing_contantinfo">
-        <div class="sh_logoitem1">
-          <img src="../../../assets/groomImg.png" class="img-fluid" />
+
+      <div class="bl_login_title">
+        <h2>
+          {{'form.Login'|translate}}
+        </h2>
+      </div>
+
+      <div class="bl_formitems">
+        <div class="form-group">
+          <label class="lable_text">{{'form.email_lable'|translate}}</label>
+          <ion-input formControlName="email" mode="md" type="email" fill="outline"
+            [placeholder]="'form.email_placeholder'|translate" class="form-control"></ion-input>
         </div>
 
-        <div class="sh_logintitle_block">
-          <h2>
-            {{'form.Login'|translate}}
-          </h2>
+        <div class="form-group">
+          <label class="lable_text">{{'form.password_lable'|translate}}</label>
+          <ion-input mode="md" formControlName="password" type="password" fill="outline"
+            [placeholder]="'form.password_placeholder'|translate" class="form-control">
+            <ion-input-password-toggle slot="end" style="color: red;"></ion-input-password-toggle></ion-input>
         </div>
 
-        <div class="ds_formitems">
-          <div class="form-group">
-            <label class="lable_text">{{'form.email_lable'|translate}}</label>
-            <ion-input formControlName="email" mode="md" type="email" fill="outline"
-              [placeholder]="'form.email_placeholder'|translate" class="form-control"></ion-input>
-          </div>
+        <div class="form-group"> 
+          <label class="bl_checkboxitem">
+            Remember me
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
 
-          <div class="form-group">
-            <label class="lable_text">{{'form.password_lable'|translate}}</label>
-            <ion-input mode="md" formControlName="password" type="password" fill="outline"
-              [placeholder]="'form.password_placeholder'|translate" class="form-control">
-              <ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input>
-          </div>
-          <div class="form-group">
-            <label class="forget_passowrd">
-              <a href="#" class="sh_links">{{'form.forgot_password'|translate}}</a>
-            </label>
-          </div>
+        </div>
+        <div class="form-group mt-3">
+          <ion-button color="light" (click)="submitForm()" [disabled]="loginForm.invalid && disableButton"
+            expand="block" routerLink="/register" class="bl_submitRH">
+            {{'form.sign_in'|translate}}
+          </ion-button>
+        </div>
+        
 
-          <div class="form-group mt-2">
-            <ion-button color="light" (click)="submitForm()" [disabled]="loginForm.invalid && disableButton"
-              expand="block" routerLink="/register" class="sh_submitRHBtn">
-              {{'form.sign_in'|translate}}
-            </ion-button>
-          </div>
+        <div class="form-group">
+          <label class="forget_password">
+            <a href="#" class="sh_links">{{'form.forgot_password'|translate}}</a>
+          </label>
+        </div>
 
-
-          <div class="form-group mt-2">
+        <!-- <div class="form-group mt-2">
             <label class="sh_other_login"> {{'form.or_use_social'|translate}}</label>
             <ul class="sh_sociallinks">
               <li class="nav-item">
@@ -134,14 +139,13 @@
                 </a>
               </li>
             </ul>
-          </div>
+          </div> -->
 
-          <div class="form-group mt-2">
-            <label class="sh_other_login"> {{'form.new_user'|translate}} <span class="sh_links"
-                (click)="selectOption('mobile')">{{'form.register'|translate}}</span> </label>
-          </div>
+        <div class="form-group mt-4">
+          <label class="sh_other_bl_newuser"> {{'form.new_user'|translate}} <span class="sh_links"
+              (click)="selectOption('mobile')">{{'form.register'|translate}}</span> </label>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </ion-content>
