@@ -11,6 +11,7 @@ export class UserPreferenceComponent implements OnInit {
   @Input() data: any;
   @Input() canDisplayMaritalStatus: boolean = false;
   @Input() presentFormData: any = {};
+  @Input() displaLogo?=true;
   otherDetailsForm!: FormGroup;
   skinColourOptions: string[] = [];
   bodyShapeOptions: string[] = [];

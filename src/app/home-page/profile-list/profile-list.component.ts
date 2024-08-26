@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
 
@@ -37,6 +38,10 @@ export class ProfileListComponent implements OnInit {
 
 
 
+  }
+
+  openProfile(data:any){
+    this.router.navigate(['/home/profile-information'])
   }
 
 

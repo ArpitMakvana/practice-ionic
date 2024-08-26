@@ -1,11 +1,11 @@
-<div class="bl_login_block bl_register_block bl_register_fixed">
+<div class="bl_login_block bl_register_block bl_register_fixed" [style.padding-bottom]="displaLogo?'':'0px'">
   <div class="bl_container">
-    <div class="bl_loginLogo">
+    <div class="bl_loginLogo" *ngIf="displaLogo">
       <img src="../../../assets/white_logo.png" class="img-fluid" />
     </div>
 
 
-    <div class="bl_login_title">
+    <div class="bl_login_title" *ngIf="displaLogo">
       <h2>
         {{ 'register_titles.Personal_Details' | translate }}
       </h2>

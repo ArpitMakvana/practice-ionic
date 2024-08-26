@@ -18,9 +18,7 @@ export class HomePagePage implements OnInit {
     this.menu.open('first');
   }
 
-  closeMenu() {
-    this.menu.close('first');
-  }
+  
 
   
 

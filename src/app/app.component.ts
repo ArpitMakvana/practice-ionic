@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage-angular';
 import { Platform, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
     private storage: Storage,
     private platform: Platform,
     private toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private menu: MenuController
   ) {
     this.translate.setDefaultLang('en');
     this.storage.create();
@@ -52,6 +54,15 @@ export class AppComponent implements OnInit {
         }
       });
     });
+  }
+
+  closeMenu() {
+    this.menu.close();
+  }
+  logOut(){
+    this.menu.close();
+    this.storage.clear();
+    this.router.navigateByUrl('/landing');
   }
 
   async showExitConfirm() {

@@ -17,7 +17,7 @@
 
   <ion-card class="custome_card sh_profiles_item">
     <ion-card-content>
-      <ion-row>
+      <ion-row (click)="openProfile('this')">
         <ion-col size="3">
           <div class="ds_imgbox">
             <img src="./../../../../assets/bg/profilimg_1.jpg" class="img-fluid" />
@@ -75,7 +75,7 @@
 
   <ion-card class="custome_card sh_profiles_item">
     <ion-card-content>
-      <ion-row>
+      <ion-row (click)="openProfile('this')">
         <ion-col size="3">
           <div class="ds_imgbox">
             <img src="./../../../../assets/bg/profilimg_2.jpg" class="img-fluid" />
@@ -133,7 +133,7 @@
 
   <ion-card class="custome_card sh_profiles_item">
     <ion-card-content>
-      <ion-row>
+      <ion-row (click)="openProfile('this')">
         <ion-col size="3">
           <div class="ds_imgbox">
             <img src="./../../../../assets/bg/profilimg_2.jpg" class="img-fluid" />
@@ -191,7 +191,7 @@
 
   <ion-card class="custome_card sh_profiles_item">
     <ion-card-content>
-      <ion-row>
+      <ion-row (click)="openProfile('this')">
         <ion-col size="3">
           <div class="ds_imgbox">
             <img src="./../../../../assets/bg/profilimg_4.jpg" class="img-fluid" />
@@ -249,7 +249,7 @@
 
   <ion-card class="custome_card sh_profiles_item">
     <ion-card-content>
-      <ion-row>
+      <ion-row (click)="openProfile('this')">
         <ion-col size="3">
           <div class="ds_imgbox">
             <img src="./../../../../assets/bg/profilimg_5.jpg" class="img-fluid" />
@@ -312,7 +312,7 @@
 
   <ion-card class="custome_card sh_profiles_item">
     <ion-card-content>
-      <ion-row>
+      <ion-row (click)="openProfile('this')">
         <ion-col size="3">
           <div class="ds_imgbox">
             <img src="./../../../../assets/bg/profilimg_6.jpg" class="img-fluid" />
@@ -398,7 +398,7 @@
           </h1>
         </div>
         <div class="ds_formitems">
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="lable_text">
               Location
             </label>
@@ -453,8 +453,8 @@
             </label>
             <ion-range aria-label="Custom range" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="true"
               [snaps]="true"></ion-range>
-          </div>
-
+          </div> -->
+          <app-user-preference [canDisplayMaritalStatus]="true" [displaLogo]="false"></app-user-preference>
           <div class="form-group">
             <ion-row>
               <ion-col size="6">

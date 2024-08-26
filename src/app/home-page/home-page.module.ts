@@ -15,16 +15,11 @@ import { SubscriptionComponent } from './subscription/subscription.component';
 import { register } from 'swiper/element/bundle';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UserchatListComponent } from './userchat-list/userchat-list.component';
+import { CommonComponentsModule } from '../account/common-components/common-components.module';
 
 
 
 register();
-
-// const routes: Routes = [
-//   { path: '', redirectTo: 'home', pathMatch: 'full' },
-//   // { path: 'home', loadChildren: () => import('./home-page-routing.module').then(m => m.HomePagePageModule) },
-//   { path: 'subscription', loadChildren: () => import('').then(m => m.DetailsPageModule) },
-// ];
  
 @NgModule({
   imports: [
@@ -32,7 +27,7 @@ register();
     FormsModule,
     IonicModule,
     HomePagePageRoutingModule,
-    // RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    CommonComponentsModule
 
   ],
   declarations: [

@@ -2246,6 +2246,10 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 // ------------------------  sh_marrigeprofile_listinfo
 .sh_marrigeprofile_listinfo {
   position: relative;
+  max-height: 100%;
+  overflow: scroll;
+  // margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .sh_marrigeprofile_listinfo .sh_profiles_item {
@@ -2340,16 +2344,18 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 
 
 .sh_searchbox {
-  position: relative;
+  position: fixed;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border: 1px solid #9E9E9E !important;
   border-radius: 4px;
-  background: rgba(242, 53, 133, 0.09);
-  background: transparent;
+  background: rgb(255 5 5);
   margin: 0 0 20px;
+  top: 3px;
+  z-index: 1;
+  color: #fff;
 }
 
 .sh_searchbox .form-control {
@@ -2369,6 +2375,12 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
   font-family: "Poppins", sans-serif !important;
   font-size: 14px;
   min-height: auto !important;
+  color: #fff !important;
+  --box-shadow: none;
+  --icon-color: #fff;
+  --cancel-button-color: #fff;
+  --cancel-button-color: #fff;
+  --placeholder-opacity: 1;
 }
 
 .sh_searchbox .input-group-addon {
