@@ -1,32 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button color="medium" (click)="cancel()">
-        <ion-icon name="close-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    
-  </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
-  <div class="card-content">
-    <ng-container *ngFor="let plan of plans">
-      <ion-card class="custome_card bl_plansinfo ">
-        <img alt="Silhouette of mountains" [src]="plan.packageImage" onerror="this.src='https://ionicframework.com/docs/img/demos/card-media.png';" />
-        <ion-card-header>
-          <ion-card-title>{{plan.packageName}}</ion-card-title>
-          <ion-card-subtitle>${{plan.packagePrice}} - {{plan.packageDiscount}}% Off</ion-card-subtitle>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <p>{{plan.packageDescription}}</p>
-          <p *ngIf="plan.phoneNumberVisibility">Visible phone number</p>
-          <p *ngIf="plan.profileBoosts">Profile Boost: {{plan.profileBoosts}}</p>
-          <p *ngIf="plan.swipes">Profile Swipes: {{plan.swipes}}</p>
-          <p >{{plan.packagePurchaseCount}} people purchased</p>
-        <ion-button expand="block" (click)="activatePlan(plan)" color="light" class="bl_submitRH">Activate</ion-button>
-      </ion-card-content>
-      </ion-card>
-    </ng-container>
+<div class="bl_login_block bl_register_block bl_register_fixed ds_profileverify_block plan_modelbox_main">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+
+    <div class="card-content">
+      <ng-container *ngFor="let plan of plans">
+        <ion-card class="custome_card bl_plansinfo plan_modelbox ">
+          <div class="imgbox">
+            <img alt="Silhouette of mountains" [src]="plan.packageImage"
+              onerror="this.src='https://ionicframework.com/docs/img/demos/card-media.png';" />
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{plan.packageName}}</ion-card-title>
+            <ion-card-subtitle>${{plan.packagePrice}} - {{plan.packageDiscount}}% Off</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ul class="listitem">
+              <li>
+                <p>{{plan.packageDescription}}</p>
+              </li>
+              <li>
+                <p *ngIf="plan.phoneNumberVisibility">Visible phone number</p>
+              </li>
+              <li>
+                <p *ngIf="plan.profileBoosts">Profile Boost: {{plan.profileBoosts}}</p>
+              </li>
+              <li>
+                <p *ngIf="plan.swipes">Profile Swipes: {{plan.swipes}}</p>
+              </li>
+              <li>
+                <p>{{plan.packagePurchaseCount}} people purchased</p>
+              </li>
+            </ul>
+            <ion-button expand="block" (click)="activatePlan(plan)" color="light"
+              class="bl_submitRH">Activate</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+    </div>
   </div>
-</ion-content>
+</div>
