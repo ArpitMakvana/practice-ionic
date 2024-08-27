@@ -7,12 +7,16 @@ import { LoadingController } from '@ionic/angular';
 
 @Injectable()
 export class RegistrationInterceptor implements HttpInterceptor {
+  private requestCounter = 0;
+
   constructor(
     private auth: AuthService,
     private loadingController: LoadingController
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.incrementRequestCounter();
+
     return from(this.showLoader()).pipe(
       switchMap(() => this.auth.getToken()),
       switchMap(token => {
@@ -31,20 +35,42 @@ export class RegistrationInterceptor implements HttpInterceptor {
         }
 
         return next.handle(modifiedReq).pipe(
-          finalize(() => this.hideLoader())
+          finalize(() => {
+            this.decrementRequestCounter();
+          })
         );
       })
     );
   }
 
   private async showLoader() {
-    const loading = await this.loadingController.create({
-      message: 'Please wait...',
-    });
-    await loading.present();
+    if (this.requestCounter === 1) {  // Show loader only when the first request is made
+      const loading = await this.loadingController.create({
+        message: 'Please wait...',
+      });
+      await loading.present();
+    }
   }
 
   private async hideLoader() {
-    await this.loadingController.dismiss();
+    if (this.requestCounter === 0) {  // Hide loader only when all requests are completed
+      try {
+        await this.loadingController.dismiss();
+      } catch (error) {
+        // If the loader was already dismissed or no loader is active, this will handle the error silently
+      }
+    }
+  }
+
+  private incrementRequestCounter() {
+    this.requestCounter++;
+  }
+
+  private decrementRequestCounter() {
+    this.requestCounter--;
+
+    if (this.requestCounter === 0) {
+      this.hideLoader();
+    }
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { HomeService } from '../services/home.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RegisterService } from '../services/register.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -15,9 +17,12 @@ export class HomePagePage implements OnInit {
   constructor(
     private menu: MenuController,
     private homeService:HomeService,
+    private auth:AuthService
     ) {}
 
   ngOnInit() {
+    this.auth.getAllConfig().then(res=>console.log(res));
+    
   }
 
   openMenu() {
