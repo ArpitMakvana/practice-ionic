@@ -61,12 +61,20 @@ export class RegisterPage implements OnInit {
     this.steps--;
   }
   skip(event: any) {
-    if (event == 'photo' || event == 'verify') {
+    if (event == 'photo' || event == 'verify' || event=='skip') {
       this.steps++;
     }
   }
   moveToHOme() {
     this.router.navigateByUrl('/home');
+  }
+
+  handleSucessProfileButtonAction(action:string){
+    if(action == 'proceed'){
+      this.steps++;
+    }else{
+      this.moveToHOme();
+    }
   }
 
   enterdEmailPhone(event: any) {
@@ -236,7 +244,7 @@ export class RegisterPage implements OnInit {
       }
       await this.storage.set(this.registerService.storageKeys.planActivated,true);
       await this.storage.set(this.registerService.storageKeys.currentPlan,JSON.stringify(storeData));
-      this.steps++;
+      this.moveToHOme();
     }
   }
 
