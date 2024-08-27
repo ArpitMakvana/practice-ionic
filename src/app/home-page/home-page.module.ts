@@ -16,6 +16,7 @@ import { register } from 'swiper/element/bundle';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UserchatListComponent } from './userchat-list/userchat-list.component';
 import { CommonComponentsModule } from '../account/common-components/common-components.module';
+import { UserLikesComponent } from './user-likes/user-likes.component';
 
 
 
@@ -27,7 +28,8 @@ register();
     FormsModule,
     IonicModule,
     HomePagePageRoutingModule,
-    CommonComponentsModule
+    CommonComponentsModule,
+    UserLikesComponent
 
   ],
   declarations: [
@@ -36,7 +38,8 @@ register();
     ProfileListComponent,
     UserChatComponent,  
     SubscriptionComponent,
-    UserchatListComponent
+    UserchatListComponent,
+    UserLikesComponent
 
   ],
   exports: [

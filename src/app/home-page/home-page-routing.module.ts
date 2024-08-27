@@ -7,6 +7,7 @@ import { ProfileInformationComponent } from './profile-information/profile-infor
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { UserchatListComponent } from './userchat-list/userchat-list.component';
 import { UserChatComponent } from './user-chat/user-chat.component';
+import { UserLikesComponent } from './user-likes/user-likes.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'user-chat',
         component: UserChatComponent
+      },
+      {
+        path: 'user-likes',
+        component: UserLikesComponent
       },
       {
         path: '',

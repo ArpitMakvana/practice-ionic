@@ -10,8 +10,8 @@ export class RegisterSucessComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-  submitForm(){
-    this.submitData.emit({})
+  submitForm(action:string){
+    this.submitData.emit(action)
   }
 
 }
