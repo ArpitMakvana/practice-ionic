@@ -1,23 +1,76 @@
-// interceptors/registration.interceptor.ts
-
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { switchMap, finalize } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
+import { LoadingController } from '@ionic/angular';
 
 @Injectable()
 export class RegistrationInterceptor implements HttpInterceptor {
+  private requestCounter = 0;
+
+  constructor(
+    private auth: AuthService,
+    private loadingController: LoadingController
+  ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // if (req.url.includes('/register')) {
-      // Add headers to the request
-      const modifiedReq = req.clone({
-        headers: req.headers
-          .set('Content-Type', 'application/json')
-        //   .set('Custom-Header', 'CustomHeaderValue')
-      });
+    this.incrementRequestCounter();
 
-      return next.handle(modifiedReq);
-    // }
-    return next.handle(req);
+    return from(this.showLoader()).pipe(
+      switchMap(() => this.auth.getToken()),
+      switchMap(token => {
+        let modifiedReq = req;
+
+        if (req.url.includes('/upload')) {
+          modifiedReq = req.clone({
+            headers: req.headers.set('token', token)
+          });
+        } else {
+          modifiedReq = req.clone({
+            headers: req.headers
+              .set('lang', 'en')
+              .set('token', token)
+          });
+        }
+
+        return next.handle(modifiedReq).pipe(
+          finalize(() => {
+            this.decrementRequestCounter();
+          })
+        );
+      })
+    );
+  }
+
+  private async showLoader() {
+    if (this.requestCounter === 1) {  // Show loader only when the first request is made
+      const loading = await this.loadingController.create({
+        message: 'Please wait...',
+      });
+      await loading.present();
+    }
+  }
+
+  private async hideLoader() {
+    if (this.requestCounter === 0) {  // Hide loader only when all requests are completed
+      try {
+        await this.loadingController.dismiss();
+      } catch (error) {
+        // If the loader was already dismissed or no loader is active, this will handle the error silently
+      }
+    }
+  }
+
+  private incrementRequestCounter() {
+    this.requestCounter++;
+  }
+
+  private decrementRequestCounter() {
+    this.requestCounter--;
+
+    if (this.requestCounter === 0) {
+      this.hideLoader();
+    }
   }
 }

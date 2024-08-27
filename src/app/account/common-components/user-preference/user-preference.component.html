@@ -1,0 +1,77 @@
+<div class="bl_login_block bl_register_block bl_register_fixed" [style.padding-bottom]="displaLogo?'':'0px'">
+  <div class="bl_container">
+    <div class="bl_loginLogo" *ngIf="displaLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+
+
+    <div class="bl_login_title" *ngIf="displaLogo">
+      <h2>
+        {{ 'register_titles.Personal_Details' | translate }}
+      </h2>
+    </div>
+
+    <div class="bl_formitems" [formGroup]="otherDetailsForm">
+      <div class="form-group">
+        <label class="lable_text">{{ 'form.skinColour' | translate }}</label>
+        <ion-select formControlName="skinColour" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="otherDetailsForm.get('skinColour')?.invalid && otherDetailsForm.get('skinColour')?.touched">
+          <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+          <ion-select-option *ngFor="let option of skinColourOptions" [value]="option">{{ option
+            }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">{{ 'form.bodyShape' | translate }}</label>
+        <ion-select formControlName="bodyShape" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="otherDetailsForm.get('bodyShape')?.invalid && otherDetailsForm.get('bodyShape')?.touched">
+          <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+          <ion-select-option *ngFor="let option of bodyShapeOptions" [value]="option">{{ option }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">{{ 'form.prayer' | translate }}</label>
+        <ion-select formControlName="prayer" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="otherDetailsForm.get('prayer')?.invalid && otherDetailsForm.get('prayer')?.touched">
+          <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+          <ion-select-option *ngFor="let option of prayerOptions" [value]="option">{{ option }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">{{ 'form.smoke' | translate }}</label>
+        <ion-select formControlName="smoke" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="otherDetailsForm.get('smoke')?.invalid && otherDetailsForm.get('smoke')?.touched">
+          <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+          <ion-select-option *ngFor="let option of smokeOptions" [value]="option">{{ option }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">{{ 'form.beard' | translate }}</label>
+        <ion-select formControlName="beard" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="otherDetailsForm.get('beard')?.invalid && otherDetailsForm.get('beard')?.touched">
+          <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+          <ion-select-option *ngFor="let option of beardOptions" [value]="option">{{ option }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group" *ngIf="canDisplayMaritalStatus">
+        <label class="lable_text">{{ 'form.Marital_Status' | translate }}</label>
+        <ion-select formControlName="maritalStatus" interface="popover" fill="outline" class="form-control"
+          [class.invalid-input]="otherDetailsForm.get('maritalStatus')?.invalid && otherDetailsForm.get('maritalStatus')?.touched">
+          <ion-select-option value="">{{ 'form.Select_option' | translate }}</ion-select-option>
+          <ion-select-option *ngFor="let option of maritalStatusOptions" [value]="option">{{ option
+            }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <div class="form-group mt-3 bl_fixed_btn">
+        <ion-button color="secondary" [disabled]="otherDetailsForm.invalid" expand="block" (click)="submitForm()"
+          class="bl_submitRH">{{ 'form.Continue' | translate }}</ion-button>
+      </div>
+    </div>
+  </div>
+</div>

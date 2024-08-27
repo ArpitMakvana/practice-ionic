@@ -1,0 +1,142 @@
+<!-- <div class="ds_registerMobile_block">
+  <div class="ds_container">  
+    <div class="page_title">
+      <div class="iconbox">
+        <ion-icon color="warning" name="person-sharp"></ion-icon>
+      </div>
+      <h3>
+        Your information
+      </h3> 
+    </div>
+  
+    <div class="ds_formitems">
+      <div class="form-group">
+        <label class="lable_text">
+          First name
+        </label>
+        <ion-input mode="md" [(ngModel)]="name" type="text" fill="outline"
+          class="form-control"></ion-input>
+      </div>
+      
+      <div class="form-group">
+        <label class="lable_text">
+          Last name
+        </label>
+        <ion-input mode="md" [(ngModel)]="name" type="text" fill="outline"
+          class="form-control"></ion-input>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">
+          Date of birth
+        </label>
+        <ion-input mode="md" [(ngModel)]="dob" type="date" fill="outline" class="form-control"></ion-input>
+      </div>
+      <div class="form-group mt-4">
+        <ion-button color="dark" disabled="false" expand="block" (click)="submitForm()"
+          class="sh_submitRHBtn">Continue</ion-button>
+      </div>
+
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+    <!-- <div class="sh_register_block">
+        <h6>
+          <span>{{'register_titles.Find_exactly_the'|translate}}</span>
+          {{'register_titles.Right_Partner_for_you'|translate}}
+        </h6>
+        <div class="sh_logoitem1">
+          <img src="../../../assets/groomImg.png" class="img-fluid" />
+        </div>
+      </div> -->
+
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+
+
+    <div class="bl_login_title">
+      <h2>
+        {{'register_titles.Personal_information'|translate}}
+      </h2>
+    </div>
+
+
+    <form [formGroup]="nameDobForm" (ngSubmit)="submitForm()">
+
+      <div class="bl_formitems">
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.first_name'|translate}}
+          </label>
+          <ion-input mode="md" formControlName="firstName" type="text" fill="outline"
+            [class.invalid-input]="firstName?.invalid && firstName?.touched" class="form-control"></ion-input>
+          <div *ngIf="firstName?.invalid && firstName?.touched" class="invalid-feedback bl_error">
+            {{'error_message.First_name_minimum'|translate}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{'form.last_name'|translate}}</label>
+          <ion-input mode="md" formControlName="lastName" type="text" fill="outline"
+            [class.invalid-input]="lastName?.invalid && lastName?.touched" class="form-control"></ion-input>
+          <div *ngIf="lastName?.invalid && lastName?.touched" class="invalid-feedback bl_error">
+            {{'error_message.Last_name_minimum'|translate}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{'form.User_name'|translate}}</label>
+          <ion-input mode="md" formControlName="userName" type="text" fill="outline"
+            [class.invalid-input]="userName?.invalid && userName?.touched" class="form-control"></ion-input>
+          <div *ngIf="userName?.invalid && userName?.touched" class="invalid-feedback bl_error">
+            {{'error_message.User_name_minimum'|translate}}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{'form.DOB'|translate}}</label>
+          <ion-input mode="md" formControlName="dateOfBirth" type="date" fill="outline"
+            [class.invalid-input]="dateOfBirth?.invalid && dateOfBirth?.touched" class="form-control"></ion-input>
+        </div>
+
+        <!-- <div class="form-group">
+          <label class="lable_text">
+            {{'form.gender_lable'|translate}}
+          </label>
+          <ion-select interface="popover" fill="outline" class="form-control" formControlName="gender"
+            [class.invalid-input]="dateOfBirth?.invalid && dateOfBirth?.touched">
+            <ion-select-option value="">
+              {{'form.gender_placeholder'|translate}}
+            </ion-select-option>
+            <ion-select-option value="male">
+              {{'select_options.gender.male'|translate}}
+            </ion-select-option>
+            <ion-select-option value="female">
+              {{'select_options.gender.female'|translate}}
+            </ion-select-option>
+            <ion-select-option value="others">
+              {{'select_options.gender.others'|translate}}
+            </ion-select-option>
+          </ion-select>
+        </div> -->
+
+        <div class="form-group mt-3 bl_fixed_btn">
+          <ion-button color="dark" [disabled]="nameDobForm.invalid" expand="block" type="submit"
+            class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

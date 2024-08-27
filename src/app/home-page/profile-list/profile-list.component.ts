@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-profile-list',
@@ -6,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-list.component.scss'],
 })
 export class ProfileListComponent implements OnInit {
-
-  constructor() { }
+  userList:Array<any>=[];
+  constructor(
+    private router:Router,
+    private homeService:HomeService, 
+    ) { }
 
   ngOnInit() {
-
+    this.getUsers();
 
 
     const modal = document.querySelector('ion-modal') as HTMLIonModalElement;
@@ -38,6 +43,18 @@ export class ProfileListComponent implements OnInit {
 
 
   }
+
+  openProfile(data:any){
+    this.router.navigate(['/home/profile-information'])
+  }
+
+  getUsers(){
+    this.homeService.getUsers().then((users)=>{
+      console.log(users);
+      this.userList=users;
+    })
+  }
+
 
 
 

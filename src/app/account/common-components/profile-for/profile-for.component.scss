@@ -1,0 +1,15 @@
+.chip {
+    text-transform: capitalize;
+}
+
+.active {
+    --background: #FC503A !important;
+
+    ion-icon {
+        color: #fff !important;
+    }
+
+    ion-label {
+        color: #fff !important;
+    }
+}

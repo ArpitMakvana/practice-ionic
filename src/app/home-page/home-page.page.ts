@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { HomeService } from '../services/home.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RegisterService } from '../services/register.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -8,19 +12,28 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./home-page.page.scss'],
 })
 export class HomePagePage implements OnInit {
+  activeTabTitle: string = 'Profile List'; // Default tab title
 
-  constructor(private menu: MenuController) {}
+  constructor(
+    private menu: MenuController,
+    private homeService:HomeService,
+    private auth:AuthService
+    ) {}
 
   ngOnInit() {
+    this.auth.getAllConfig().then(res=>console.log(res));
+    
   }
 
   openMenu() {
     this.menu.open('first');
   }
 
-  closeMenu() {
-    this.menu.close('first');
-  }
+  
+
+
+
+  
 
   
 

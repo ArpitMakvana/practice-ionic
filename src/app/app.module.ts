@@ -10,7 +10,7 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RegistrationInterceptor } from './interceptor/registration.interceptor';
- 
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 import { register } from 'swiper/element/bundle';
 
@@ -22,12 +22,13 @@ export function createTranslateLoader(http: HttpClient) {
 register();
 
 @NgModule({
-  declarations: [AppComponent],  
-   
+  declarations: [AppComponent],
+
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot({ mode: 'ios'}), 
-    AppRoutingModule, 
+    BrowserModule,
+    IonicModule.forRoot(), //{ mode: 'ios' }
+    IonicStorageModule.forRoot(),
+    AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -37,7 +38,7 @@ register();
       }
     })
   ],
-   
+
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: RegistrationInterceptor, multi: true }

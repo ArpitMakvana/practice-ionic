@@ -1,9 +1,63 @@
 {
-    "HOME": "Home",
-    "CONTENT": "Content",
-    "ABOUT": "About",
-    "HELLO": "Hello",
-    "WELCOME": "Welcome to the multilanguage Ionic app",
-    "SIMPLE_APP": "This is just a simple app",
-    "MY_NAME": "My name is Bill Musk"
+  "landing": {
+    "welcome_back": "Welcome to Bilhalal...!",
+    "for_suggesting_life_partner": "Finds you a better match..",
+    "lets_begin": "Let's Begain",
+    "dont_have_account": "Don't have an account?",
+    "register": "register"
+  },
+  "form": {
+    "Login": "Login",
+    "email_lable": "Email ID",
+    "Password": "Password",
+    "mobile_no": "Mobile No.",
+    "mobile_no_placeholder": "Enter mobile number",
+    "email_placeholder": "Enter email",
+    "password_lable": "Password",
+    "gender_lable": "Gender",
+    "password_placeholder": "Enter password",
+    "gender_placeholder": "Select gender",
+    "forgot_password": "Forgot Password?",
+    "sign_in": "Sign in",
+    "or_use_social": "Or use your social media",
+    "new_user": "New user ?",
+    "register": "register",
+    "register_caps": "Register",
+    "Continue": "Continue",
+    "PIN_Number": "PIN Number",
+    "pin_placeholder": "Enter PIN",
+    "Resend_PIN": "Resend PIN",
+    "Verify": "Verify",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "User_name": "User name",
+    "DOB": "Date of birth"
+  },
+  "select_options": {
+    "gender": {
+      "male": "Male",
+      "female": "Female",
+      "others": "Others"
+    }
+  },
+  "register_titles": {
+    "Find_exactly_the": "Find exactly the",
+    "Right_Partner_for_you": "Right Partner for you!",
+    "By creating account, you agree to our": "By creating account, you agree to our",
+    "Privacy Policy": "Privacy Policy",
+    "and": "and",
+    "T&C": "T&C",
+    "Please_enter_verification_PIN": "Please enter verification PIN",
+    "you_will_received_a_SMS_with_verification_PIN_to": "you will received a SMS with verification PIN to",
+    "note": "Note",
+    "You_can_use_privacy_options_to_hide_your_number": "You can use privacy options to hide your nnumber",
+    "I_ll_do_this_later": "I'll do this later",
+    "This_profile_is_for": "This profile is for",
+    "Personal_information": "Personal information"
+  },
+  "error_message": {
+    "First_name_minimum": "First name is required and should be at least 2 characters.",
+    "Last_name_minimum": "Last name is required and should be at least 2 characters.",
+    "User_name_minimum": "User name is required and should be at least 2 characters."
   }
+}

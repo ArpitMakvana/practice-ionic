@@ -16,12 +16,12 @@ export class HttpCallsService {
   // Common method to handle errors
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
+    if (error.error) {
       // A client-side or network error occurred
-      errorMessage = `An error occurred: ${error.error.message}`;
+      errorMessage = `${error.error.message}`;
     } else {
       // The backend returned an unsuccessful response code
-      errorMessage = `Backend returned code ${error.status}, body was: ${error.message}`;
+      errorMessage = `Oops!!! Something went wrong...`;
     }
     this.presentAlert('Error', errorMessage);
     return throwError(errorMessage);
@@ -47,6 +47,13 @@ export class HttpCallsService {
 
   // POST request
   post<T>(endpoint: string, data: any): Observable<T> {
+    return this.http.post<T>(`${this.baseURL}/${endpoint}`, data)
+      .pipe(
+        catchError(this.handleError.bind(this))
+      );
+  }
+  // POST request
+  upload<T>(endpoint: string, data: FormData): Observable<T> {
     return this.http.post<T>(`${this.baseURL}/${endpoint}`, data)
       .pipe(
         catchError(this.handleError.bind(this))

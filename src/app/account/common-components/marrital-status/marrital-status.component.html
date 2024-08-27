@@ -1,0 +1,81 @@
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+
+
+    <div class="bl_login_title">
+      <h2>
+        {{ 'register_titles.Personal_Details' | translate }}
+      </h2>
+    </div>
+
+
+    <div class="bl_formitems" [formGroup]="maritalStatusForm">
+      <div class="form-group">
+        <label class="lable_text">
+          {{ 'form.Marital_Status' | translate }}
+        </label>
+        <ion-select interface="popover" fill="outline" class="form-control" formControlName="maritalStatus"
+          [class.invalid-input]="maritalStatusForm.get('maritalStatus')?.invalid && maritalStatusForm.get('maritalStatus')?.touched">
+          <ion-select-option value="">
+            {{ 'form.Select_option' | translate }}
+          </ion-select-option>
+          <ion-select-option *ngFor="let status of userMaritalStatus" [value]="status">
+            {{ status }}
+          </ion-select-option>
+        </ion-select>
+        <div *ngIf="maritalStatusForm.get('maritalStatus')?.invalid && maritalStatusForm.get('maritalStatus')?.touched"
+          class="invalid-feedback bl_error">
+          {{'error_message.marital_status_required'|translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">
+          {{ 'form.Height' | translate }}
+        </label>
+        <ion-select interface="popover" fill="outline" class="form-control" formControlName="height"
+          [class.invalid-input]="maritalStatusForm.get('height')?.invalid && maritalStatusForm.get('height')?.touched">
+          <ion-select-option value="">
+            {{ 'form.Select_option' | translate }}
+          </ion-select-option>
+          <ion-select-option *ngFor="let height of heightOptions" [value]="height">
+            {{ height }}
+          </ion-select-option>
+        </ion-select>
+        <div *ngIf="maritalStatusForm.get('height')?.invalid && maritalStatusForm.get('height')?.touched"
+          class="invalid-feedback bl_error">
+          {{'error_message.height_required'|translate}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="lable_text">
+          {{ 'form.Weight' | translate }}
+        </label>
+        <ion-select interface="popover" fill="outline" class="form-control" formControlName="weight"
+          [class.invalid-input]="maritalStatusForm.get('weight')?.invalid && maritalStatusForm.get('weight')?.touched">
+          <ion-select-option value="">
+            {{ 'form.Select_option' | translate }}
+          </ion-select-option>
+          <ion-select-option *ngFor="let weight of weightOptions" [value]="weight">
+            {{ weight }}
+          </ion-select-option>
+        </ion-select>
+        <div *ngIf="maritalStatusForm.get('weight')?.invalid && maritalStatusForm.get('weight')?.touched"
+          class="invalid-feedback bl_error">
+          {{'error_message.weight_required'|translate}}
+        </div>
+      </div>
+
+      <div class="form-group mt-3 bl_fixed_btn">
+        <ion-button color="light" [disabled]="maritalStatusForm.invalid" expand="block" (click)="submitForm()"
+          class="bl_submitRH">
+          {{ 'form.Continue' | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</div> 

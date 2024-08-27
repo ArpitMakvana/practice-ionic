@@ -1,0 +1,30 @@
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+    <div class="bl_login_title bl_login_title1">
+      <h2>
+        {{ 'register_titles.add_about_you' | translate }}
+      </h2>
+    </div>
+
+
+    <div class="bl_formitems">
+      <div class="form-group">
+        <label class="lable_text">
+          {{'form.About_yourself'|translate}}
+        </label>
+        <ion-textarea [(ngModel)]="aboutYourself" [placeholder]="'form.About_yourself'|translate"
+          class="form-control form-control1">
+        </ion-textarea>
+        <span class="message bl_error">{{'error_message.minimun_100'|translate}}</span>
+      </div>
+
+      <div class="form-group mt-3 bl_fixed_btn">
+        <ion-button color="light" [disabled]="aboutYourself.length<100" expand="block" (click)="submitForm()"
+          class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
+      </div>
+    </div>
+  </div>
+</div>

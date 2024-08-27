@@ -1,0 +1,67 @@
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+
+
+    <div class="bl_login_title">
+      <h2>
+        {{'register_titles.Personal_information'|translate}}
+      </h2>
+      <h6>{{'register_titles.This_really_helps_find_common_connections'|translate}}</h6>
+    </div>
+
+    <div class="ds_familydetilse_block">
+      <div class="bl_formitems">
+        <div class="ds_formitems">
+          <form [formGroup]="familyStatusForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+              <label class="lable_text">{{'form.Your_Family_Financial_Status'|translate}}</label>
+              <div class="status_groups">
+                <label class="sh_radio">{{'form.Elite'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="Elite">
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="sh_radio">{{'form.High'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="High">
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="sh_radio">{{'form.Middle'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="Middle">
+                  <span class="checkmark"></span>
+                </label>
+
+                <label class="sh_radio">{{'form.Aspiring'|translate}}
+                  <input type="radio" formControlName="familyFinancialStatus" value="Aspiring">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="lable_text">{{"form.Living_Arrangement"|translate}}</label>
+              <div class="status_groups">
+                <label class="sh_radio">{{'form.Living_with_family'|translate}}
+                  <input type="radio" formControlName="liveWithFamily" value="true">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="sh_radio">{{'form.Not_living_with_family'|translate}}
+                  <input type="radio" formControlName="liveWithFamily" value="false">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group mt-3 bl_fixed_btn">
+              <ion-button [disabled]="familyStatusForm.invalid" color="dark" expand="block" type="submit"
+                class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

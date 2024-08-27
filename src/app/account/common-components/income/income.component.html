@@ -1,0 +1,64 @@
+<div class="bl_login_block bl_register_block bl_register_fixed">
+  <div class="bl_container">
+    <div class="bl_loginLogo">
+      <img src="../../../assets/white_logo.png" class="img-fluid" />
+    </div>
+
+
+    <div class="bl_login_title">
+      <h2>
+        {{ 'register_titles.Personal_Details' | translate }}
+      </h2>
+    </div>
+
+
+    <div [formGroup]="incomeForm">
+      <div class="bl_formitems">
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.Income'|translate}}
+          </label>
+          <ion-select formControlName="income" interface="popover" fill="outline" class="form-control"
+            [class.invalid-input]="incomeForm.get('income')?.invalid && incomeForm.get('income')?.touched">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}
+            </ion-select-option>
+            <ion-select-option *ngFor="let religion of userIncome" [value]="religion">{{ religion }}</ion-select-option>
+          </ion-select>
+          <div *ngIf="incomeForm.get('income')?.invalid && incomeForm.get('income')?.touched" class="invalid-feedback bl_error">
+            {{'error_message.income_required'|translate}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.Work_details'|translate}}
+          </label>
+          <ion-select formControlName="workDetail" interface="popover" fill="outline" class="form-control"
+            [class.invalid-input]="incomeForm.get('workDetail')?.invalid && incomeForm.get('workDetail')?.touched">
+            <ion-select-option value="">{{ 'form.Select_option' | translate }}
+            </ion-select-option>
+            <ion-select-option *ngFor="let religion of userWorkAs" [value]="religion">{{ religion }}</ion-select-option>
+          </ion-select>
+          <div *ngIf="incomeForm.get('workDetail')?.invalid && incomeForm.get('workDetail')?.touched"
+            class="invalid-feedback bl_error">
+            {{'error_message.work_details_required'|translate}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="lable_text">
+            {{'form.work_as'|translate}}
+          </label>
+          <ion-input mode="md"
+            [class.invalid-input]="incomeForm.get('workAs')?.invalid && incomeForm.get('workAs')?.touched"
+            formControlName="workAs" type="text" fill="outline" class="form-control"></ion-input>
+          <div *ngIf="incomeForm.get('workAs')?.invalid && incomeForm.get('workAs')?.touched" class="invalid-feedback bl_error">
+            {{'error_message.workas_required'|translate}}
+          </div>
+        </div>
+        <div class="form-group mt-3 bl_fixed_btn">
+          <ion-button color="secondary" [disabled]="incomeForm.invalid" expand="block" (click)="submitForm()"
+            class="bl_submitRH">{{'form.Continue'|translate}}</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

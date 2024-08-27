@@ -1,0 +1,151 @@
+<!-- <div class="ds_landing_contant ds_landing_wizard wedd_Bg">
+  <div class="ds_landing_contantinfo">
+    <ion-item (click)="selectOption('email')" expand="block" class="ds_submitBtn ds_submitBtn2">
+      <ion-icon slot="start" name="mail-outline" size="small"></ion-icon>
+      <ion-label>Sign up with Email</ion-label>
+    </ion-item>
+
+    <ion-item (click)="selectOption('mobile')" expand="block" class="ds_submitBtn ds_submitBtn2">
+      <ion-icon slot="start" name="phone-portrait-outline" size="small"></ion-icon>
+      <ion-label>Sign up with Mobile</ion-label>
+    </ion-item>
+
+    <ion-item (click)="selectOption('google')" expand="block" class="ds_submitBtn ds_submitBtn2">
+      <ion-icon slot="start" name="logo-google" size="small"></ion-icon>
+      <ion-label>Sign up with Google</ion-label>
+    </ion-item>
+
+    <ion-item (click)="selectOption('apple')" expand="block" class="ds_submitBtn ds_submitBtn2">
+      <ion-icon slot="start" name="logo-apple" size="small"></ion-icon>
+      <ion-label>Sign up with Apple</ion-label>
+    </ion-item>
+
+    <div class="ds-newuser">
+      <p class="text-left">Already have an account? </p>
+      <ion-button (click)="selectOption('login')" expand="block" router-direction="back"
+        class="ds_submitBtn ds_submitBtn1">
+        Login
+      </ion-button>
+    </div>
+  </div>
+</div>  
+ -->
+
+
+
+
+
+
+
+<!-- <ion-content [fullscreen]="true">
+  <div class="ds_homeitem wedd_Bg">
+    <div class="ds_container">
+      <div class="ds_landing_contant"> -->
+<!-- <div class="ds-logoitem">
+          <img src="../../../assets/bg/logo.png" class="img-fluid" />
+        </div> -->
+<!-- 
+        <div class="ds_landing_contantinfo">
+          <h1> wesite.com?</h1>
+          <p>
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
+          </p>
+          <div class="form-group">
+            <ion-button color="light" expand="block" routerLink="/register" class="ds_submitBtn">
+              Get Started
+            </ion-button> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+
+
+
+
+
+
+
+
+<ion-content [fullscreen]="true" class="bl_login_block">
+  <div [formGroup]="loginForm">
+    <div class="bl_container">
+      <div class="bl_loginLogo">
+        <img src="../../../assets/white_logo.png" class="img-fluid" />
+      </div>
+
+
+      <div class="bl_login_title">
+        <h2>
+          {{'form.Login'|translate}}
+        </h2>
+      </div>
+
+      <div class="bl_formitems">
+        <div class="form-group">
+          <label class="lable_text">{{'form.email_lable'|translate}}</label>
+          <ion-input formControlName="email" mode="md" type="email" fill="outline"
+            [placeholder]="'form.email_placeholder'|translate" class="form-control"></ion-input>
+        </div>
+
+        <div class="form-group">
+          <label class="lable_text">{{'form.password_lable'|translate}}</label>
+          <ion-input mode="md" formControlName="password" type="password" fill="outline"
+            [placeholder]="'form.password_placeholder'|translate" class="form-control">
+            <ion-input-password-toggle slot="end" style="color: red;"></ion-input-password-toggle></ion-input>
+        </div>
+
+        <div class="form-group"> 
+          <label class="bl_checkboxitem">
+            Remember me
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+        <div class="form-group mt-3">
+          <ion-button color="light" (click)="submitForm()" [disabled]="loginForm.invalid && disableButton"
+            expand="block" routerLink="/register" class="bl_submitRH">
+            {{'form.sign_in'|translate}}
+          </ion-button>
+        </div>
+        
+
+        <div class="form-group">
+          <label class="forget_password">
+            <a href="#" class="sh_links">{{'form.forgot_password'|translate}}</a>
+          </label>
+        </div>
+
+        <!-- <div class="form-group mt-2">
+            <label class="sh_other_login"> {{'form.or_use_social'|translate}}</label>
+            <ul class="sh_sociallinks">
+              <li class="nav-item">
+                <a href="#" class="socialBtn">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="socialBtn">
+                  <i class="fab fa-google"></i>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="#" class="socialBtn">
+                  <i class="fas fa-apple-alt"></i>
+                </a>
+              </li>
+            </ul>
+          </div> -->
+
+        <div class="form-group mt-4">
+          <label class="sh_other_bl_newuser"> {{'form.new_user'|translate}} <span class="sh_links"
+              (click)="selectOption('mobile')">{{'form.register'|translate}}</span> </label>
+        </div>
+      </div>
+    </div>
+  </div> 
+</ion-content>

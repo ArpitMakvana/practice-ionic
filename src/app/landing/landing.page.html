@@ -29,25 +29,24 @@
 
 
 
-<ion-content [fullscreen]="true">
-  <div class="ds_container">
-    <div class="sh_splashhoem_block">
-      <div class="sh_logoitem">
-        <img src="../../../assets/logo2.png" class="img-fluid" />
+<ion-content [fullscreen]="true" class="bl_landing_block">
+  <div class="bl_landing_item"> 
+    <div class="bl_container"> 
+      <div class="bl_logo_block">
+        <img src="./../../assets/white_logo1.png" class="img-fluid" />
       </div>
 
-      <div class="sh_landing_contantinfo">
-
-        <div class="sh_logoitem1">
+      <div class="bl_landinginfo"> 
+        <div class="bl_landing_img">
           <img src="../../../assets/landingimg.jpg" class="img-fluid" />
         </div>
 
-        <h1> {{'landing.welcome_back'| translate}}</h1>
+        <!-- <h1> {{'landing.welcome_back'| translate}}</h1> -->
         <p>
           {{'landing.for_suggesting_life_partner' | translate}}
         </p>
         <div class="form-group">
-          <ion-button color="light" expand="block" routerLink="/register" class="sh_submitRHBtn">
+          <ion-button color="light" expand="block" routerLink="/login" class="bl_submit">
             {{'landing.lets_begin' | translate}}
           </ion-button>
         </div>
