@@ -15,31 +15,18 @@ export class HomePagePage implements OnInit {
   constructor(
     private menu: MenuController,
     private homeService:HomeService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
     ) {}
 
   ngOnInit() {
-    this.getUsers();
-    this.updateActiveTabTitle();
   }
 
   openMenu() {
     this.menu.open('first');
   }
 
-  getUsers(){
-    this.homeService.getUsers().then((users)=>{
-      console.log(users);
-    })
-  }
+  
 
 
-  updateActiveTabTitle(tab?: string) {
-    const currentTab = tab || this.router.url.split('/').pop();
-
-    
-  }
 
   
 

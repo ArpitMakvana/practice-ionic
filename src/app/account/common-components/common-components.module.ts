@@ -23,6 +23,7 @@ import { FamilyStatusComponent } from './family-status/family-status.component';
 import { RegisterSucessComponent } from './register-sucess/register-sucess.component';
 import { UserPreferenceComponent } from './user-preference/user-preference.component';
 import { PlansComponent } from './plans/plans.component';
+import { AgePipe } from 'src/app/pipes/age.pipe';
 
 @NgModule({
   imports: [
@@ -51,7 +52,7 @@ import { PlansComponent } from './plans/plans.component';
     FamilyStatusComponent,
     RegisterSucessComponent,
     UserPreferenceComponent,
-    PlansComponent
+    PlansComponent,
   ],
   exports: [
     RegisterOptionComponent,
@@ -72,7 +73,7 @@ import { PlansComponent } from './plans/plans.component';
     FamilyStatusComponent,
     RegisterSucessComponent,
     UserPreferenceComponent,
-    PlansComponent
+    PlansComponent,
   ]
 })
 export class CommonComponentsModule { }

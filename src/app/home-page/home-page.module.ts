@@ -17,6 +17,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UserchatListComponent } from './userchat-list/userchat-list.component';
 import { CommonComponentsModule } from '../account/common-components/common-components.module';
 import { UserLikesComponent } from './user-likes/user-likes.component';
+import { AgePipe } from '../pipes/age.pipe';
 
 
 
@@ -29,7 +30,7 @@ register();
     IonicModule,
     HomePagePageRoutingModule,
     CommonComponentsModule,
-    UserLikesComponent
+    AgePipe
 
   ],
   declarations: [

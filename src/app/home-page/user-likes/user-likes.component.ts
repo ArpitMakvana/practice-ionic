@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-likes',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLikesComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {}
 
+  openProfile(data:any){
+    this.router.navigate(['/home/profile-information'])
+  }
 }
