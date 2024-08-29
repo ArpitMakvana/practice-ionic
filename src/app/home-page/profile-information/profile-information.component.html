@@ -1,4 +1,4 @@
-<div class="sh_marrgigeinfo_block">
+<div class="sh_marrgigeinfo_block" *ngIf="userProfile">
 
   <swiper-container loop="true" autoplay="{
         delay: 2500,
@@ -7,74 +7,41 @@
         el: '.swiper-pagination',
         clickable: true
       }">
-    <swiper-slide>
+    <swiper-slide *ngFor="let picture of userProfile.UserPersonalDetails?.photos">
       <div class="imgbox">
-        <img src="./assets/profile-picture1.jpeg" class="img-fluid" />
-      </div>
-    </swiper-slide>
-
-    <swiper-slide>
-      <div class="imgbox">
-        <img src="../../../../assets/profile-picture2.jpg" />
-      </div>
-    </swiper-slide>
-
-    <swiper-slide>
-      <div class="imgbox">
-        <img src="../../../../assets/profile-picture3.jpg" />
+        <img [src]="baseImageUrl+picture" onerror="this.src='./../../../../assets/bg/profilimg_1.jpg'" class="img-fluid" />
       </div>
     </swiper-slide>
   </swiper-container>
 
   <div class="contant_info">
     <h2>
-      Monika Singh
+      {{userProfile?.firstName}} {{userProfile?.lastName}}
     </h2>
     <p>
-      21 year old
+      {{userProfile.dateOfBirth | age}}
     </p>
 
     <ul class="listinfo">
       <li>
         <p>
-          Software Professional
+          {{userProfile.UserPersonalDetails?.workDetails?.workAs}}
         </p>
       </li>
       <li>
         <p>
-          29 Yrs,
+          {{userProfile.dateOfBirth | age}},
           <span>
-            5ft 11 in
+            {{userProfile.UserPersonalDetails?.personalDetails?.height}} - {{userProfile.UserPersonalDetails?.personalDetails?.weight}}
           </span>
         </p>
       </li>
       <li>
         <p>
-          <span> Kharti, </span>
-          <span>Hindu</span>
+          <span>{{userProfile.UserPersonalDetails?.community}}, </span>
+                <span>{{userProfile.UserPersonalDetails?.religion}} <br /></span>
 
-          <span> Delhi, India </span>
-        </p>
-      </li>
-      <li>
-        <p>
-          Software Professional
-        </p>
-      </li>
-      <li>
-        <p>
-          29 Yrs,
-          <span>
-            5ft 11 in
-          </span>
-        </p>
-      </li>
-      <li>
-        <p>
-          <span> Kharti, </span>
-          <span>Hindu</span>
-
-          <span> Delhi, India </span>
+          <span> <span>{{userProfile.UserPersonalDetails?.userAddress.city}}, {{userProfile.UserPersonalDetails?.userAddress.state}}, {{userProfile.UserPersonalDetails?.userAddress.country}}</span> </span>
         </p>
       </li>
     </ul>

@@ -1,50 +1,8 @@
-<!-- <div class="ion-page sh_homepagebody_block" id="main-content">
-
-  <ion-header class="sh_pageheader_block">
-    <div class="sh_sidemenuCall_item">
-      <ion-menu-button (click)="openMenu()" class="sh_menuCall"></ion-menu-button>
-      <div class="sh_logobox">
-        <img src="../.../../../../assets/logo2.png" class="img-flui">
-      </div>
-    </div>
-    <ul class="sh_pagesearchnoti_block">
-      <li class="nav-item">
-         <a href="#" class="nav-link">
-          <i class="fas fa-search"></i>
-        </a> 
-        <select class="form-control bl_language">
-          <option>EN</option>
-          <option>EN</option>
-        </select>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="far fa-bell"></i>
-          <span class="sh_counter">
-            10
-          </span>
-        </a>
-      </li>
-    </ul>
-  </ion-header>
-  <ion-content class="ion-padding sh_pagebody_block">
-
-    <ion-router-outlet></ion-router-outlet>
-
-    <app-subscription/>
-    <app-profile-information/> 
-    <app-profile-list/> 
-    <app-userchat-list />
-    <app-user-chat /> 
-
-
-  </ion-content>
-</div> -->
 
 <div class="ion-page sh_homepagebody_block" id="main-content">
   <ion-header class="sh_pageheader_block">
     <div class="sh_sidemenuCall_item">
-      <ion-menu-button (click)="openMenu()" class="sh_menuCall"></ion-menu-button>
+      <ion-menu-button  class="sh_menuCall"></ion-menu-button>
       <div class="sh_logobox">
         <img src="../.../../../../assets/logo2.png" class="img-flui">
       </div>
@@ -57,7 +15,7 @@
         </select>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a (click)="openNotifivations()" class="nav-link">
           <i class="far fa-bell"></i>
           <span class="sh_counter">
             10
@@ -71,14 +29,17 @@
     <ion-tabs>
       <ion-tab-bar slot="bottom" color="danger">
         <ion-tab-button tab="profile-list">
+          <ion-icon name="home"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button tab="matches">
           <ion-icon name="people"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button tab="user-likes">
-          <ion-icon name="heart"></ion-icon>
+        <ion-tab-button tab="userchat-list">
+          <ion-icon name="chatbubbles"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button tab="profile">
+        <ion-tab-button tab="user-account">
           <ion-icon name="person"></ion-icon>
         </ion-tab-button>
       </ion-tab-bar>

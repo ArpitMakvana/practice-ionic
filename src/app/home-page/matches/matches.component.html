@@ -1,0 +1,66 @@
+<div class="requestPage">
+  <div class="request-box" *ngIf="request.length">
+    <div class="header">
+      <h1>Connection requests <span (click)="viewAllRequest()">View all</span></h1>
+    </div>
+    <div class="connections" *ngFor="let req of request">
+      <div class="connection-box">
+        <div class="content-item">
+        <div class="image">
+          <img [src]="baseImageUrl+req?.requester?.profilePhoto" onerror="this.src='./../../../../assets/statis-person.jpg'">
+        </div>
+        <div class="details">
+          <p>{{req.requester?.firstName}} {{req.requester?.firstName}}</p>
+          <p>{{req.requester?.dateOfBirth | age}}</p>
+        </div>
+      </div>
+      <div class="action">
+        <ion-icon (click)="accept(req)" class="accept" name="checkmark-done-sharp"></ion-icon>
+        <ion-icon (click)="reject(req)" class="reject" name="close-sharp"></ion-icon>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connections">
+    <h1>My connections</h1>
+    <div class="sh_marrigeprofile_listinfo">
+    <div *ngIf="connections.length">
+      <ion-card class="custome_card sh_profiles_item" *ngFor="let user of connections">
+        <ion-card-content>
+          <ion-row (click)="openProfile(user)">
+            <ion-col size="3">
+              <div class="ds_imgbox">
+                <img [src]="baseImageUrl+user?.UserPersonalDetails?.photos[0]" onerror="this.src='./../../../../assets/statis-person.jpg'" class="img-fluid" />
+              </div>
+            </ion-col>
+            <ion-col size="9">
+              <div class="ds_prconant">
+                <h2>{{user?.firstName}} {{user?.lastName}}</h2>
+                <p>{{user.UserPersonalDetails?.workDetails?.workAs}}</p>
+                <p>{{user?.dateOfBirth | age}},
+                  <span>{{user.UserPersonalDetails?.personalDetails?.height}} - {{user.UserPersonalDetails?.personalDetails?.weight}}</span>
+                </p>
+                <h6>
+                  <span>{{user.UserPersonalDetails?.community}}, </span>
+                  <span>{{user.UserPersonalDetails?.religion}} <br /></span>
+                  <span>{{user.UserPersonalDetails?.userAddress.city}}, {{user.UserPersonalDetails?.userAddress.state}}, {{user.UserPersonalDetails?.userAddress.country}}</span>
+                </h6>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="form-group">
+            <ion-row>
+              <ion-col size="6">
+                <ul class="listitem">
+                  <li><a href="#" class="links"><i class="far fa-comments"></i></a></li>
+                </ul>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  </div>
+</div>

@@ -8,6 +8,9 @@ import { ProfileListComponent } from './profile-list/profile-list.component';
 import { UserchatListComponent } from './userchat-list/userchat-list.component';
 import { UserChatComponent } from './user-chat/user-chat.component';
 import { UserLikesComponent } from './user-likes/user-likes.component';
+import { MatchesComponent } from './matches/matches.component';
+import { UserAccountComponent } from './user-account/user-account.component';
+import { MatchesReuestComponent } from './matches-reuest/matches-reuest.component';
 
 const routes: Routes = [
   {
@@ -33,6 +36,18 @@ const routes: Routes = [
       {
         path: 'user-chat',
         component: UserChatComponent
+      },
+      {
+        path: 'matches',
+        component: MatchesComponent
+      },
+      {
+        path: 'matches-request',
+        component: MatchesReuestComponent
+      },
+      {
+        path: 'user-account',
+        component: UserAccountComponent
       },
       {
         path: 'user-likes',

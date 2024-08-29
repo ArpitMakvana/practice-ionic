@@ -3,16 +3,16 @@
     <ion-menu contentId="main-content" class="sh_sidemenu_block">
       <ion-content class="sh_sidemenu_Main">
         <div class="sh_sidemenu_header">
-          <div class="sh_sidemenu_header_inner">
+          <div class="sh_sidemenu_header_inner" *ngIf="userProfile">
             <div class="sh_imgbox">
-              <img src="../../../assets/profilimg_1.jpg" class="img-fluid" />
+              <img [src]="baseImageUrl+userProfile.UserPersonalDetails?.photos[0]" onerror="this.src='../assets/statis-person.jpg'" class="img-fluid" />
             </div>
             <div class="sh_contant">
-              <h1> Monika Singh</h1>
+              <h1> {{userProfile.firstName}} {{userProfile.lastName}}</h1>
               <p>
-                Examplegmail.com
+                {{userProfile.email}}
               </p>
-              <ion-button color="dark" disabled="false" expand="block" class="sh_submitWHBtn">
+              <ion-button routerLink="/home/user-account" (click)="closeMenu()" color="dark" disabled="false" expand="block" class="sh_submitWHBtn">
                 Edit Profile
               </ion-button>
             </div>
@@ -45,7 +45,7 @@
             </li>
     
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a routerLink="/home/user-account" (click)="closeMenu()" class="nav-link">
                 <span class="iconbox">
                   <i class="fas fa-user-alt"></i>
                 </span>

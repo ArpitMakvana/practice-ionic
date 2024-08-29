@@ -18,6 +18,10 @@ import { UserchatListComponent } from './userchat-list/userchat-list.component';
 import { CommonComponentsModule } from '../account/common-components/common-components.module';
 import { UserLikesComponent } from './user-likes/user-likes.component';
 import { AgePipe } from '../pipes/age.pipe';
+import { MatchesComponent } from './matches/matches.component';
+import { UserAccountComponent } from './user-account/user-account.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatchesReuestComponent } from './matches-reuest/matches-reuest.component';
 
 
 
@@ -30,7 +34,8 @@ register();
     IonicModule,
     HomePagePageRoutingModule,
     CommonComponentsModule,
-    AgePipe
+    AgePipe,
+    TranslateModule
 
   ],
   declarations: [
@@ -40,7 +45,10 @@ register();
     UserChatComponent,  
     SubscriptionComponent,
     UserchatListComponent,
-    UserLikesComponent
+    UserLikesComponent,
+    MatchesComponent,
+    UserAccountComponent,
+    MatchesReuestComponent
 
   ],
   exports: [

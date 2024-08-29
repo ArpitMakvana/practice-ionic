@@ -13,28 +13,25 @@ import { AuthService } from '../services/auth.service';
 })
 export class HomePagePage implements OnInit {
   activeTabTitle: string = 'Profile List'; // Default tab title
-
+  userProfile:any={};
   constructor(
     private menu: MenuController,
     private homeService:HomeService,
-    private auth:AuthService
+    private auth:AuthService,
+    private router:Router
     ) {}
 
-  ngOnInit() {
-    this.auth.getAllConfig().then(res=>console.log(res));
-    
+  async ngOnInit() {
+    this.userProfile = await this.auth.getUserProfille();
+    console.log(this.userProfile);
   }
 
   openMenu() {
     this.menu.open('first');
   }
 
-  
-
-
-
-  
-
-  
+  openNotifivations(){
+    this.router.navigate(['/notifications'])
+  }
 
 }

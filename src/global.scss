@@ -513,6 +513,11 @@ body {
   color: #fff;
 }
 
+.activeChackmark {
+  background-color: rgb(255 0 0 / 98%) !important;
+  color: #fff !important;
+}
+
 .ds_radio input:checked~.checkmark {
   border-color: #2FC2D4;
 }
@@ -2255,8 +2260,10 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
   position: relative;
   max-height: 100%;
   overflow: scroll;
-  // margin-bottom: 50px;
-  margin-top: 50px;
+}
+.sh_marrgigeinfo_block{
+  max-height: 100%;
+  overflow: scroll;
 }
 
 .sh_marrigeprofile_listinfo .sh_profiles_item {

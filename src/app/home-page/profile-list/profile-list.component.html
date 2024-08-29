@@ -1,72 +1,38 @@
-<!-- ------------------  User list  --------------------------  -->
-<!-- ------------------  User list  --------------------------  -->
-
-
 <div class="sh_marrigeprofile_listinfo">
-  <!-- <div class="sh_searchbox"> 
-    <input type="text" placeholder="Search your partner" class="form-control ds-textbox"/>
-    <span class="input-group-addon">
-      <i class="fas fa-search"></i>
-    </span>
-  </div> -->
-  <div class="sh_searchbox">
-    <ion-searchbar placeholder="Search your partner" class="form-control"></ion-searchbar>
-  </div>
-
-
   <div *ngIf="userList.length">
     <ion-card class="custome_card sh_profiles_item" *ngFor="let user of userList">
       <ion-card-content>
-        <ion-row (click)="openProfile('this')">
+        <ion-row (click)="openProfile(user)">
           <ion-col size="3">
             <div class="ds_imgbox">
-              <img [src]="user?.UserPersonalDetails?.photos[0]" onerror="this.src='./../../../../assets/bg/profilimg_1.jpg'" class="img-fluid" />
+              <img [src]="baseImageUrl+user?.UserPersonalDetails?.photos[0]" onerror="this.src='./../../../../assets/statis-person.jpg'" class="img-fluid" />
             </div>
           </ion-col>
           <ion-col size="9">
             <div class="ds_prconant">
-              <h2>
-                {{user?.firstName}} {{user?.lastName}}
-              </h2>
-              <p>
-                {{user.UserPersonalDetails?.workDetails?.workAs}}
-              </p>
-              <p>
-                {{user?.dateOfBirth | age}},
-                <span>
-                  {{user.UserPersonalDetails?.personalDetails?.height}} - {{user.UserPersonalDetails?.personalDetails?.weight}}
-                </span>
+              <h2>{{user?.firstName}} {{user?.lastName}}</h2>
+              <p>{{user.UserPersonalDetails?.workDetails?.workAs}}</p>
+              <p>{{user?.dateOfBirth | age}},
+                <span>{{user.UserPersonalDetails?.personalDetails?.height}} - {{user.UserPersonalDetails?.personalDetails?.weight}}</span>
               </p>
               <h6>
-                <span> {{user.UserPersonalDetails?.community}}, </span>
-                <span>{{user.UserPersonalDetails?.religion}} <br/></span>
-  
-                <span> {{user.UserPersonalDetails?.userAddress.city}}, {{user.UserPersonalDetails?.userAddress.state}}, {{user.UserPersonalDetails?.userAddress.country}} </span>
+                <span>{{user.UserPersonalDetails?.community}}, </span>
+                <span>{{user.UserPersonalDetails?.religion}} <br /></span>
+                <span>{{user.UserPersonalDetails?.userAddress.city}}, {{user.UserPersonalDetails?.userAddress.state}}, {{user.UserPersonalDetails?.userAddress.country}}</span>
               </h6>
             </div>
           </ion-col>
         </ion-row>
         <div class="form-group">
           <ion-row>
-            <ion-col size="6">
+            <!-- <ion-col size="6">
               <ul class="listitem">
-                <li>
-                  <a href="#" class="links">
-                    <i class="far fa-heart"></i>
-                    <!-- <i class="fas fa-heart"></i> -->
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="links">
-                    <i class="far fa-comment-dots"></i>
-                  </a>
-                </li>
+                <li><a href="#" class="links"><i class="far fa-heart"></i></a></li>
+                <li><a href="#" class="links"><i class="far fa-comment-dots"></i></a></li>
               </ul>
-            </ion-col>
+            </ion-col> -->
             <ion-col size="6">
-              <ion-button color="dark" disabled="false" expand="block" class="sh_submitRHBtn">
-                Send interest
-              </ion-button>
+              <ion-button (click)="sendInterest(user)" color="dark" expand="block" class="sh_submitRHBtn">Send interest</ion-button>
             </ion-col>
           </ion-row>
         </div>
@@ -75,103 +41,92 @@
   </div>
 
   <ul class="filter_sort_menus">
-    <li class="nav-item">
-      <span class="nav-link" id="open-modal" expand="block" expand="block">
-        <i class="fas fa-filter"></i>
-        Filter
-      </span>
-    </li>
-
-    <li class="nav-item">
-      <span class="nav-link" id="open-modal1" expand="block">
-        <i class="fas fa-sort-numeric-up-alt"></i>
-        Sort
-      </span>
-    </li>
+    <li class="nav-item"><span class="nav-link" id="open-modal"><i class="fas fa-filter"></i> Filter</span></li>
+    <li class="nav-item"><span class="nav-link" id="open-modal1"><i class="fas fa-sort-numeric-up-alt"></i> Sort</span></li>
   </ul>
-
-
-  <!-- <ion-button id="open-modal" expand="block">Open Sheet Modal</ion-button>
-  <ion-button id="open-modal1" expand="block">Open Sheet Modal</ion-button> -->
-
 
   <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
     <ng-template>
       <ion-content class="sh_filtermenu_box">
-        <div class="page_title">
-          <h1>
-            Filter
-          </h1>
-        </div>
+        <div class="page_title"><h1>Filter</h1></div>
         <div class="ds_formitems">
-          <!-- <div class="form-group">
-            <label class="lable_text">
-              Location
-            </label>
-            <div class="sh_searchbox">
-              <ion-searchbar placeholder="Search locaton..." class="form-control"></ion-searchbar>
-            </div>
-          </div>
-
           <div class="form-group">
-            <label class="lable_text">
-              Interested In
-            </label>
+            <label class="lable_text">Interested In</label>
             <div class="sh_checkbox_inner">
-              <label class="sh_checkbox_item">
-                <input type="checkbox">
-                <span class="checkmark"> Woman</span>
-              </label>
-              <label class="sh_checkbox_item">
-                <input type="checkbox">
-                <span class="checkmark"> Man</span>
-              </label>
-              <label class="sh_checkbox_item">
-                <input type="checkbox">
-                <span class="checkmark"> Both</span>
+              <label class="sh_checkbox_item" *ngFor="let option of interestedInOptions">
+                <input type="checkbox" [checked]="selectedFilters.interestedIn.includes(option)" (change)="onCheckboxChange('interestedIn', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.interestedIn.includes(option)">{{ option }}</span>
               </label>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="lable_text">
-              Short By
-            </label>
-            <div class="sh_checkbox_inner">
+            <label class="lable_text">{{ 'form.skinColour' | translate }}</label>
+            <div class="sh_checkbox_inner" *ngFor="let option of skinColourOptions">
               <label class="sh_checkbox_item">
-                <input type="checkbox">
-                <span class="checkmark"> Online</span>
-              </label>
-              <label class="sh_checkbox_item">
-                <input type="checkbox">
-                <span class="checkmark"> Popular</span>
-              </label>
-              <label class="sh_checkbox_item">
-                <input type="checkbox">
-                <span class="checkmark"> Heighly Match</span>
+                <input type="checkbox" [checked]="selectedFilters.skinColour.includes(option)" (change)="onCheckboxChange('skinColour', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.skinColour.includes(option)">{{ option }}</span>
               </label>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="lable_text">
-              Distance
-            </label>
-            <ion-range aria-label="Custom range" [min]="0" [max]="10" [value]="5" [pin]="true" [ticks]="true"
-              [snaps]="true"></ion-range>
-          </div> -->
-          <app-user-preference [canDisplayMaritalStatus]="true" [displaLogo]="false"></app-user-preference>
+            <label class="lable_text">{{ 'form.bodyShape' | translate }}</label>
+            <div class="sh_checkbox_inner" *ngFor="let option of bodyShapeOptions">
+              <label class="sh_checkbox_item">
+                <input type="checkbox" [checked]="selectedFilters.bodyShape.includes(option)" (change)="onCheckboxChange('bodyShape', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.bodyShape.includes(option)">{{ option }}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="lable_text">{{ 'form.prayer' | translate }}</label>
+            <div class="sh_checkbox_inner" *ngFor="let option of prayerOptions">
+              <label class="sh_checkbox_item">
+                <input type="checkbox" [checked]="selectedFilters.prayer.includes(option)" (change)="onCheckboxChange('prayer', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.prayer.includes(option)">{{ option }}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="lable_text">{{ 'form.smoke' | translate }}</label>
+            <div class="sh_checkbox_inner" *ngFor="let option of smokeOptions">
+              <label class="sh_checkbox_item">
+                <input type="checkbox" [checked]="selectedFilters.smoke.includes(option)" (change)="onCheckboxChange('smoke', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.smoke.includes(option)">{{ option }}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="lable_text">{{ 'form.beard' | translate }}</label>
+            <div class="sh_checkbox_inner" *ngFor="let option of beardOptions">
+              <label class="sh_checkbox_item">
+                <input type="checkbox" [checked]="selectedFilters.beard.includes(option)" (change)="onCheckboxChange('beard', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.beard.includes(option)">{{ option }}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="lable_text">{{ 'form.Marital_Status' | translate }}</label>
+            <div class="sh_checkbox_inner" *ngFor="let option of maritalStatusOptions">
+              <label class="sh_checkbox_item">
+                <input type="checkbox" [checked]="selectedFilters.maritalStatus.includes(option)" (change)="onCheckboxChange('maritalStatus', option, $event)">
+                <span class="checkmark" [class.activeChackmark]="selectedFilters.maritalStatus.includes(option)">{{ option }}</span>
+              </label>
+            </div>
+          </div>
+
           <div class="form-group">
             <ion-row>
               <ion-col size="6">
-                <ion-button color="dark" disabled="false" expand="block" class="sh_submitRHBtn1">
-                  Reset Filter
-                </ion-button>
+                <ion-button (click)="resetFilters()" color="dark" expand="block" class="sh_submitRHBtn1">Reset Filter</ion-button>
               </ion-col>
               <ion-col size="6">
-                <ion-button color="dark" disabled="false" expand="block" class="sh_submitRHBtn">
-                  Apply
-                </ion-button>
+                <ion-button (click)="applyFilters()" color="dark" expand="block" class="sh_submitRHBtn">Apply</ion-button>
               </ion-col>
             </ion-row>
           </div>
@@ -180,22 +135,13 @@
     </ng-template>
   </ion-modal>
 
-
   <ion-modal #modal1 trigger="open-modal1" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
     <ng-template>
       <ion-content class="sh_filtermenu_box">
-        <div class="page_title">
-          <h1>
-            Sort
-          </h1>
-        </div>
+        <div class="page_title"><h1>Sort</h1></div>
         <div class="ds_formitems">
           <div class="form-group">
             <label class="ds_radio">Popularity
-              <input type="radio" name="sort">
-              <span class="checkmark"></span>
-            </label>
-            <label class="ds_radio">Low to high
               <input type="radio" name="sort">
               <span class="checkmark"></span>
             </label>
@@ -212,14 +158,10 @@
           <div class="form-group">
             <ion-row>
               <ion-col size="6">
-                <ion-button color="dark" disabled="false" expand="block" class="sh_submitRHBtn1">
-                  Reset Sort
-                </ion-button>
+                <ion-button color="dark" expand="block" class="sh_submitRHBtn1">Reset Sort</ion-button>
               </ion-col>
               <ion-col size="6">
-                <ion-button color="dark" disabled="false" expand="block" class="sh_submitRHBtn">
-                  Apply
-                </ion-button>
+                <ion-button color="dark" expand="block" class="sh_submitRHBtn">Apply</ion-button>
               </ion-col>
             </ion-row>
           </div>
@@ -228,11 +170,3 @@
     </ng-template>
   </ion-modal>
 </div>
-
-
-
-
-
-
-<!-- ------------------  User list  --------------------------  -->
-<!-- ------------------  User list  --------------------------  -->

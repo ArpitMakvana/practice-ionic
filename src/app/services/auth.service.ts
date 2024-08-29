@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AuthService {
     config: any;
+    userProfile:any;
     storageKeys = {
         'regDataOnOTPSubmit': 'REGDATAONOTPSUBMIT',
         'initialProfileData': 'INITIALPROFILEDATA',
@@ -23,13 +24,12 @@ export class AuthService {
     getAllConfig(): Promise<any> {
         return new Promise((resolve, reject) => {
             if (this.config) resolve(this.config);
-            let url = 'config/?limit=200&lang=en';
+            const url = 'config/?limit=200&lang=en';
             this.http.get(url).subscribe((result: any) => {
-                this.config = result.data;
-                resolve(this.config);
-                console.log(result);
-            }, err => reject(err))
-        })
+              this.config = this.formatConfigData(result.data);
+              resolve(this.config);
+            }, err => reject(err));
+          });
     }
 
     getToken(): Promise<any> {
@@ -53,7 +53,26 @@ export class AuthService {
         })
     }
 
-    getUserProfille(){
-        
+    getUserProfille(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            if (this.userProfile) resolve(this.userProfile);
+            let url = 'user/profile';
+            this.http.get(url).subscribe((result: any) => {
+                this.userProfile = result.data;
+                resolve(this.userProfile);
+            }, err => reject(err))
+        })
     }
+    formatConfigData(data: any[]): any {
+        return data.map((item) => {
+          try {
+            const validJsonString = item.value.replace(/'/g, '"');
+            item.value = JSON.parse(validJsonString);
+            return item;
+          } catch (e) {
+            item.value = item.value.split("'").filter((ele: any) => ele != ',' && ele !== '[' && ele !== ', ' && ele !== ' ,' && ele !== ']');
+            return item;
+          }
+        })
+      }
 }
