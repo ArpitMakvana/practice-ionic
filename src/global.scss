@@ -1730,7 +1730,7 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
     --padding-bottom: 8px;
     --padding-start: 4px;
     --padding-end: 4px; 
-    min-height: 45px;
+    min-height: 41px;
     margin: 0;
     border-radius: 100px;
     --background-activated-opacity: 0 !important;
@@ -2453,7 +2453,7 @@ ion-card-subtitle.ion-inherit-color.ios.hydrated {
 
 .sh_filtermenu_box {
   position: relative;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
   --padding-top: 25px;
   --padding-bottom: 15px;
   --padding-start: 15px;
@@ -3965,7 +3965,254 @@ ion-aler {
 }
 .plan_modelbox_main{
   overflow: auto;
+  background: linear-gradient(180deg, #FC503A 0%, #F9EFEE 100%);
 }
+.text-white{
+  color: #fff !important;
+}
+
+
+
+
+
+// -------------------- Plans info --------------
+// -------------------- Plans info --------------
+
+
+.bl_plansinfo_main {
+  position: relative;
+}
+
+.bl_plansinfo_main .bl_plansinfo {
+  border: 1px solid #CAC4D0;
+  box-shadow: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-title {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-title span {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-subtitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+  color: #000;
+  border: 0;
+  text-align: center;
+  margin: 30px 0 10px;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-subtitle.bl_subtitle {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-content {
+  padding: 0;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-content .listitem {
+  list-style: none;
+  padding-left: 10px;
+  margin: 0 0 20px;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-content .listitem li {
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+  margin: 0 0 6px;
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-content .listitem li:before {
+  content: "";
+  border-top: 0px solid #00C400;
+  border-bottom: 3px solid #00C400;
+  border-left: 0px solid #00C400;
+  border-right: 3px solid #00C400;
+  width: 5px;
+  height: 12px;
+  position: absolute;
+  left: -2px;
+  top: 3px;
+  transition: .5s;
+  transform: rotate(45deg);
+}
+
+.bl_plansinfo_main .bl_plansinfo ion-card-content .listitem li p {
+  color: #000000;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+
+// -------------------- Plans info --------------
+// -------------------- Plans info --------------
+
+
+
+
+
+
+
+
+
+
+// -------------------- Home page info --------------
+// -------------------- Home page info --------------
+.bl_homedashboard_block {
+  position: relative;
+}
+
+.bl_homedashboard_block .bl_dashtop_block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  margin: 0 0 18px;
+  line-height: 20px;
+  color: #999999;
+  font-weight: 500;
+}
+
+.bl_homedashboard_block .bl_dashtop_block .bl_submitRH {
+  font-size: 12px;
+  border-radius: 12px;
+  margin-left: 8px !important;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --border-radius: 24px !important;
+  min-height: auto;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem {
+  position: relative;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant {
+  position: relative;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .imgbox {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .imgbox img {
+  width: 100%;
+  height: 100%;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .bl__sldieritem_info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(167, 167, 167, 0.5) 4%, rgba(0, 0, 0, 0.5) 100%);
+  padding: 10px 10px;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .bl__sldieritem_info h2 {
+  font-size: 18px;
+  margin: 0 0 2px;
+  color: #EBDFDF;
+  line-height: 26px;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .bl__sldieritem_info p {
+  font-size: 16px;
+  margin: 0;
+  color: #EBDFDF;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .bl__sldieritem_info .bl_submitRH {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  width: 40px !important;
+  height: 40px !important;
+  --background: linear-gradient(180deg, #F23429 0%, #8C1E18 100%) !important;
+  --ion-color-base: #CE2C23 !important;
+  --background: #CE2C23 !important;
+  min-height: unset !important;
+  font-size: 28px;
+  --border-radius: 100% !important;
+  float: right;
+}
+
+.bl_homedashboard_block .bl_homedashboard_sldieritem .bl__sldieritem_contant .bl__sldieritem_info ion-row {
+  align-items: center;
+}
+// -------------------- Home page info --------------
+// -------------------- Home page info -------------- 
+
+
+
+
+
+
+
+// Filter menus design 
+.sh_filtermenu_box .page_title {
+  display: none;
+  border: 0;
+}
+
+.ds_formitems .form-group .lable_text {
+  font-size: 20px;
+  color: #000000;
+  margin: 20px 0 12px;
+}
+
+.sh_filtermenu_box .sh_checkbox_inner .sh_checkbox_item {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  margin-right: 14px;
+  margin-bottom: 14px;
+}
+
+.sh_filtermenu_box .sh_checkbox_inner .sh_checkbox_item .checkmark {
+  background-color: transparent !important;
+  border: 1px solid #FC503A;
+  padding: 7px 16px;
+  border-radius: 8px;
+  color: #49454F;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.sh_filtermenu_box .sh_checkbox_inner .sh_checkbox_item .checkmark.activeChackmark {
+  background-color: #E74F3D !important;
+}
+
+
+// Filter menus design 
+
+
+
+
+
 // ---------------------------------- New design info -------------------
 // ---------------------------------- New design info -------------------
 
