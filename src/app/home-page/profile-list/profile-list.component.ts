@@ -4,6 +4,9 @@ import { HomeService } from '../../services/home.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 
+import Swiper from 'swiper';
+// import 'swiper/swiper-bundle.css';
+
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
@@ -69,6 +72,17 @@ export class ProfileListComponent implements OnInit {
     }
 
     this.getConfig()
+
+
+
+    new Swiper('.swiper-container', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // Other Swiper options here
+    });
 
   }
 
