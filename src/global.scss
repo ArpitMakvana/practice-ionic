@@ -4854,6 +4854,43 @@ ion-aler {
 
 
 
+// -------------- No record page design -----------------------------------
+// -------------- No record page design -----------------------------------
+
+.bl_norecordfound_block {
+  position: relative;
+}
+
+.bl_norecordfound_block .imgbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.bl_norecordfound_block .imgbox img {
+  max-width: 100px;
+}
+
+.bl_norecordfound_block h4 {
+  color: #FC503A;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 24px;
+}
+
+.bl_norecordfound_block p {
+  color: #737373;
+  text-align: center;
+  font-size: 16px;
+  margin: 10px 0 0;
+}
+
+// -------------- No record page design -----------------------------------
+// -------------- No record page design -----------------------------------
 
 
 

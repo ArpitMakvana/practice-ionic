@@ -68,5 +68,18 @@ export class MatchesComponent  implements OnInit {
   viewAllRequest(){
     this.router.navigate(['/home/matches-request'])
   }
+  selectedSegment: string = 'tab1'; // Default selected tab
+ 
+
+  // Method to handle segment changes
+  onSegmentChange(event: any) {
+    console.log('Selected Segment:', event.detail.value);
+    // You can perform additional actions based on the selected segment if needed
+  }
 
 }
+ 
+
+
+
+
