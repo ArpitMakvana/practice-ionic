@@ -11,6 +11,7 @@ import { UserLikesComponent } from './user-likes/user-likes.component';
 import { MatchesComponent } from './matches/matches.component';
 import { UserAccountComponent } from './user-account/user-account.component';
 import { MatchesReuestComponent } from './matches-reuest/matches-reuest.component';
+import { NoRecordComponent } from './no-record/no-record.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'user-likes',
         component: UserLikesComponent
+      },
+      {
+        path: 'no-record',
+        component: NoRecordComponent
       },
       {
         path: '',
