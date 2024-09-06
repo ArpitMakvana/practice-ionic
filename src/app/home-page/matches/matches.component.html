@@ -21,7 +21,7 @@
       <div *ngIf="incomingRequest.length">
 
         <div class="bl_inboxprofile_item" *ngFor="let req of incomingRequest">
-          <div class="bl_inboxprofile_itemInner">
+          <div class="bl_inboxprofile_itemInner" (click)="openProfile(req)">
             <div class="imgbox">
               <img [src]="baseImageUrl+req?.requester?.profilePhoto" onerror="this.src='./../../../../assets/statis-person.jpg'" class="img-fluid" />
             </div>

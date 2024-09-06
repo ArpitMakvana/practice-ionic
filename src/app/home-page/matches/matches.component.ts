@@ -58,8 +58,8 @@ export class MatchesComponent  implements OnInit {
     }).catch(er=>this.isConnectionsLoaded=true);
   }
   openProfile(data:any){
-    this.homeService.setCurrentNavigatedUser(data)
-    this.router.navigate(['/home/profile-information']);
+    console.log(data);
+    this.router.navigate(['/home/profile-information',data.requester.id]);
   }
 
   accept(user:any){
