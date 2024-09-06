@@ -22,6 +22,7 @@ import { MatchesComponent } from './matches/matches.component';
 import { UserAccountComponent } from './user-account/user-account.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatchesReuestComponent } from './matches-reuest/matches-reuest.component';
+import { NoRecordComponent } from './no-record/no-record.component';
 
 
 
@@ -48,7 +49,8 @@ register();
     UserLikesComponent,
     MatchesComponent,
     UserAccountComponent,
-    MatchesReuestComponent
+    MatchesReuestComponent,
+    NoRecordComponent
 
   ],
   exports: [

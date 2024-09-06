@@ -43,6 +43,10 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.auth.userLoggedIn.subscribe(async(user)=>{
+      console.log('observable, user',user);
+      if(user) this.userProfile = await this.auth.getUserProfille();
+    })
     // If using a custom driver:
     // await this.storage.defineDriver(MyCustomDriver);
     this.userProfile = await this.auth.getUserProfille();

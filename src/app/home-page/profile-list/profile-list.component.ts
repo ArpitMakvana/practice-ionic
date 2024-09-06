@@ -48,7 +48,7 @@ export class ProfileListComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getUsers();
+    
     const modal = document.querySelector('ion-modal') as HTMLIonModalElement;
     const searchBar = document.querySelector('ion-searchbar') as HTMLIonSearchbarElement;
     
@@ -86,9 +86,12 @@ export class ProfileListComponent implements OnInit {
 
   }
 
+  ionViewWillEnter(){
+    this.getUsers();
+  }
+
   openProfile(data:any){
-    this.homeService.setCurrentNavigatedUser(data)
-    this.router.navigate(['/home/profile-information']);
+    this.router.navigate(['/home/profile-information',data.id]);
   }
 
   getUsers(){

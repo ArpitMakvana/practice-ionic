@@ -23,7 +23,7 @@ const routes: Routes = [
         component: SubscriptionComponent
       },
       {
-        path: 'profile-information',
+        path: 'profile-information/:id',
         component: ProfileInformationComponent
       },
       {

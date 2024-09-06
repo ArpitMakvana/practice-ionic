@@ -24,9 +24,14 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePagePageModule),
     canActivate: [HomeGuard]
-  },  {
+  },
+  {
     path: 'notifications',
     loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'user-preference',
+    loadChildren: () => import('./user-pages/user-preference/user-preference.module').then( m => m.UserPreferencePageModule)
   },
 
 

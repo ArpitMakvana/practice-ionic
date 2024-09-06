@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpCallsService } from './http-calls.service';
 import { Storage } from '@ionic/storage-angular';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
         "planActivated":"PLANACTIVATED",
         "currentPlan":"CURRENTPLAN"
     }
-    authToken: string = '';
+    authToken: string = '';userLoggedIn: Subject<any> = new Subject();
     constructor(private http: HttpCallsService, private storage: Storage) {
         this.storage.create();
     }
@@ -47,6 +48,8 @@ export class AuthService {
                 if (res && res.data) {
                     this.authToken = res.data.token;
                     this.storage.set(this.storageKeys.token, res.data.token)
+                    this.userProfile=null;
+                    this.userLoggedIn.next({ isLoggedIn: true});
                 }
                 resolve(res)
             }, err => reject(err))
@@ -55,7 +58,7 @@ export class AuthService {
 
     getUserProfille(): Promise<any> {
         return new Promise((resolve, reject) => {
-            if (this.userProfile) resolve(this.userProfile);
+            if (this.userProfile && this.userProfile !==null) resolve(this.userProfile);
             let url = 'user/profile';
             this.http.get(url).subscribe((result: any) => {
                 this.userProfile = result.data;

@@ -11,8 +11,13 @@ import { environment } from 'src/environments/environment';
 })
 export class MatchesComponent  implements OnInit {
   connections:Array<any>=[];
-  request:Array<any>=[];
+  incomingRequest:Array<any>=[];
+  sentRequest:Array<any>=[];
+  selectedSegment: string = 'tab1';
   baseImageUrl = environment.baseImageURL;
+  isRequestLoaded=false;
+  isConnectionsLoaded=false;
+  isSentRequestLoaded=false;
   constructor(
     private router:Router,
     private homeService:HomeService, 
@@ -20,21 +25,37 @@ export class MatchesComponent  implements OnInit {
     ) { }
 
   ngOnInit() {
+  }
+  ionViewWillEnter(){
+    this.isRequestLoaded=false;
+    this.isConnectionsLoaded=false;
+    this.isSentRequestLoaded=false;
+    this.selectedSegment = 'tab1';
     this.getConnectionRequest();
-    this.getConnections();
   }
 
   getConnectionRequest(){
     this.homeService.getUserConnectionRequests().then((users:any)=>{
       console.log(users);
-      this.request=users;
+      this.incomingRequest=users;
+      this.isRequestLoaded=true;
+    }).catch((er)=>{
+      this.isRequestLoaded=true;
     })
+  }
+  getSentConnectionRequest(){
+    this.homeService.getUserSentConnectionRequests().then((users:any)=>{
+      console.log(users);
+      this.sentRequest=users;
+      this.isSentRequestLoaded=true;
+    }).catch(er=>this.isSentRequestLoaded=true)
   }
   getConnections(){
     this.homeService.getUsersConnections().then((users:any)=>{
       console.log(users);
       this.connections=users;
-    })
+      this.isConnectionsLoaded=true;
+    }).catch(er=>this.isConnectionsLoaded=true);
   }
   openProfile(data:any){
     this.homeService.setCurrentNavigatedUser(data)
@@ -68,12 +89,16 @@ export class MatchesComponent  implements OnInit {
   viewAllRequest(){
     this.router.navigate(['/home/matches-request'])
   }
-  selectedSegment: string = 'tab1'; // Default selected tab
  
 
   // Method to handle segment changes
   onSegmentChange(event: any) {
     console.log('Selected Segment:', event.detail.value);
+    if(event.detail.value == 'tab2'){
+      this.getConnections();
+    }else if(event.detail.value=='tab3'){
+      this.getSentConnectionRequest();
+    }
     // You can perform additional actions based on the selected segment if needed
   }
 

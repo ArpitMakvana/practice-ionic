@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { HomeService } from 'src/app/services/home.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,20 +10,25 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./profile-information.component.scss'],
 })
 export class ProfileInformationComponent  implements OnInit {
+  userID:any;
   userProfile:any;
   baseImageUrl = environment.baseImageURL;
   constructor(
     private route: ActivatedRoute,
-    private homeService:HomeService, ) { }
+    private homeService:HomeService, 
+    private auth:AuthService ) { }
 
   ngOnInit() {
-    this.userProfile=this.homeService.getCurrentNavigatedUser();
-    console.log(this.userProfile);
-    // this.route.queryParams.subscribe(params => {
-    //   this.userProfile=JSON.parse(params['user'])
-    //   console.log(this.userProfile);
-    //   // Use the userId and userName as needed
-    // });
+    this.userID = this.route.snapshot.paramMap.get('id');
+    console.log(this.userID);
+    this.getUserProfile();
+  }
+
+  getUserProfile(){
+    this.homeService.getUserByID(this.userID).then((user:any)=>{
+      console.log(user);
+      this.userProfile=user;
+    })
   }
 
 }

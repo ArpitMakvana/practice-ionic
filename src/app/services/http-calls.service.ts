@@ -4,38 +4,77 @@ import { catchError } from 'rxjs/operators';
 import { throwError, Observable } from 'rxjs';
 import { AlertController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpCallsService {
   baseURL = environment.baseURL;
-
-  constructor(private http: HttpClient, private alertController: AlertController) { }
+  private isAlertActive: boolean = false;
+  constructor(private http: HttpClient, 
+    private alertController: AlertController,
+    private storage: Storage,
+    private router: Router,) { }
 
   // Common method to handle errors
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
-    if (error.error) {
-      // A client-side or network error occurred
-      errorMessage = `${error.error.message}`;
-    } else {
-      // The backend returned an unsuccessful response code
-      errorMessage = `Oops!!! Something went wrong...`;
+    
+    // Check if user is unauthorized
+    if (error.status === 401) {
+      // Log out the user (handle logout logic as per your app's requirement)
+      this.logoutUser();
+      this.router.navigate(['/login']);  // Redirect to login or home page
+      return throwError('Unauthorized access. Logging out.');
     }
-    this.presentAlert('Opps!!!', errorMessage);
+  
+    // Check for specific API errors
+    const apiEndpoints = ['user/send-otp', 'user/verify-otp', 'user/user-details', 'upload','user/login'];
+    
+    // If it's a known endpoint, show the server response error
+    if (apiEndpoints.some(endpoint => error.url?.includes(endpoint))) {
+      errorMessage = error.error?.message || 'Something went wrong...';
+    } else {
+      // For other errors, show a generic error message
+      errorMessage = 'Something went wrong...';
+      this.router.navigate(['/home']);  // Navigate back to home
+    }
+  
+    // Present the alert with the error message
+    this.presentAlert('', errorMessage);
     return throwError(errorMessage);
+  }
+  
+  logoutUser(){
+    this.storage.clear();
+    this.router.navigateByUrl('/landing');
   }
 
   // Method to present alerts
   private async presentAlert(header: string, message: string) {
+    // Check if an alert is already active
+    if (this.isAlertActive) {
+      return;
+    }
+  
+    this.isAlertActive = true;  // Set flag to true
+  
     const alert = await this.alertController.create({
       header: header,
       message: message,
-      buttons: ['OK']
+      buttons: [{
+        text: 'OK',
+        handler: () => {
+          this.isAlertActive = false;  // Reset flag when alert is dismissed
+        }
+      }]
     });
+  
     await alert.present();
   }
+  
 
   // GET request
   get<T>(endpoint: string): Observable<T> {

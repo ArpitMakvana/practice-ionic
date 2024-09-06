@@ -27,6 +27,14 @@ export class HomeService {
         }, err => reject(err));
       });
     }
+    getUserByID(id:any): Promise<any> {
+      return new Promise((resolve, reject) => {
+        const url = 'user/user-details?partnerId='+id;
+        this.http.get(url).subscribe((result: any) => {
+          resolve(result.data);
+        }, err => reject(err));
+      });
+    }
     getUserConnectionRequests(): Promise<any> {
       return new Promise((resolve, reject) => {
         const url = 'user/connection-request';
@@ -35,9 +43,17 @@ export class HomeService {
         }, err => reject(err));
       });
     }
+    getUserSentConnectionRequests(): Promise<any> {
+      return new Promise((resolve, reject) => {
+        const url = 'user/sent-connection-request';
+        this.http.get(url).subscribe((result: any) => {
+          resolve(result.data);
+        }, err => reject(err));
+      });
+    }
     getUsersConnections(): Promise<any> {
       return new Promise((resolve, reject) => {
-        const url = 'user/connection-request';
+        const url = 'user/accepted-connection-request';
         this.http.get(url,).subscribe((result: any) => {
           resolve(result.data);
         }, err => reject(err));
