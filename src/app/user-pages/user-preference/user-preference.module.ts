@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { UserPreferencePageRoutingModule } from './user-preference-routing.module';
 
 import { UserPreferencePage } from './user-preference.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UserPreferencePageRoutingModule
+    UserPreferencePageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [UserPreferencePage]
 })

@@ -59,7 +59,7 @@ export class MatchesComponent  implements OnInit {
   }
   openProfile(data:any){
     console.log(data);
-    this.router.navigate(['/home/profile-information',data.requester.id]);
+    this.router.navigate(['/home/profile-information',data.requester?.id || data.receiver?.id]);
   }
 
   accept(user:any){
@@ -67,8 +67,8 @@ export class MatchesComponent  implements OnInit {
     const data = {
       "requestId": user.id
   }
-    this.homeService.sendConnectionRequest(data).then((res)=>{
-      this.ngOnInit();
+    this.homeService.acceptConnection(data).then((res)=>{
+      this.ionViewWillEnter();
       this.homeService.presentToast(res.message)
     }).catch((er)=>{
       this.homeService.presentToast(er);
@@ -79,8 +79,8 @@ export class MatchesComponent  implements OnInit {
     const data = {
       "requestId": user.id
   }
-    this.homeService.sendConnectionRequest(data).then((res)=>{
-      this.ngOnInit();
+    this.homeService.rejectConnection(data).then((res)=>{
+      this.ionViewWillEnter();
       this.homeService.presentToast(res.message)
     }).catch((er)=>{
       this.homeService.presentToast(er);

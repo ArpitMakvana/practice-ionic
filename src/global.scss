@@ -3775,7 +3775,7 @@ ion-aler {
 // -------------------- Home page info --------------
 .bl_homedashboard_block {
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .bl_homedashboard_block .bl_dashtop_block {

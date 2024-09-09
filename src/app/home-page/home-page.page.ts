@@ -4,6 +4,7 @@ import { HomeService } from '../services/home.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import { AuthService } from '../services/auth.service';
+import { SocketService } from '../services/socket.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class HomePagePage implements OnInit {
     private menu: MenuController,
     private homeService:HomeService,
     private auth:AuthService,
-    private router:Router
+    private router:Router,
+    private SocketService:SocketService
     ) {}
 
   async ngOnInit() {

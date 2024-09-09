@@ -30,7 +30,7 @@
                 {{req.requester?.firstName}} {{req.requester?.firstName}}
               </h4>
               <p>
-                {{req.requester?.dateOfBirth | age}}, Engineer ,<br>
+                {{req.requester?.dateOfBirth | age}} ,<br>
                 <!-- Solution Engineer, <br>
                 Jaipur, Rajasthan -->
               </p>
@@ -69,37 +69,63 @@
     </div>
 
     <div class="bl_inboxprofile_block" *ngIf="selectedSegment === 'tab2'">
-
+      <div *ngIf="connections.length">
+        <div class="bl_card_item" *ngFor="let req of connections">
+          <div class="bl_card_contants" (click)="openProfile(req)">
+            <div class="imgbox">
+              <img [src]="baseImageUrl+req?.requester?.profilePhoto" onerror="this.src='./../../../../assets/statis-person.jpg'" class="img-fluid" />
+            </div>
+            <div class="bls_conatnt">
+              <h4>
+                {{req.requester?.firstName}} {{req.requester?.firstName}}
+              </h4>
+              <p>
+                {{req.requester?.dateOfBirth | age}} ,<br>
+                <!-- Solution Engineer, <br>
+                Jaipur, Rajasthan -->
+              </p>
+            </div>
+          </div>
+          <div class="bl_actions_block">
+  
+            <button class="bl_chat">
+              Chat Now
+            </button>
+          </div>
+        </div>
+      </div>
       <div *ngIf="isConnectionsLoaded && connections.length ==0">
         <app-no-record></app-no-record>
       </div>
     </div>
 
     <div class="bl_inboxprofile_block" *ngIf="selectedSegment === 'tab3'">
-      <div class="bl_card_item">
-        <div class="bl_card_contants">
-          <div class="imgbox">
-            <img src="./../../../assets/inboxprofileImg.png" class="img-fluid" />
+      <div *ngIf="sentRequest.length">
+        <div class="bl_card_item" *ngFor="let req of sentRequest">
+          <div class="bl_card_contants" (click)="openProfile(req)">
+            <div class="imgbox">
+              <img [src]="baseImageUrl+req?.receiver?.profilePhoto" onerror="this.src='./../../../../assets/statis-person.jpg'" class="img-fluid" />
+            </div>
+            <div class="bls_conatnt">
+              <h4>
+                {{req.receiver?.firstName}} {{req.receiver?.firstName}}
+              </h4>
+              <p>
+                {{req.receiver?.dateOfBirth | age}} ,<br>
+                <!-- Solution Engineer, <br>
+                Jaipur, Rajasthan -->
+              </p>
+            </div>
           </div>
-          <div class="bls_conatnt">
-            <h4>
-              Akansha Singh
-            </h4>
-            <p>
-              27, Engineer ,<br>
-              Solution Engineer, <br>
-              Jaipur, Rajasthan
-            </p>
+          <div class="bl_actions_block">
+            <button class="bl_cancel">
+              Cancel
+            </button>
+  
+            <button class="bl_chat">
+              Chat Now
+            </button>
           </div>
-        </div>
-        <div class="bl_actions_block">
-          <button class="bl_cancel">
-            Cancel
-          </button>
-
-          <button class="bl_chat">
-            Chat Now
-          </button>
         </div>
       </div>
       <div *ngIf="isSentRequestLoaded && sentRequest.length ==0">

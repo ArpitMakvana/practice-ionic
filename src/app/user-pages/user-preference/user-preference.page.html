@@ -1,24 +1,22 @@
-  <!-- Preference page design  -->
- <div class="bl_homedashboard_block">
-    <div class="bl_container">
-      <div class="bl_partnerpreferance_block">
-        <div class="bl_oartner_title">
-          <span class="icons" (click)="moveBack()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </span>
-          <span class="text">
-            Your Partner Preferences
-          </span>
-        </div>
+<div class="bl_homedashboard_block">
+  <div class="bl_container">
+    <div class="bl_partnerpreferance_block">
+      <div class="bl_oartner_title">
+        <span class="icons" (click)="moveBack()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span class="text">
+          Your Partner Preferences
+        </span>
+      </div>
 
+      <form [formGroup]="preferenceForm" (ngSubmit)="onSubmit()">
         <div class="bl_card_item bl_partnercard_item">
           <div class="bl_card_header">
-            <h2>
-              Basic Details
-            </h2>
+            <h2>Basic Details</h2>
           </div>
           <div class="bl_card_body">
             <div class="bl_userpersonla_info">
@@ -33,19 +31,14 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Age range
-                    </label>
-                    <p>
-                      22 to 27
-                    </p>
+                    <label>Age Range</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="ageRange">
+                      <option *ngFor="let range of ageRanges" [value]="range">{{ range }}</option>
+                    </select>
                 </span>
               </div>
 
@@ -60,19 +53,14 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Height Range
-                    </label>
-                    <p>
-                      5’1’’ to 5’7’’
-                    </p>
+                    <label>Height Range</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="heightRange">
+                      <option *ngFor="let range of heightRanges" [value]="range">{{ range }}</option>
+                    </select>
                 </span>
               </div>
 
@@ -87,19 +75,14 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Marital Status
-                    </label>
-                    <p>
-                      Never Marriesd
-                    </p>
+                    <label>Marital Status</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="maritalStatus">
+                      <option *ngFor="let status of maritalStatuses" [value]="status">{{ status }}</option>
+                    </select>
                 </span>
               </div>
 
@@ -114,31 +97,23 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Weight
-                    </label>
-                    <p>
-                      57 KG
-                    </p>
+                    <label>Weight</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="weight">
+                      <option *ngFor="let weight of weights" [value]="weight">{{ weight }}</option>
+                    </select>
                 </span>
-              </div> 
-
+              </div>
             </div>
           </div>
         </div>
 
         <div class="bl_card_item bl_partnercard_item">
           <div class="bl_card_header">
-            <h2>
-              Religion
-            </h2>
+            <h2>Religion</h2>
           </div>
           <div class="bl_card_body">
             <div class="bl_userpersonla_info">
@@ -150,19 +125,33 @@
                       </svg>                       
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Religion
-                    </label>
-                    <p>
-                      Islam
-                    </p>
+                    <label>Religion</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="religion">
+                      <option *ngFor="let religion of religions" [value]="religion">{{ religion }}</option>
+                    </select>
+                </span>
+              </div>
+
+              <div class="bl_griditem_mains">
+                <div class="bl_griditem_box">
+                  <div class="iconbox">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>                       
+                  </div>
+                  <div class="bl_griditem_conatnt">
+                    <label>Community</label>
+                    
+                  </div>
+                </div>
+                <span class="bl_actions">
+                  <select formControlName="community">
+                      <option *ngFor="let community of communities" [value]="community">{{ community }}</option>
+                    </select>
                 </span>
               </div>
               
@@ -174,43 +163,14 @@
                       </svg>                       
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Community
-                    </label>
-                    <p>
-                      Islam
-                    </p>
+                    <label>Sub-Community</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                </span>
-              </div>
-              
-              <div class="bl_griditem_mains">
-                <div class="bl_griditem_box">
-                  <div class="iconbox">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>                       
-                  </div>
-                  <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Sub-Community
-                    </label>
-                    <p>
-                      Islam
-                    </p>
-                  </div>
-                </div>
-                <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="subCommunity">
+                      <option *ngFor="let subCommunity of subCommunities" [value]="subCommunity">{{ subCommunity }}</option>
+                    </select>
                 </span>
               </div>              
             </div>
@@ -219,9 +179,7 @@
 
         <div class="bl_card_item bl_partnercard_item">
           <div class="bl_card_header">
-            <h2>
-              Location
-            </h2>
+            <h2>Location</h2>
           </div>
           <div class="bl_card_body">
             <div class="bl_userpersonla_info">
@@ -240,22 +198,17 @@
                       </svg>                                            
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Country Living In
-                    </label>
-                    <p>
-                      India
-                    </p>
+                    <label>Country Living In</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="countryLivingIn">
+                      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                    </select>
                 </span>
               </div>
-              
+
               <div class="bl_griditem_mains">
                 <div class="bl_griditem_box">
                   <div class="iconbox">
@@ -264,31 +217,23 @@
                       </svg>                                        
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Place of origin
-                    </label>
-                    <p>
-                      India
-                    </p>
+                    <label>Place of Origin</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="placeOfOrigin">
+                      <option *ngFor="let place of placesOfOrigin" [value]="place">{{ place }}</option>
+                    </select>
                 </span>
-              </div>    
+              </div>
             </div>
           </div>
         </div>
 
-
         <div class="bl_card_item bl_partnercard_item">
           <div class="bl_card_header">
-            <h2>
-              Education & Career
-            </h2>
+            <h2>Education & Career</h2>
           </div>
           <div class="bl_card_body">
             <div class="bl_userpersonla_info">
@@ -303,19 +248,14 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Qualification
-                    </label>
-                    <p>
-                      Graduate
-                    </p>
+                    <label>Qualification</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="qualification">
+                      <option *ngFor="let qualification of qualifications" [value]="qualification">{{ qualification }}</option>
+                    </select>
                 </span>
               </div>
 
@@ -330,19 +270,14 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Profession
-                    </label>
-                    <p>
-                      Software Engineer
-                    </p>
+                    <label>Profession</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="profession">
+                      <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
+                    </select>
                 </span>
               </div>
 
@@ -357,19 +292,14 @@
                     </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
-                    <label class="">
-                      Annual Income
-                    </label>
-                    <p>
-                      INR 5 Lakh to 20 Lakh
-                    </p>
+                    <label>Annual Income</label>
+                    
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="#B3B3B3" stroke-width="2.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <select formControlName="annualIncome">
+                      <option *ngFor="let income of incomeRanges" [value]="income">{{ income }}</option>
+                    </select>
                 </span>
               </div> 
 
@@ -377,11 +307,8 @@
           </div>
         </div>
 
-        <div class="form-group bl_connect-groups">
-          <ion-button color="dark" disabled="false" expand="block" class="bl_submitRH bl_submitconnect bl_submitconnect1">
-            Confirm and  Continue
-          </ion-button>
-        </div>
-      </div>
+        <button type="submit" [disabled]="preferenceForm.invalid">Submit</button>
+      </form>
     </div>
-  </div> 
+  </div>
+</div>

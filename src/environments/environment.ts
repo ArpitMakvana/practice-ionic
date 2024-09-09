@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   baseURL:'http://152.42.156.128:8002',
-  baseImageURL:'https://bilhalal.blr1.cdn.digitaloceanspaces.com/'
+  baseImageURL:'https://bilhalal.blr1.cdn.digitaloceanspaces.com/',
+  socket:'ws://152.42.156.128:8002'
 };
 
 /*
