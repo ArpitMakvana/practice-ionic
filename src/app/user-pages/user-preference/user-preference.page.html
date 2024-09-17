@@ -32,13 +32,13 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Age Range</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="ageRange">
-                      <option *ngFor="let range of ageRanges" [value]="range">{{ range }}</option>
-                    </select>
+                    <option *ngFor="let range of ageRanges" [value]="range">{{ range }}</option>
+                  </select>
                 </span>
               </div>
 
@@ -54,13 +54,13 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Height Range</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="heightRange">
-                      <option *ngFor="let range of heightRanges" [value]="range">{{ range }}</option>
-                    </select>
+                    <option *ngFor="let range of heightRanges" [value]="range">{{ range }}</option>
+                  </select>
                 </span>
               </div>
 
@@ -76,13 +76,13 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Marital Status</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="maritalStatus">
-                      <option *ngFor="let status of maritalStatuses" [value]="status">{{ status }}</option>
-                    </select>
+                    <option *ngFor="let status of maritalStatuses" [value]="status">{{ status }}</option>
+                  </select>
                 </span>
               </div>
 
@@ -98,13 +98,13 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Weight</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="weight">
-                      <option *ngFor="let weight of weights" [value]="weight">{{ weight }}</option>
-                    </select>
+                    <option *ngFor="let weight of generateWeightOptions()" [value]="weight">{{ weight }}</option>
+                  </select>
                 </span>
               </div>
             </div>
@@ -121,18 +121,20 @@
                 <div class="bl_griditem_box">
                   <div class="iconbox">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>                       
+                      <path
+                        d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z"
+                        stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Religion</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="religion">
-                      <option *ngFor="let religion of religions" [value]="religion">{{ religion }}</option>
-                    </select>
+                    <option *ngFor="let religion of religions" [value]="religion">{{ religion }}</option>
+                  </select>
                 </span>
               </div>
 
@@ -140,39 +142,39 @@
                 <div class="bl_griditem_box">
                   <div class="iconbox">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>                       
+                      <path
+                        d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z"
+                        stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Community</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <select formControlName="community">
-                      <option *ngFor="let community of communities" [value]="community">{{ community }}</option>
-                    </select>
+                  <input formControlName="community" class="form-control">
                 </span>
               </div>
-              
+
               <div class="bl_griditem_mains">
                 <div class="bl_griditem_box">
                   <div class="iconbox">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>                       
+                      <path
+                        d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20M4 19.5C4 20.163 4.26339 20.7989 4.73223 21.2678C5.20107 21.7366 5.83696 22 6.5 22H20V2H6.5C5.83696 2 5.20107 2.26339 4.73223 2.73223C4.26339 3.20107 4 3.83696 4 4.5V19.5Z"
+                        stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Sub-Community</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <select formControlName="subCommunity">
-                      <option *ngFor="let subCommunity of subCommunities" [value]="subCommunity">{{ subCommunity }}</option>
-                    </select>
+                  <input formControlName="subCommunity" class="form-control">
                 </span>
-              </div>              
+              </div>
             </div>
           </div>
         </div>
@@ -188,24 +190,26 @@
                   <div class="iconbox">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_233_164)">
-                      <path d="M22 12C22 17.5228 17.5228 22 12 22M22 12C22 6.47715 17.5228 2 12 2M22 12H2M12 22C6.47715 22 2 17.5228 2 12M12 22C14.5013 19.2616 15.9228 15.708 16 12C15.9228 8.29203 14.5013 4.73835 12 2M12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2M2 12C2 6.47715 6.47715 2 12 2" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                          d="M22 12C22 17.5228 17.5228 22 12 22M22 12C22 6.47715 17.5228 2 12 2M22 12H2M12 22C6.47715 22 2 17.5228 2 12M12 22C14.5013 19.2616 15.9228 15.708 16 12C15.9228 8.29203 14.5013 4.73835 12 2M12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2M2 12C2 6.47715 6.47715 2 12 2"
+                          stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                       </g>
                       <defs>
-                      <clipPath id="clip0_233_164">
-                      <rect width="24" height="24" fill="white"/>
-                      </clipPath>
+                        <clipPath id="clip0_233_164">
+                          <rect width="24" height="24" fill="white" />
+                        </clipPath>
                       </defs>
-                      </svg>                                            
+                    </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Country Living In</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="countryLivingIn">
-                      <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
-                    </select>
+                    <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                  </select>
                 </span>
               </div>
 
@@ -213,18 +217,18 @@
                 <div class="bl_griditem_box">
                   <div class="iconbox">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 22C11.7667 22 11.5667 21.9333 11.4 21.8C11.2333 21.6667 11.1083 21.4917 11.025 21.275C10.7083 20.3417 10.3083 19.4667 9.825 18.65C9.35833 17.8333 8.7 16.875 7.85 15.775C7 14.675 6.30833 13.625 5.775 12.625C5.25833 11.625 5 10.4167 5 9C5 7.05 5.675 5.4 7.025 4.05C8.39167 2.68333 10.05 2 12 2C13.95 2 15.6 2.68333 16.95 4.05C18.3167 5.4 19 7.05 19 9C19 10.5167 18.7083 11.7833 18.125 12.8C17.5583 13.8 16.9 14.7917 16.15 15.775C15.25 16.975 14.5667 17.975 14.1 18.775C13.65 19.5583 13.275 20.3917 12.975 21.275C12.8917 21.5083 12.7583 21.6917 12.575 21.825C12.4083 21.9417 12.2167 22 12 22ZM12 18.425C12.2833 17.8583 12.6 17.3 12.95 16.75C13.3167 16.2 13.85 15.4667 14.55 14.55C15.2667 13.6167 15.85 12.7583 16.3 11.975C16.7667 11.175 17 10.1833 17 9C17 7.61667 16.5083 6.44167 15.525 5.475C14.5583 4.49167 13.3833 4 12 4C10.6167 4 9.43333 4.49167 8.45 5.475C7.48333 6.44167 7 7.61667 7 9C7 10.1833 7.225 11.175 7.675 11.975C8.14167 12.7583 8.73333 13.6167 9.45 14.55C10.15 15.4667 10.675 16.2 11.025 16.75C11.3917 17.3 11.7167 17.8583 12 18.425ZM12 11.5C12.7 11.5 13.2917 11.2583 13.775 10.775C14.2583 10.2917 14.5 9.7 14.5 9C14.5 8.3 14.2583 7.70833 13.775 7.225C13.2917 6.74167 12.7 6.5 12 6.5C11.3 6.5 10.7083 6.74167 10.225 7.225C9.74167 7.70833 9.5 8.3 9.5 9C9.5 9.7 9.74167 10.2917 10.225 10.775C10.7083 11.2583 11.3 11.5 12 11.5Z" fill="white"/>
-                      </svg>                                        
+                      <path
+                        d="M12 22C11.7667 22 11.5667 21.9333 11.4 21.8C11.2333 21.6667 11.1083 21.4917 11.025 21.275C10.7083 20.3417 10.3083 19.4667 9.825 18.65C9.35833 17.8333 8.7 16.875 7.85 15.775C7 14.675 6.30833 13.625 5.775 12.625C5.25833 11.625 5 10.4167 5 9C5 7.05 5.675 5.4 7.025 4.05C8.39167 2.68333 10.05 2 12 2C13.95 2 15.6 2.68333 16.95 4.05C18.3167 5.4 19 7.05 19 9C19 10.5167 18.7083 11.7833 18.125 12.8C17.5583 13.8 16.9 14.7917 16.15 15.775C15.25 16.975 14.5667 17.975 14.1 18.775C13.65 19.5583 13.275 20.3917 12.975 21.275C12.8917 21.5083 12.7583 21.6917 12.575 21.825C12.4083 21.9417 12.2167 22 12 22ZM12 18.425C12.2833 17.8583 12.6 17.3 12.95 16.75C13.3167 16.2 13.85 15.4667 14.55 14.55C15.2667 13.6167 15.85 12.7583 16.3 11.975C16.7667 11.175 17 10.1833 17 9C17 7.61667 16.5083 6.44167 15.525 5.475C14.5583 4.49167 13.3833 4 12 4C10.6167 4 9.43333 4.49167 8.45 5.475C7.48333 6.44167 7 7.61667 7 9C7 10.1833 7.225 11.175 7.675 11.975C8.14167 12.7583 8.73333 13.6167 9.45 14.55C10.15 15.4667 10.675 16.2 11.025 16.75C11.3917 17.3 11.7167 17.8583 12 18.425ZM12 11.5C12.7 11.5 13.2917 11.2583 13.775 10.775C14.2583 10.2917 14.5 9.7 14.5 9C14.5 8.3 14.2583 7.70833 13.775 7.225C13.2917 6.74167 12.7 6.5 12 6.5C11.3 6.5 10.7083 6.74167 10.225 7.225C9.74167 7.70833 9.5 8.3 9.5 9C9.5 9.7 9.74167 10.2917 10.225 10.775C10.7083 11.2583 11.3 11.5 12 11.5Z"
+                        fill="white" />
+                    </svg>
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Place of Origin</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
-                  <select formControlName="placeOfOrigin">
-                      <option *ngFor="let place of placesOfOrigin" [value]="place">{{ place }}</option>
-                    </select>
+                  <input formControlName="placeOfOrigin" class="form-control">
                 </span>
               </div>
             </div>
@@ -249,13 +253,14 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Qualification</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="qualification">
-                      <option *ngFor="let qualification of qualifications" [value]="qualification">{{ qualification }}</option>
-                    </select>
+                    <option *ngFor="let qualification of qualifications" [value]="qualification">{{ qualification }}
+                    </option>
+                  </select>
                 </span>
               </div>
 
@@ -271,13 +276,13 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Profession</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="profession">
-                      <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
-                    </select>
+                    <option *ngFor="let profession of professions" [value]="profession">{{ profession }}</option>
+                  </select>
                 </span>
               </div>
 
@@ -293,21 +298,25 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label>Annual Income</label>
-                    
+
                   </div>
                 </div>
                 <span class="bl_actions">
                   <select formControlName="annualIncome">
-                      <option *ngFor="let income of incomeRanges" [value]="income">{{ income }}</option>
-                    </select>
+                    <option *ngFor="let income of incomeRanges" [value]="income">{{ income }}</option>
+                  </select>
                 </span>
-              </div> 
+              </div>
 
             </div>
           </div>
         </div>
-
-        <button type="submit" [disabled]="preferenceForm.invalid">Submit</button>
+        <div class="form-group bl_connect-groups">
+          <ion-button type="submit" color="dark" [disabled]="preferenceForm.invalid" expand="block"
+            class="bl_submitRH bl_submitconnect bl_submitconnect1">
+            Confirm and Continue
+          </ion-button>
+        </div>
       </form>
     </div>
   </div>

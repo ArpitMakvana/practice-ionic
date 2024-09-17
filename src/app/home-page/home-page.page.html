@@ -7,12 +7,12 @@
       </div>
     </div>
     <ul class="sh_pagesearchnoti_block">
-      <!-- <li class="nav-item">
-        <select class="form-control bl_language">
-          <option>EN</option>
-          <option>EN</option>
+      <li class="nav-item">
+        <select [(ngModel)]="lang" (change)="changeLang()" class="form-control bl_language">
+          <option value="en">EN</option>
+          <option value="ar">AR</option>
         </select>
-      </li> -->
+      </li>
       <li class="nav-item">
         <a (click)="openNotifivations()" class="nav-link">
           <i class="far fa-bell"></i>
@@ -32,7 +32,7 @@
           <ion-icon name="home"></ion-icon>
         </ion-tab-button>
 
-        <ion-tab-button tab="matches"  class="bl_tabsmenu">
+        <ion-tab-button tab="matches" class="bl_tabsmenu">
           <ion-icon name="people"></ion-icon>
         </ion-tab-button>
 

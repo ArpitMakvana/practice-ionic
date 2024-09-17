@@ -4,6 +4,7 @@ import { Observable, from } from 'rxjs';
 import { switchMap, finalize } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
+import { TranslateConfigService } from '../services/translate-config.service'; // Import the translation service
 
 @Injectable()
 export class RegistrationInterceptor implements HttpInterceptor {
@@ -11,35 +12,40 @@ export class RegistrationInterceptor implements HttpInterceptor {
 
   constructor(
     private auth: AuthService,
-    private loadingController: LoadingController
-  ) {}
+    private loadingController: LoadingController,
+    private translateConfigService: TranslateConfigService // Inject the translation service
+  ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.incrementRequestCounter();
 
     return from(this.showLoader()).pipe(
       switchMap(() => this.auth.getToken()),
-      switchMap(token => {
-        let modifiedReq = req;
+      switchMap(token =>
+        this.translateConfigService.getCurrentLanguage().pipe( // Get current language from the service
+          switchMap(currentLang => {
+            let modifiedReq = req;
 
-        if (req.url.includes('/upload')) {
-          modifiedReq = req.clone({
-            headers: req.headers.set('token', token)
-          });
-        } else {
-          modifiedReq = req.clone({
-            headers: req.headers
-              .set('lang', 'en')
-              .set('token', token)
-          });
-        }
+            if (req.url.includes('/upload')) {
+              modifiedReq = req.clone({
+                headers: req.headers.set('token', token)
+              });
+            } else {
+              modifiedReq = req.clone({
+                headers: req.headers
+                  .set('lang', currentLang)  // Set the dynamically fetched language
+                  .set('token', token)
+              });
+            }
 
-        return next.handle(modifiedReq).pipe(
-          finalize(() => {
-            this.decrementRequestCounter();
+            return next.handle(modifiedReq).pipe(
+              finalize(() => {
+                this.decrementRequestCounter();
+              })
+            );
           })
-        );
-      })
+        )
+      )
     );
   }
 

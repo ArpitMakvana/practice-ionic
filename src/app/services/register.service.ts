@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpCallsService } from './http-calls.service';
 import { ToastController } from '@ionic/angular';
+import { TranslateConfigService } from './translate-config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +12,26 @@ export class RegisterService {
     'regDataOnOTPSubmit': 'REGDATAONOTPSUBMIT',
     'initialProfileData': 'INITIALPROFILEDATA',
     "token": "TOKEN",
-    "planActivated":"PLANACTIVATED",
-    "currentPlan":"CURRENTPLAN"
+    "planActivated": "PLANACTIVATED",
+    "currentPlan": "CURRENTPLAN"
   };
 
   constructor(
     private http: HttpCallsService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private translateConfigService: TranslateConfigService
   ) { }
 
   getAllConfig(): Promise<any> {
     return new Promise((resolve, reject) => {
       if (this.config) resolve(this.config);
-      const url = 'config/?limit=200&lang=en';
-      this.http.get(url).subscribe((result: any) => {
-        this.config = this.formatConfigData(result.data);
-        resolve(this.config);
-      }, err => reject(err));
+      this.translateConfigService.getCurrentLanguage().subscribe((currentLang) => {
+        const url = `config/?limit=200&lang=${currentLang}`; // Use dynamic language
+        this.http.get(url).subscribe((result: any) => {
+          this.config = this.formatConfigData(result.data);
+          resolve(this.config);
+        }, err => reject(err));
+      });
     });
   }
   getAllPackages(): Promise<any> {

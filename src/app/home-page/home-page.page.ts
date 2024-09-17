@@ -4,7 +4,8 @@ import { HomeService } from '../services/home.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import { AuthService } from '../services/auth.service';
-import { SocketService } from '../services/socket.service';
+import { TranslateConfigService } from 'src/app/services/translate-config.service';
+
 
 
 @Component({
@@ -14,26 +15,34 @@ import { SocketService } from '../services/socket.service';
 })
 export class HomePagePage implements OnInit {
   activeTabTitle: string = 'Profile List'; // Default tab title
-  userProfile:any={};
+  userProfile: any = {};
+  lang: string = '';
   constructor(
     private menu: MenuController,
-    private homeService:HomeService,
-    private auth:AuthService,
-    private router:Router,
-    private SocketService:SocketService
-    ) {}
+    private homeService: HomeService,
+    private auth: AuthService,
+    private router: Router,
+    private translateConfigService: TranslateConfigService
+  ) { }
 
   async ngOnInit() {
     this.userProfile = await this.auth.getUserProfille();
     console.log(this.userProfile);
+    this.translateConfigService.getCurrentLanguage().subscribe(lang => {
+      console.log('Language changed to:', lang);
+      this.lang = lang;
+    });
   }
 
   openMenu() {
     this.menu.open('first');
   }
 
-  openNotifivations(){
+  openNotifivations() {
     this.router.navigate(['/notifications'])
+  }
+  changeLang() {
+    this.translateConfigService.setLanguage(this.lang);
   }
 
 }

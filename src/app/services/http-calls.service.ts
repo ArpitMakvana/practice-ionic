@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage-angular';
 export class HttpCallsService {
   baseURL = environment.baseURL;
   private isAlertActive: boolean = false;
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
     private alertController: AlertController,
     private storage: Storage,
     private router: Router,) { }
@@ -21,7 +21,7 @@ export class HttpCallsService {
   // Common method to handle errors
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = '';
-    
+
     // Check if user is unauthorized
     if (error.status === 401) {
       // Log out the user (handle logout logic as per your app's requirement)
@@ -29,10 +29,10 @@ export class HttpCallsService {
       this.router.navigate(['/login']);  // Redirect to login or home page
       return throwError('Unauthorized access. Logging out.');
     }
-  
+
     // Check for specific API errors
-    const apiEndpoints = ['user/send-otp', 'user/verify-otp', 'user/user-details', 'upload','user/login'];
-    
+    const apiEndpoints = ['user/send-otp', 'user/verify-otp', 'user/user-details', 'upload', 'user/login', 'user/send-connection', 'user/accept-connection', 'user/reject-connection',];
+
     // If it's a known endpoint, show the server response error
     if (apiEndpoints.some(endpoint => error.url?.includes(endpoint))) {
       errorMessage = error.error?.message || 'Something went wrong...';
@@ -41,13 +41,13 @@ export class HttpCallsService {
       errorMessage = 'Something went wrong...';
       this.router.navigate(['/home']);  // Navigate back to home
     }
-  
+
     // Present the alert with the error message
     this.presentAlert('', errorMessage);
     return throwError(errorMessage);
   }
-  
-  logoutUser(){
+
+  logoutUser() {
     this.storage.clear();
     this.router.navigateByUrl('/landing');
   }
@@ -58,9 +58,9 @@ export class HttpCallsService {
     if (this.isAlertActive) {
       return;
     }
-  
+
     this.isAlertActive = true;  // Set flag to true
-  
+
     const alert = await this.alertController.create({
       header: header,
       message: message,
@@ -71,10 +71,10 @@ export class HttpCallsService {
         }
       }]
     });
-  
+
     await alert.present();
   }
-  
+
 
   // GET request
   get<T>(endpoint: string): Observable<T> {

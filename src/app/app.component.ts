@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
 import { environment } from 'src/environments/environment';
-
+import { TranslateConfigService } from './services/translate-config.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -25,8 +25,8 @@ export class AppComponent implements OnInit {
 
   private lastBackPress = 0;
   private timePeriodToExit = 2000;
-  userProfile:any={};
-  
+  userProfile: any = {};
+
   baseImageUrl = environment.baseImageURL;
   constructor(
     private translate: TranslateService,
@@ -35,21 +35,28 @@ export class AppComponent implements OnInit {
     private toastController: ToastController,
     private router: Router,
     private menu: MenuController,
-    private auth:AuthService
+    private auth: AuthService,
+    private translateConfigService: TranslateConfigService
   ) {
-    this.translate.setDefaultLang('en');
+
+    // this.translateConfigService.getCurrentLanguage().subscribe(lang => {
+    //   console.log('Language changed to:', lang);
+    // });
     this.storage.create();
     this.initializeApp();
   }
 
   async ngOnInit() {
-    this.auth.userLoggedIn.subscribe(async(user)=>{
-      console.log('observable, user',user);
-      if(user) this.userProfile = await this.auth.getUserProfille();
+    this.menu.swipeGesture(false);
+    this.auth.userLoggedIn.subscribe(async (user) => {
+      console.log('observable, user', user);
+      if (user) this.userProfile = await this.auth.getUserProfille();
     })
     // If using a custom driver:
     // await this.storage.defineDriver(MyCustomDriver);
-    this.userProfile = await this.auth.getUserProfille();
+    this.storage.get('TOKEN').then(async (token) => {
+      if (token) this.userProfile = await this.auth.getUserProfille();
+    });
     console.log(this.userProfile);
   }
 
@@ -70,7 +77,7 @@ export class AppComponent implements OnInit {
   closeMenu() {
     this.menu.close();
   }
-  logOut(){
+  logOut() {
     this.menu.close();
     this.storage.clear();
     this.router.navigateByUrl('/landing');

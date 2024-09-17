@@ -1,4 +1,10 @@
 <div class="w-100 h-100">
+  <div class="language-select">
+    <select [(ngModel)]="lang" name="language" (change)="changeLang()" interface="popover">
+      <option value="en">EN</option>
+      <option value="ar">AR</option>
+    </select>
+  </div>
   <app-register-option [disableButton]="disableButton" (submit)="submitForm($event)"
     (selectedOption)="optionSelected($event)"></app-register-option>
 </div>

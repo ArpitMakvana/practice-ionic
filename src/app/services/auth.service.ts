@@ -2,22 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpCallsService } from './http-calls.service';
 import { Storage } from '@ionic/storage-angular';
 import { Subject } from 'rxjs';
+import { TranslateConfigService } from './translate-config.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
     config: any;
-    userProfile:any;
+    userProfile: any;
     storageKeys = {
         'regDataOnOTPSubmit': 'REGDATAONOTPSUBMIT',
         'initialProfileData': 'INITIALPROFILEDATA',
         "token": "TOKEN",
-        "planActivated":"PLANACTIVATED",
-        "currentPlan":"CURRENTPLAN"
+        "planActivated": "PLANACTIVATED",
+        "currentPlan": "CURRENTPLAN"
     }
-    authToken: string = '';userLoggedIn: Subject<any> = new Subject();
-    constructor(private http: HttpCallsService, private storage: Storage) {
+    authToken: string = ''; userLoggedIn: Subject<any> = new Subject();
+    constructor(private http: HttpCallsService,
+        private storage: Storage,
+        private translateConfigService: TranslateConfigService) {
         this.storage.create();
     }
 
@@ -25,12 +28,14 @@ export class AuthService {
     getAllConfig(): Promise<any> {
         return new Promise((resolve, reject) => {
             if (this.config) resolve(this.config);
-            const url = 'config/?limit=200&lang=en';
-            this.http.get(url).subscribe((result: any) => {
-              this.config = this.formatConfigData(result.data);
-              resolve(this.config);
-            }, err => reject(err));
-          });
+            this.translateConfigService.getCurrentLanguage().subscribe((currentLang) => {
+                const url = `config/?limit=200&lang=${currentLang}`; // Use dynamic language
+                this.http.get(url).subscribe((result: any) => {
+                    this.config = this.formatConfigData(result.data);
+                    resolve(this.config);
+                }, err => reject(err));
+            });
+        });
     }
 
     getToken(): Promise<any> {
@@ -48,8 +53,8 @@ export class AuthService {
                 if (res && res.data) {
                     this.authToken = res.data.token;
                     this.storage.set(this.storageKeys.token, res.data.token)
-                    this.userProfile=null;
-                    this.userLoggedIn.next({ isLoggedIn: true});
+                    this.userProfile = null;
+                    this.userLoggedIn.next({ isLoggedIn: true });
                 }
                 resolve(res)
             }, err => reject(err))
@@ -58,7 +63,7 @@ export class AuthService {
 
     getUserProfille(): Promise<any> {
         return new Promise((resolve, reject) => {
-            if (this.userProfile && this.userProfile !==null) resolve(this.userProfile);
+            if (this.userProfile && this.userProfile !== null) resolve(this.userProfile);
             let url = 'user/profile';
             this.http.get(url).subscribe((result: any) => {
                 this.userProfile = result.data;
@@ -68,14 +73,14 @@ export class AuthService {
     }
     formatConfigData(data: any[]): any {
         return data.map((item) => {
-          try {
-            const validJsonString = item.value.replace(/'/g, '"');
-            item.value = JSON.parse(validJsonString);
-            return item;
-          } catch (e) {
-            item.value = item.value.split("'").filter((ele: any) => ele != ',' && ele !== '[' && ele !== ', ' && ele !== ' ,' && ele !== ']');
-            return item;
-          }
+            try {
+                const validJsonString = item.value.replace(/'/g, '"');
+                item.value = JSON.parse(validJsonString);
+                return item;
+            } catch (e) {
+                item.value = item.value.split("'").filter((ele: any) => ele != ',' && ele !== '[' && ele !== ', ' && ele !== ' ,' && ele !== ']');
+                return item;
+            }
         })
-      }
+    }
 }

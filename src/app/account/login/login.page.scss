@@ -1,0 +1,11 @@
+.language-select {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    z-index: 10;
+
+    select {
+        color: #fc503a;
+        background: transparent;
+    }
+}

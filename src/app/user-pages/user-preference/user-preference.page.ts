@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-preference.page.scss'],
 })
 export class UserPreferencePage implements OnInit {
-  userConfig:any;
+  userConfig: any;
   preferenceForm!: FormGroup;
 
   ageRanges = [
@@ -18,37 +18,23 @@ export class UserPreferencePage implements OnInit {
   heightRanges = [
     '4\'0\"-4\'5\"', '4\'6\"-5\'0\"', '5\'1\"-5\'6\"', '5\'7\"-6\'0\"', '6\'1\"-6\'5\"'
   ];
-  maritalStatuses = [
-    'Never Married', 'Divorced', 'Widowed', 'Separated'
-  ];
-  weights = [
-    '40 KG', '45 KG', '50 KG', '55 KG', '60 KG', '65 KG', '70 KG'
-  ];
+  maritalStatuses = [];
   religions = [
     'Islam', 'Christianity', 'Hinduism', 'Buddhism', 'Other'
-  ];
-  communities = [
-    'Sunni', 'Shia', 'Other'
-  ];
-  subCommunities = [
-    'A', 'B', 'C', 'D'
   ];
   countries = [
     'India', 'Pakistan', 'Bangladesh', 'Nepal', 'Sri Lanka'
   ];
-  placesOfOrigin = [
-    'Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'Bangalore'
-  ];
-  qualifications = ['Graduate', 'Postgraduate', 'Doctorate'];
-  professions = ['Software Engineer', 'Doctor', 'Teacher', 'Other'];
-  incomeRanges = ['INR 5 Lakh to 10 Lakh', 'INR 10 Lakh to 20 Lakh', 'Above INR 20 Lakh'];
+  qualifications = [];
+  professions = [];
+  incomeRanges = [];
 
 
-  constructor(private fb: FormBuilder,private navCtrl: NavController,
-    private auth:AuthService) { }
+  constructor(private fb: FormBuilder, private navCtrl: NavController,
+    private auth: AuthService) { }
 
   async ngOnInit() {
-    
+
     this.preferenceForm = this.fb.group({
       ageRange: [''],
       heightRange: [''],
@@ -63,12 +49,42 @@ export class UserPreferencePage implements OnInit {
       profession: [''],
       annualIncome: ['']
     });
-    this.userConfig= await this.auth.getAllConfig();
+    this.auth.getAllConfig().then(res => {
+      this.userConfig = res.reduce((obj: any, item: any) => {
+        let parsedValue;
+        try {
+          parsedValue = JSON.parse(item.value);
+        } catch (e) {
+          parsedValue = item.value; // Fallback in case value is not a valid JSON
+        }
+        obj[item.key] = parsedValue;
+        return obj;
+      }, {});
+      console.log(this.userConfig);
+      // Assuming 'res' has relevant keys for the filter options
+      this.religions = this.userConfig.user_religion || [];
+      this.qualifications = this.userConfig.user_heighest_qualification || [];
+      this.professions = this.userConfig.user_working_profession || [];
+      this.incomeRanges = this.userConfig.user_income || [];
+      this.maritalStatuses = this.userConfig.user_marital_status || [];
+      // this.smokeOptions = this.userConfig.user_smoke_habit || [];
+      // this.beardOptions = this.userConfig.user_beard || [];
+      // this.maritalStatuses = this.userConfig.user_marital_status || [];
+    });
     console.log(this.userConfig);
+
   }
+
 
   moveBack() {
     this.navCtrl.back();
+  }
+  generateWeightOptions(): string[] {
+    const weightOptions = [];
+    for (let i = 40; i <= 150; i++) {
+      weightOptions.push(`${i} kg`);
+    }
+    return weightOptions;
   }
 
   onSubmit() {

@@ -20,7 +20,7 @@ export class HomeGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Promise<boolean> {
     const token = await this.storage.get('TOKEN');
-    if (!token) this.route.navigateByUrl('landing')
+    if (!token) this.route.navigateByUrl('landing');
     return !!token; // Returns true if token exists, false otherwise
   }
 }

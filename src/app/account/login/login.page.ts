@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegisterService } from 'src/app/services/register.service';
+import { TranslateConfigService } from 'src/app/services/translate-config.service';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,19 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class LoginPage implements OnInit {
   disableButton: boolean = false;
-  constructor(private router: Router, private storage: Storage, private regService: RegisterService, private auth: AuthService) { }
+  lang: string = 'ar';
+  constructor(private router: Router,
+    private storage: Storage,
+    private regService: RegisterService,
+    private auth: AuthService,
+    private translateConfigService: TranslateConfigService
+  ) { }
 
   ngOnInit() {
+    this.translateConfigService.getCurrentLanguage().subscribe(lang => {
+      console.log('Language changed to:', lang);
+      this.lang = lang;
+    });
   }
   async optionSelected(event: string) {
     if (event == 'mobile') {
@@ -32,6 +43,10 @@ export class LoginPage implements OnInit {
       this.regService.presentSuccessToast(res?.message);
       this.router.navigateByUrl('/home');
     }).catch((er) => this.disableButton = false)
+  }
+
+  changeLang() {
+    this.translateConfigService.setLanguage(this.lang);
   }
 
 }
