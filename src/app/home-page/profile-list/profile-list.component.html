@@ -2,9 +2,9 @@
   <div class="bl_homedashboard_block">
     <div class="bl_container">
       <div class="bl_dashtop_block">
-        Verify Yourself to get more matches
+        {{'general.Verify_home_message'|translate}}
         <ion-button color="light" class="bl_submitRH">
-          Subscribe
+          {{'general.Subscribe'|translate}}
         </ion-button>
       </div>
 
@@ -104,20 +104,20 @@
 
 
       <ul class="filter_sort_menus">
-        <li class="nav-item"><span class="nav-link" id="open-modal"><i class="fas fa-filter"></i> Filter</span></li>
+        <li class="nav-item"><span class="nav-link" id="open-modal"><i class="fas fa-filter"></i> {{'general.Filter'|translate}}</span></li>
         <li class="nav-item"><span class="nav-link" id="open-modal1"><i class="fas fa-sort-numeric-up-alt"></i>
-            Sort</span></li>
+            {{'general.Sort'|translate}}</span></li>
       </ul>
 
       <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
         <ng-template>
           <ion-content class="sh_filtermenu_box">
             <div class="page_title">
-              <h1>Filter</h1>
+              <h1>{{'general.Filter'|translate}}</h1>
             </div>
             <div class="ds_formitems">
               <div class="form-group">
-                <label class="lable_text">Interested In</label>
+                <label class="lable_text">{{'general.Interested_In'|translate}}</label>
                 <div class="sh_checkbox_inner">
                   <label class="sh_checkbox_item" *ngFor="let option of interestedInOptions">
                     <input type="checkbox" [checked]="selectedFilters.interestedIn.includes(option)"
@@ -204,12 +204,12 @@
               <div class="form-group">
                 <ion-row>
                   <ion-col size="6">
-                    <ion-button (click)="resetFilters()" color="dark" expand="block" class="sh_submitRHBtn1">Reset
-                      Filter</ion-button>
+                    <ion-button (click)="resetFilters()" color="dark" expand="block" class="sh_submitRHBtn1">
+                      {{'general.Reset_Sort'|translate}}</ion-button>
                   </ion-col>
                   <ion-col size="6">
                     <ion-button (click)="applyFilters()" color="dark" expand="block"
-                      class="sh_submitRHBtn">Apply</ion-button>
+                      class="sh_submitRHBtn">{{'general.Apply'|translate}}</ion-button>
                   </ion-col>
                 </ion-row>
               </div>
@@ -222,31 +222,31 @@
         <ng-template>
           <ion-content class="sh_filtermenu_box">
             <div class="page_title">
-              <h1>Sort</h1>
+              <h1>{{'general.Sort'|translate}}</h1>
             </div>
             <div class="ds_formitems">
               <div class="form-group">
-                <label class="ds_radio">Popularity
+                <label class="ds_radio">{{'general.Popularity'|translate}}
                   <input type="radio" name="sort">
                   <span class="checkmark"></span>
                 </label>
-                <label class="ds_radio">Low to high
+                <label class="ds_radio">{{'general.Low_to_high'|translate}}
                   <input type="radio" name="sort">
                   <span class="checkmark"></span>
                 </label>
-                <label class="ds_radio">Newest
+                <label class="ds_radio">{{'general.Newest'|translate}}
                   <input type="radio" name="sort">
                   <span class="checkmark"></span>
                 </label>
               </div>
 
-              <div class="form-group">
+              <div class="form-group"> 
                 <ion-row>
                   <ion-col size="6">
-                    <ion-button color="dark" expand="block" class="sh_submitRHBtn1">Reset Sort</ion-button>
+                    <ion-button color="dark" expand="block" class="sh_submitRHBtn1">{{'general.Reset_Sort'|translate}}</ion-button>
                   </ion-col>
                   <ion-col size="6">
-                    <ion-button color="dark" expand="block" class="sh_submitRHBtn">Apply</ion-button>
+                    <ion-button color="dark" expand="block" class="sh_submitRHBtn">{{'general.Apply'|translate}}</ion-button>
                   </ion-col>
                 </ion-row>
               </div>

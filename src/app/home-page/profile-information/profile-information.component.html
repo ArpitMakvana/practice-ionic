@@ -31,7 +31,7 @@
           <div class="bl_card_item">
             <div class="bl_card_header">
               <h2>
-                About {{userProfile?.firstName}} {{userProfile?.lastName}}
+                {{'general.About'|translate}} {{userProfile?.firstName}} {{userProfile?.lastName}}
               </h2>
             </div>
             <div class="bl_card_body">
@@ -44,7 +44,7 @@
           <div class="bl_card_item">
             <div class="bl_card_header">
               <h2>
-                Basic Details
+                {{'general.Basic_Details'|translate}}
               </h2>
             </div>
             <div class="bl_card_body">
@@ -82,7 +82,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Birth Date
+                      {{'general.Birth_Date'|translate}}
                     </label>
                     <p>
                       {{userProfile.dateOfBirth | date}}
@@ -100,7 +100,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Marital Status
+                      {{'form.Marital_Status'|translate}}
                     </label>
                     <p>
                       {{userProfile.UserPersonalDetails?.personalDetails?.maritalStatus}}
@@ -118,7 +118,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Lives In
+                      {{'general.Lives_In'|translate}}
                     </label>
                     <p>
                       {{userProfile.UserPersonalDetails.userAddress.city}}, {{userProfile.UserPersonalDetails.userAddress.state}}
@@ -137,7 +137,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Current Location
+                      {{'form.Current_Location'|translate}}
                     </label>
                     <p>
                       {{userProfile.UserPersonalDetails.userAddress.currentLocation}}
@@ -170,7 +170,7 @@
           <div class="bl_card_item">
             <div class="bl_card_header">
               <h2>
-                Contact Details
+                {{'general.Contact_Details'|translate}}
               </h2>
             </div>
             <div class="bl_card_body">
@@ -192,7 +192,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Contact Number
+                      {{'general.Contact_Number'|translate}}
                     </label>
                     <p>
                       +{{userProfile.countyCode}}- {{userProfile.phoneNumber}}
@@ -210,7 +210,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Email Id
+                      {{'form.email_lable'|translate}}
                     </label>
                     <p>
                       {{userProfile.email}}
@@ -225,7 +225,7 @@
           <div class="bl_card_item">
             <div class="bl_card_header">
               <h2>
-                Career & Education
+                {{'general.Career_Education'|translate}}
               </h2>
             </div>
             <div class="bl_card_body">
@@ -240,7 +240,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Profession
+                      {{'general.Profession'|translate}}
                     </label>
                     <p>
                       {{userProfile.UserPersonalDetails.workDetails.workAs}}, {{userProfile.UserPersonalDetails.workDetails.workDetail}}
@@ -258,7 +258,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Annual Income
+                      {{'general.Annual_Income'|translate}}
                     </label>
                     <p>
                       {{userProfile.UserPersonalDetails.workDetails.income}}
@@ -276,7 +276,7 @@
                   </div>
                   <div class="bl_griditem_conatnt">
                     <label class="">
-                      Highest Qualification
+                      {{'form.Highest_Qualification'|translate}}
                     </label>
                     <p>
                       {{userProfile.UserPersonalDetails.qualification.heightestQualification}}
