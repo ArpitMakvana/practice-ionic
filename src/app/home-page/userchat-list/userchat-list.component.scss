@@ -1,0 +1,91 @@
+
+// ----------------- sh_userchatlist_info  --------------------
+// ----------------- sh_userchatlist_info  --------------------
+
+
+
+.sh_userchatlist_info {
+    position: relative;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item {
+    position: relative;
+    background: #fff;
+    padding: 22px 0;
+    border-bottom: 1px solid #DFDBDB;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .imgbox {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .imgbox img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .contant_info {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .contant_info .left_item {
+    width: 70%;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .contant_info .left_item h2 {    
+    font-size: 16px;
+    text-transform: capitalize;
+    margin: 0 0 3px;
+    font-weight: 500;
+    color: #000000;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .contant_info .left_item p {
+    color: #9C9C9C;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 0;
+    font-weight: 500;
+  }
+  .sh_userchatlist_info .sh_userchat_item .contant_info .left_item p a {
+    color: #00BFC6;
+  }
+   
+  .sh_userchatlist_info .sh_userchat_item .contant_info .right_item h6 {
+    font-size: 12px;
+    margin: 0;
+    color: #9C9C9C;
+  }
+  
+  .sh_userchatlist_info .sh_userchat_item .contant_info .counter {
+    width: 24px;
+    height: 24px;
+    background: rgb(255 0 0 / 98%);
+    color: #fff;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    margin: 2px auto;
+    font-weight: 500;
+  }
+  
+  
+  
+  
+  // ----------------- sh_userchatlist_info  --------------------
+  // ----------------- sh_userchatlist_info  --------------------

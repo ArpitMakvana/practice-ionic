@@ -1,0 +1,25 @@
+<div class="requestPage">
+  <div class="request-box" *ngIf="request.length">
+    <div class="header">
+      <h1>Connection requests </h1>
+    </div>
+    <div class="connections" *ngFor="let req of request">
+      <div class="connection-box">
+        <div class="content-item">
+        <div class="image">
+          <img [src]="baseImageUrl+req?.requester?.profilePhoto" onerror="this.src='./../../../../assets/statis-person.jpg'">
+        </div>
+        <div class="details">
+          <p>{{req.requester?.firstName}} {{req.requester?.firstName}}</p>
+          <p>{{req.requester?.dateOfBirth | age}}</p>
+        </div>
+      </div>
+      <div class="action">
+        <ion-icon (click)="accept(req)" class="accept" name="checkmark-done-sharp"></ion-icon>
+        <ion-icon (click)="reject(req)" class="reject" name="close-sharp"></ion-icon>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</div>

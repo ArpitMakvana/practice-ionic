@@ -23,7 +23,7 @@ export class HttpCallsService {
       // The backend returned an unsuccessful response code
       errorMessage = `Oops!!! Something went wrong...`;
     }
-    this.presentAlert('Error', errorMessage);
+    this.presentAlert('Opps!!!', errorMessage);
     return throwError(errorMessage);
   }
 

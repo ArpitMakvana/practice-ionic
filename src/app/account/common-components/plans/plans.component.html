@@ -1,19 +1,32 @@
 <div class="bl_login_block bl_register_block bl_register_fixed ds_profileverify_block plan_modelbox_main">
   <div class="bl_container">
     <div class="bl_loginLogo">
-      <img src="../../../assets/white_logo.png" class="img-fluid" />
+      <img src="../../../assets/white_logo2.png" class="img-fluid" />
     </div>
-
-    <div class="card-content">
+    <div class="bl_login_title bl_login_title1 mt-2">
+      <h2 class="text-white">
+        Upgrade your search with our plans
+      </h2>
+    </div> 
+    <div class="bl_plansinfo_main">
       <ng-container *ngFor="let plan of plans">
         <ion-card class="custome_card bl_plansinfo plan_modelbox ">
-          <div class="imgbox">
+          <!-- <div class="imgbox">
             <img alt="Silhouette of mountains" [src]="plan.packageImage"
               onerror="this.src='https://ionicframework.com/docs/img/demos/card-media.png';" />
-          </div>
+          </div> -->
           <ion-card-header>
-            <ion-card-title>{{plan.packageName}}</ion-card-title>
-            <ion-card-subtitle>${{plan.packagePrice}} - {{plan.packageDiscount}}% Off</ion-card-subtitle>
+            <ion-card-title>
+              {{plan.packageName}}
+              <span>3 Month</span>
+            </ion-card-title>
+            <ion-card-subtitle>
+              ₹ {{plan.packagePrice}} 
+            </ion-card-subtitle>
+            
+            <ion-card-subtitle class="bl_subtitle">
+              {{plan.packageDiscount}} per month
+            </ion-card-subtitle>
           </ion-card-header>
 
           <ion-card-content>
@@ -34,11 +47,29 @@
                 <p>{{plan.packagePurchaseCount}} people purchased</p>
               </li>
             </ul>
-            <ion-button expand="block" (click)="activatePlan(plan)" color="light"
-              class="bl_submitRH">Activate</ion-button>
           </ion-card-content>
         </ion-card>
+        <div class="form-group">          
+          <ion-button expand="block" (click)="activatePlan(plan)" color="light"
+          class="bl_submitRH">Continue</ion-button>
+        </div>
       </ng-container>
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
     </div>
   </div>
 </div>

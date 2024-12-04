@@ -4,6 +4,8 @@ import { Storage } from '@ionic/storage-angular';
 import { Platform, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from './services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -23,14 +25,17 @@ export class AppComponent implements OnInit {
 
   private lastBackPress = 0;
   private timePeriodToExit = 2000;
-
+  userProfile:any={};
+  
+  baseImageUrl = environment.baseImageURL;
   constructor(
     private translate: TranslateService,
     private storage: Storage,
     private platform: Platform,
     private toastController: ToastController,
     private router: Router,
-    private menu: MenuController
+    private menu: MenuController,
+    private auth:AuthService
   ) {
     this.translate.setDefaultLang('en');
     this.storage.create();
@@ -40,6 +45,8 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     // If using a custom driver:
     // await this.storage.defineDriver(MyCustomDriver);
+    this.userProfile = await this.auth.getUserProfille();
+    console.log(this.userProfile);
   }
 
   initializeApp() {
@@ -79,4 +86,5 @@ export class AppComponent implements OnInit {
       this.lastBackPress = currentTime;
     }
   }
+
 }
